@@ -30,6 +30,9 @@
 ![image](https://github.com/il-bychkov/algorithms/assets/2277222/cf037240-1e2d-46d1-bbf2-98804e802462)
 
 ### Часть 2: Адреса и переменные
+
+### **FULL LIVE CODING**
+
 **Исходный код:** addresses.с
 
 **Заметка:** В данном примере необходимо:
@@ -97,6 +100,8 @@ char end   address = 0x7ffeed9c5b40
 
 ### Часть 3: Адреса и массивы
 
+### **FULL LIVE CODING**
+
 **Исходный код:** addresses_arrays.c
 
 **Заметка:** В данном примере необходимо:
@@ -138,7 +143,9 @@ int array element shift = [8] -  value stored = 18  - address = 0x7ffee9b45b40
 int array element shift = [9] -  value stored = 19  - address = 0x7ffee9b45b44
 ```
 
-### Часть 4: Массивы - вставка элемента + измерение производительности вставок
+### Часть 4: Массивы - вставка элемента + измерение производительности вставок - 
+
+### **FULL LIVE CODING**
 
 **Исходный код:** insert_element_alg.c
 
