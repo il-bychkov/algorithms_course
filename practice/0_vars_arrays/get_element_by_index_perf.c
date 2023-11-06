@@ -3,37 +3,46 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#define ARR_LEN 1000000
-#define NUM_ITERATIONS_PER_EXPERIMENT 1000000
-#define NUM_EXPERIMENTS 10
+#define ARR_SIZE 500000
+#define NUM_ITERATIONS_PER_EXPERIMENT 100
+
+void getElement(int* array, int position)
+{
+	// Start clock
+	clock_t t = clock();    
+	// Make NUM_ITERATIONS_PER_EXPERIMENT runs to avoid some OS related delays
+    for(int i = 0; i < NUM_ITERATIONS_PER_EXPERIMENT; i++)
+	{
+		// Variable where we read the data from the array		
+		int elementValue = 0;
+		// Read element at the position        
+	    // Actually this variable it is not used
+        // we need it only to read the value and compute total time
+		elementValue = array[position];          	
+    }
+	// Finish clock, compute total time spent in seconds
+    t = clock() - t;
+	double timeSpent = ((double)t)/CLOCKS_PER_SEC;
+	printf("Experiment: Read value at index %d. Time of %d runs = %f seconds \n", position, NUM_ITERATIONS_PER_EXPERIMENT, timeSpent);   
+}
 
 int main() {
-    char array[ARR_LEN];
+    // Variables declaration
+    int array[ARR_SIZE];
 
-    srand(42);
-
-    for(int i = 0; i < ARR_LEN; i++) {
+    // Initialize random seed
+    srand(999);
+	
+	// Fill an array with initial uniformly distributed random values (last position is "free")
+    for(int i = 0; i < ARR_SIZE - 1; i++) 
+	{
         array[i] = rand();
-    }
-
-    clock_t t;
-    double time_taken;
-
-    printf("\nexperiment - get element by index\n");
-    for(int n_exp = 0; n_exp < NUM_EXPERIMENTS; n_exp++) {
-        t = clock();
-
-        int get_index = rand() % ARR_LEN;
-
-        for(int iteration = 0; iteration < NUM_ITERATIONS_PER_EXPERIMENT; iteration++) {
-            char res = array[get_index];
-        }
-
-        t = clock() - t;
-
-        time_taken = ((double)t)/CLOCKS_PER_SEC;
-        printf("experiment %d: %d gets of element at index %d executed in %f seconds \n", n_exp, NUM_ITERATIONS_PER_EXPERIMENT, get_index, time_taken);
-    }
-
+    }	
+	
+	// Make 3 reads - 0, middle and last positions	
+    getElement(array, 0);
+	getElement(array, ARR_SIZE / 2);
+	getElement(array, ARR_SIZE - 1);
+	    
     return 0;
 }

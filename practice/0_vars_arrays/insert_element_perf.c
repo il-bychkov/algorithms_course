@@ -3,51 +3,48 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#define ARR_LEN 1000000
+#define ARR_SIZE 500000
 #define NUM_ITERATIONS_PER_EXPERIMENT 100
-#define NUM_EXPERIMENTS 10
+
+
+void arrayInsert(int* array, int value, int position)
+{
+	// Start clock
+	clock_t t = clock();    
+	// Make NUM_ITERATIONS_PER_EXPERIMENT runs to avoid some OS related delays
+    for(int i = 0; i < NUM_ITERATIONS_PER_EXPERIMENT; i++)
+	{
+		// Insert element - move affected elements one position right
+        for(int j = ARR_SIZE - 1; j > position; j--) 
+		{
+		    array[j] = array[j - 1];
+        }
+		// Insert a new value
+	    array[position] = value;
+    }
+	// Finish clock, compute total time spent in seconds
+    t = clock() - t;
+	double timeSpent = ((double)t)/CLOCKS_PER_SEC;
+	printf("Experiment: %d is inserted to index %d. Time of %d runs = %f seconds \n", value, position, NUM_ITERATIONS_PER_EXPERIMENT, timeSpent);   
+}
 
 int main() {
-    char array[ARR_LEN];
+	// Variables declaration
+    int array[ARR_SIZE];
 
-    srand(42);
-
-    for(int i = 0; i < ARR_LEN; i++) {
+    // Initialize random seed
+    srand(999);
+	
+	// Fill an array with initial uniformly distributed random values (last position is "free")
+    for(int i = 0; i < ARR_SIZE - 1; i++)
+	{
         array[i] = rand();
-    }
-
-    clock_t t;
-    double time_taken;
-
-    int insert_index = 4;
-    char insert_value = 42;
-
-
-    printf("\nexperiment - insertion\n");
-    for(int n_exp = 0; n_exp < NUM_EXPERIMENTS; n_exp++) {
-        t = clock();
-
-        int insert_index = rand() % ARR_LEN;
-        char insert_value = 42;
-
-        for(int iteration = 0; iteration < NUM_ITERATIONS_PER_EXPERIMENT; iteration++) {
-
-            char old_element;
-            char current_element = array[insert_index];
-            array[insert_index] = insert_value;
-
-            for(int i = insert_index + 1; i < ARR_LEN; i++) {
-                old_element = array[i];
-                array[i] = current_element;
-                current_element = old_element;
-            }
-        }
-
-        t = clock() - t;
-
-        time_taken = ((double)t)/CLOCKS_PER_SEC;
-        printf("experiment %ld: %d inserts to index %d executed in %f seconds \n", n_exp, NUM_ITERATIONS_PER_EXPERIMENT, insert_index, time_taken);
-    }
-
-    return 0;
+    }	
+	
+    // Make 3 insertions - 0, middle and last positions
+	int insertNumber = 42;	
+    arrayInsert(array, insertNumber, 0);
+	arrayInsert(array, insertNumber, ARR_SIZE / 2);
+	arrayInsert(array, insertNumber, ARR_SIZE - 1);
+    
 }

@@ -2,9 +2,11 @@
 
 #define ARR_SIZE 11
 
-void print_array(int* arr)
+
+// Function to print an array - it accepts pointer to the array's memory and array's size
+void printArray(int* arr, int len)
 {
-    for(int i = 0; i < ARR_SIZE; i++) {
+    for(int i = 0; i < len; i++) {
         printf("%d ", arr[i]);
     }
 	printf("\n");	
@@ -12,22 +14,25 @@ void print_array(int* arr)
 
 int main() 
 {	
-    int array[ARR_SIZE] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, -1};
+    // Initialize an array and variables - we assume the array has 1 free position at the end
+    int array[ARR_SIZE] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, -1};	
+    int insertIndex = 4;
+    int insertValue = 42;
 	
-    int insert_index = 4;
-    int insert_value = 42;
-
+	// Print the initial array 
     printf("Initial array:\n");	
-	print_array(array);
+	printArray(array, ARR_SIZE);
   
-		   
-    for(int i = ARR_SIZE-1; i > insert_index; i--) {
-		array[i] = array[i-1];
+    // Insert element - move affected elements one position right
+    for(int i = ARR_SIZE - 1; i > insertIndex; i--) {
+		array[i] = array[i - 1];
     }
-	array[insert_index] = insert_value;
+	// Insert a new value
+	array[insertIndex] = insertValue;
 	
-	printf("Array after inserting value %d at index %d \n", insert_value, insert_index);
-	print_array(array);
+	// Print the resulting array
+	printf("Array after inserting value %d at index %d \n", insertValue, insertIndex);
+	printArray(array, ARR_SIZE);
    
     return 0;
 }
