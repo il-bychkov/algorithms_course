@@ -1,37 +1,33 @@
 #include <stdio.h>
 
-#define ARR_LEN 10
+#define ARR_SIZE 11
 
-void print_array(char* array, int array_len) {
-    printf("[ ");
-    for(int i = 0; i < array_len - 1; i++) {
-        printf("%d, ", array[i]);
+void print_array(int* arr)
+{
+    for(int i = 0; i < ARR_SIZE; i++) {
+        printf("%d ", arr[i]);
     }
-    printf("%d ]\n", array[array_len - 1]);
+	printf("\n");	
 }
 
-int main() {
-    char array[ARR_LEN] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
-
-    printf("initial array state\n");
-    print_array(array, ARR_LEN);
-
+int main() 
+{	
+    int array[ARR_SIZE] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, -1};
+	
     int insert_index = 4;
-    char insert_value = 42;
+    int insert_value = 42;
 
-    char old_element;
-    char current_element = array[insert_index];
-    array[insert_index] = insert_value;
-
-    for(int i = insert_index + 1; i < ARR_LEN; i++) {
-        old_element = array[i];
-        array[i] = current_element;
-        current_element = old_element;
+    printf("Initial array:\n");	
+	print_array(array);
+  
+		   
+    for(int i = ARR_SIZE-1; i > insert_index; i--) {
+		array[i] = array[i-1];
     }
-
-
-    printf("array state after inserting value %d at index %d \n", insert_value, insert_index);
-    print_array(array, ARR_LEN);
-
+	array[insert_index] = insert_value;
+	
+	printf("Array after inserting value %d at index %d \n", insert_value, insert_index);
+	print_array(array);
+   
     return 0;
 }
