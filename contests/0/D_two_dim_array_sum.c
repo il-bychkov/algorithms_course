@@ -18,7 +18,7 @@ int main() {
     // trivial alg
     // iterate each col and count sum, then iterate each row and count sum (or first row and then col)
     // opearations count: 2(DIM_1_SIZE*DIM_2_SIZE)
-    // also row read is bad for perf
+    // also col read is bad for perf
 
     uint32_t sum_rows[DIM_1_SIZE] = {0};
     uint32_t sum_cols[DIM_2_SIZE] = {0};
