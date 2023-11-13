@@ -1,6 +1,7 @@
 #include <stdio.h>
 
-int main() {
+int main() 
+{
 
     int a = 42;
     int b = 800;
@@ -9,6 +10,7 @@ int main() {
     printf("a = %d, b = %d\n", a, b);
 
     // works ONLY with integers and chars
+	// POTENTIAL PROBLEM: OVERFLOW
     a = a + b;
     b = a - b;
     a = a - b;
@@ -18,6 +20,7 @@ int main() {
 
     // works ONLY with integers and chars
     // least efficient
+	// POTENTIAL PROBLEM: OVERFLOW
     a = a * b;
     b = a / b;
     a = a / b;
@@ -26,6 +29,7 @@ int main() {
     printf("a = %d, b = %d\n", a, b);
 
     // works ONLY with integers and chars
+	// POTENTIAL PROBLEM: OVERFLOW
     a = a - b;
     b = a + b;
     a = -a + b;
