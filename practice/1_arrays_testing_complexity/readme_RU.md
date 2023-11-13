@@ -207,3 +207,192 @@ int main()
 
 ![image](https://github.com/il-bychkov/algorithms/assets/2277222/9c5f1bb3-7a08-481b-9ae7-ef0fcd594be5)
 
+
+### Удаления и вставки
+
+Общий алгоритм работы:
+- реализовываем функциональность удаления и вставки элементов
+- последовательно считываем текущие запросы, для каждого определяем тип запроса и вызываем соответствующую функциональность (удаление или вставку)
+- выводим на экран текущий массив
+
+Детали:
+  - Лучший вариант реализации операций удаления, вставки и вывода на экран - реализация в виде отдельный функций
+  - Также необходимо хранить актуальную длину массива и редактировать ее при выполнении модифицирующих операций
+
+Обратите внимание:
+- Для хранения текущей длины массива используется глобальная переменная.
+При всём кажущемся удобстве глобальных переменных, в большинстве случаев их все-таки стоит избегать
+Пример недостатков глобальных переменных:
+    1. Сложно контролировать их изменение - глобальные переменные могут быть изменены из разных частей кода (из разных исходных файлов/заголовочных файлов).
+    2. Создают проблемы с именами - нужно следить чтобы в других файлах не было таких  же имен. Если проект большой и людей много - это сложно.
+    3. Ухудшают читаемость кода (приходится искать переменные в других файлах) и создают труднообнаруживаемые ошибки (следствие из пункта 1).
+       
+- При передаче массива в функции используется нотация с квадратными скобками и размером int arr[SIZE].
+Такой способ передачи позволяет компилятору контролировать размер массива, который передается в функцию.
+Если размер массива известен на стадии компиляции, этот способ помогает избежать некоторых ошибок.
+
+
+**Реализация с глобальной переменной** (по мотивам решений Александра Ларькова и  Михаила Железина):
+```c 
+#include <stdio.h>
+
+#define SIZE 350
+int n;
+
+// We will need to print an array several times, so lets define a function 
+void print(int arr[SIZE]) 
+{
+    for (int i = 0; i < n; ++i) 
+    {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+}
+
+// We will need to insert an element to the array several times, so lets define a function
+void insert(int arr[SIZE], int index, int val) 
+{
+    for (int i = n - 1; i >= index; --i) 
+    {
+        arr[i + 1] = arr[i];
+    }
+    ++n;
+    arr[index] = val;
+}
+
+// We will need to remove an element from the array several times, so lets define a function
+void delete(int arr[SIZE], int index) 
+{
+    for (int i = index; i < n - 1; ++i) 
+    {
+        arr[i] = arr[i + 1];
+    }
+    --n;
+}
+
+int main() 
+{
+    int arr[SIZE] = {0};
+    scanf("%d", &n);
+
+    for (int i = 0; i < n; ++i) 
+    {
+        scanf("%d", &arr[i]);
+    }
+
+    int m;
+    scanf("%d", &m);
+
+    for (int i = 0; i < m; ++i) 
+    {
+        int t;
+        scanf("%d", &t);
+        if (t == 0) 
+        {
+            // If request == insert - call insertion function
+            int index, val;
+            scanf("%d%d", &index, &val);
+            --index;
+            insert(arr, index, val);
+        } else 
+        {
+            // If request == delete - call deletion function
+            int index;
+            scanf("%d", &index);
+            --index;
+            delete(arr, index);
+        }
+        // Print current array
+        print(arr);
+    }
+    return 0;
+};
+```
+
+**Реализация без глобальной переменной**:
+
+Обратите внимание:
+- по сравнению с предыдущей реализацией для хранения текущей длины массива используется _локальная_ переменная (в данном случае - переменная внутри main).
+Для того чтобы ей воспользоваться нам придется передавать её адрес в нужные функции чтобы они могли записывать/читать именно из этой переменной.
+Изменять/читать данную переменную будем с помощью оператора разыменования.
+       
+- При передаче массива в функции используется нотация с обычным указателем, без размера (например, int* arr).
+Такой способ тоже подойдет, еще он подойдет в ситуациях, когда размер массива становится известен лишь во время выполнения программы.
+
+- объявление переменных для считывания запросов (index, t, val) лучше вынести вне циклов, чтобы переменная не объявлялась каждый раз заново
+
+```c 
+#include <stdio.h>
+ 
+#define SIZE 350
+
+// Function recieves an array pointer and pointer to the size variable
+void print(int* arr, int* size)
+{
+    for (int i = 0; i < *size; ++i)
+    {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+}
+
+
+// Function recieves array pointer, insertion index, value to insert and a pointer to array size (we will need to modify it)
+void insert(int* arr, int index, int val, int* size)
+{
+    for (int i = *size - 1; i >= index; --i)
+    {
+        arr[i + 1] = arr[i];
+    }    
+    arr[index] = val;
+    *size += 1;
+}
+
+// Function recieves array pointer, index to delete and a pointer to array size (we will need to modify it)
+void delete(int* arr, int index, int* size)
+{
+    for (int i = index; i < *size - 1; ++i)
+    {
+        arr[i] = arr[i + 1];
+    }    
+    *size -= 1;
+}
+ 
+int main() 
+{
+    int n;
+    int arr[SIZE] = {0};
+    
+    // Read input data
+    scanf("%d", &n); 
+    for (int i = 0; i < n; ++i) 
+    {
+        scanf("%d", &arr[i]);
+    }
+ 
+    int m;
+    scanf("%d", &m);
+    
+    // Define variables to store input values from requests
+    int t;
+    int index, val;
+    
+    for (int i = 0; i < m; ++i) {        
+        scanf("%d", &t);
+        if (t == 0) {    
+            // If request == insert - call insertion function
+            scanf("%d%d", &index, &val);
+            --index;
+            insert(arr, index, val, &n);
+        } else {            
+            // If request == delete - call deletion function
+            scanf("%d", &index);
+            --index;
+            delete(arr, index, &n);
+        }
+        print(arr, &n);
+    }
+    return 0;
+};
+```
+
