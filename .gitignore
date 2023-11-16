@@ -3,8 +3,8 @@
 *.a
 .vscode
 
-*2_sorting*
-!*2_sorting/*.c
-!*2_sorting/*.h
-!*2_sorting/*.md
-!*2_sorting/Makefile
+practice/2_sorting/*
+!practice/2_sorting/*.c
+!practice/2_sorting/*.h
+!practice/2_sorting/*.md
+!practice/2_sorting/Makefile
