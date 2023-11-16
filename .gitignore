@@ -1,3 +1,10 @@
 .DS_Store
 *.out
 *.a
+.vscode
+
+*2_sorting*
+!*2_sorting/*.c
+!*2_sorting/*.h
+!*2_sorting/*.md
+!*2_sorting/Makefile
