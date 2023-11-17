@@ -67,11 +67,18 @@ void array_print(uint32_t* array, size_t array_size, char* note) {
 }
 
 void array_test(uint32_t* ref, uint32_t* test, size_t array_size) {
-    if (array_compare(ref, test, array_size) < 0) {
+    int diff_index = array_compare(ref, test, array_size);
+    if (diff_index < 0) {
         printf("\nArrays are equal. Test passed.\n");
     } else {
         printf("\nArrays are not equal. Test falled.\n");
-        array_print(ref, array_size, "reference array:\n");
-        array_print(test, array_size, "tested array:\n");
+        if (array_size <= 20)
+        {
+            array_print(ref, array_size, "reference array:\n");
+            array_print(test, array_size, "tested array:\n");
+        } else {
+            printf("First diff at index %d.\n", diff_index);
+        }
+
     }
 }
