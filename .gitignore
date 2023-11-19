@@ -1,3 +1,10 @@
 .DS_Store
 *.out
 *.a
+.vscode
+
+practice/2_sorting/*
+!practice/2_sorting/*.c
+!practice/2_sorting/*.h
+!practice/2_sorting/*.md
+!practice/2_sorting/Makefile
