@@ -4,6 +4,7 @@
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 // fill array randomly
 void array_fill_rand(uint32_t* array, size_t array_size);
