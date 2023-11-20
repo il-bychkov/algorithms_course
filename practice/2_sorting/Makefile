@@ -1,6 +1,6 @@
 .PHONY: help
 
-all: utility_demo counting_sort bucket_sort # Build all targets
+all: utility_demo counting_sort bucket_sort qsort  # Build all targets
 
 help: # Show help for each of the Makefile recipes.
 	@printf "\n"
@@ -15,6 +15,10 @@ counting_sort: sorting.c counting_sort.c # Build counting sort implementation
 
 bucket_sort: sorting.c bucket_sort.c # Build bucket sort implementation
 	gcc sorting.c bucket_sort.c -o bucket_sort
+
+qsort:
+	gcc qsort_hoar.c -o qsort_hoar
+	gcc qsort_lomuto.c -o qsort_lomuto
 
 clean: # Delete all builded files
 	rm -f utility_demo counting_sort bucket_sort
