@@ -158,3 +158,95 @@ int main()
 
 ## Специальные сортировки
 
+Для реализации специальных мы поместим общий код в отдельные файлы.
+
+В настоящих проектах на компилируемых языках как правило используются автоматизированные системы, которые можно настраивать для сборки проекта.
+
+Одной из таких утилит является Make.
+В случае с C++ Make помогает упростить управление процессами компиляции и линковки.
+
+Адрес утилиты:
+https://www.gnu.org/software/make/
+
+Скачать можно тут:
+https://gnuwin32.sourceforge.net/packages/make.htm
+
+Простая статья на Хабре (была использована для описания ниже):
+https://habr.com/ru/articles/211751/
+
+Конфигурировать процесс сборки выполняемых файлов можно с помощью файлов специального формата, которые называются Makefile.
+
+```
+# Индентация осуществляется исключительно при помощи символов табуляции,
+# каждой команде должен предшествовать отступ
+<цели>: <реквизиты>
+	<команда #1>
+	...
+	<команда #n>
+```
+**Цели** - что делаем (объектные файлы, исполняемые файлы)
+
+**Реквизиты** - параметры для компиляторов/линковщиков
+
+**Команды** - конкретные команды для создания файлов (например, вызов компилятора gcc)
+
+Пример простого Makefile:
+```make
+main.o: main.c
+        gcc -c -o main.o main.c
+hello.o: hello.c
+        gcc -c -o hello.o hello.c
+hello: main.o hello.o
+        gcc -o hello main.o hello.o
+```
+В данном случае у нас есть 2 файла - файл с функцией main и файл со вспомогательным кодом, использующимся внутри main.c.
+Создаем три цели:
+
+    - объектный файл main.o - скомпилированный машинный код, сделанный из main.c
+    
+    - объектный файл hello.o - скомпилированный машинный код, сделанный из hello.c
+    
+    - итоговый исполняемый файл hello - исполняемый файл, который можно запускать. Он образовался после компоновки (линковки) файлов main.o и hello.o.
+
+Чтобы запустить сборку необходимо указать утилиту make и цель которую мы хотим собрать:
+```bash
+make hello
+```
+    
+
+Пример Makefile из нашей секции со специальными сортировками:
+
+```make
+.PHONY: help
+
+all: utility_demo counting_sort bucket_sort qsort  # Build all targets
+
+help: # Show help for each of the Makefile recipes.
+	@printf "\n"
+	@grep -E '^[a-z].*:.*'  Makefile | while read -r l; do printf "\033[1;32m$$(echo $$l | cut -f 1 -d':')\033[00m:$$(echo $$l | cut -f 2- -d'#')\n"; done
+	@printf "\n"
+
+utility_demo: sorting.c utility_demo.c # Build avaliable utilities demo
+	gcc sorting.c utility_demo.c -o utility_demo
+
+counting_sort: sorting.c counting_sort.c # Build counting sort implementation
+	gcc sorting.c counting_sort.c -o counting_sort
+
+bucket_sort: sorting.c bucket_sort.c # Build bucket sort implementation
+	gcc sorting.c bucket_sort.c -o bucket_sort
+
+qsort:
+	gcc qsort_hoar.c -o qsort_hoar
+	gcc qsort_lomuto.c -o qsort_lomuto
+
+clean: # Delete all builded files
+	rm -f utility_demo counting_sort bucket_sort
+```
+
+
+
+
+
+
+
+
