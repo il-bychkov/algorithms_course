@@ -8,3 +8,9 @@ practice/2_sorting/*
 !practice/2_sorting/*.h
 !practice/2_sorting/*.md
 !practice/2_sorting/Makefile
+
+practice/3_search/*
+!practice/3_search/*.c
+!practice/3_search/*.h
+!practice/3_search/*.md
+!practice/3_search/Makefile
