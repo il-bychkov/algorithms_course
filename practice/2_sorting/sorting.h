@@ -6,6 +6,9 @@
 #include <stdlib.h>
 #include <time.h>
 
+#define DEFAULT_ARR_SIZE 10
+#define DEFAULT_LARGE_ARR_SIZE 1000
+
 // fill array randomly
 void array_fill_rand(uint32_t* array, size_t array_size);
 // fill array randomly with elements within range
