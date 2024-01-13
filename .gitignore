@@ -14,3 +14,9 @@ practice/3_search/*
 !practice/3_search/*.h
 !practice/3_search/*.md
 !practice/3_search/Makefile
+
+practice/6_simple_data_structures/*
+!practice/6_simple_data_structures/*.c
+!practice/6_simple_data_structures/*.h
+!practice/6_simple_data_structures/*.md
+!practice/6_simple_data_structures/Makefile
