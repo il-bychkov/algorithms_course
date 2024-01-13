@@ -22,20 +22,5 @@ list_queue: list_queue.c # Build list based queue
 array_queue: array_queue.c # Build array based queue
 	gcc array_queue.c -o array_queue
 
-# linear_search: ../2_sorting/sorting.c linear_search.c
-# 	gcc ../2_sorting/sorting.c linear_search.c -o linear_search
-
-# binary_search: ../2_sorting/sorting.c binary_search.c
-# 	gcc ../2_sorting/sorting.c binary_search.c -o binary_search
-
-# exponential_search_with_recursive_binary_search: ../2_sorting/sorting.c exponential_search_w_rec_binary.c
-# 	gcc ../2_sorting/sorting.c exponential_search_w_rec_binary.c -o exponential_search_with_recursive_binary_search
-
-# exponential_search_with_iterative_binary_search: ../2_sorting/sorting.c exponential_search_w_itr_binary.c
-# 	gcc ../2_sorting/sorting.c exponential_search_w_itr_binary.c -o exponential_search_with_iterative_binary_search
-
-# interpolation_search: ../2_sorting/sorting.c interpolation_search.c
-# 	gcc ../2_sorting/sorting.c interpolation_search.c -o interpolation_search
-
 clean: # Delete all builded files
 	rm -f linked_list array_stack list_stack list_queue array_queue
