@@ -15,6 +15,12 @@ practice/3_search/*
 !practice/3_search/*.md
 !practice/3_search/Makefile
 
+practice/5_bitmanip/*
+!practice/5_bitmanip/*.c
+!practice/5_bitmanip/*.h
+!practice/5_bitmanip/*.md
+!practice/5_bitmanip/Makefile
+
 practice/6_simple_data_structures/*
 !practice/6_simple_data_structures/*.c
 !practice/6_simple_data_structures/*.h
