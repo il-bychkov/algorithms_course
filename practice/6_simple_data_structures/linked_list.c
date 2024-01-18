@@ -116,13 +116,19 @@ void insert_before_value(linked_list_t* list, uint32_t value_to_insert_before, u
 }
 
 // deletion function
-void delete_value(linked_list_t* list, uint32_t value_to_delete) {
-    linked_list_node_t* node_to_delete_after = get_previous_node_by_value(list, value_to_delete);
+void delete_value(linked_list_t* list, int value){
+    if (list->head->value == value){
+        linked_list_node_t*next = list->head->next;
+        free(list->head);
+        list->head = next;
+        return;
+    }
 
-    if(node_to_delete_after) {
-        linked_list_node_t* next_node_after_deleted = node_to_delete_after->next->next;
-        free(node_to_delete_after->next);
-        node_to_delete_after->next = next_node_after_deleted;
+    linked_list_node_t* node_previous = get_previous_node_by_value(list, value);
+    if (node_previous){
+        linked_list_node_t* next = node_previous->next->next;
+        free(node_previous->next);
+        node_previous->next = next;
     }
 }
 
@@ -169,6 +175,11 @@ int main() {
     printf("delete 0:\n");
     print_list(p_list);
 
+    // fixed deletion from beginning
+    delete_value(p_list, 8);
+    printf("delete 8:\n");
+    print_list(p_list);
+        
     delete(p_list);
 
     return 0;
