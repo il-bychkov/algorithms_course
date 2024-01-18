@@ -116,20 +116,30 @@ void insert_before_value(linked_list_t* list, uint32_t value_to_insert_before, u
 }
 
 // deletion function
-void delete_value(linked_list_t* list, int value){
-    if (list->head->value == value){
-        linked_list_node_t*next = list->head->next;
+void delete_by_pointer(linked_list_t *list, linked_list_node_t *pointer){
+    if (list->head == pointer){
+        linked_list_node_t *next = list->head->next;
         free(list->head);
         list->head = next;
         return;
     }
 
-    linked_list_node_t* node_previous = get_previous_node_by_value(list, value);
-    if (node_previous){
-        linked_list_node_t* next = node_previous->next->next;
-        free(node_previous->next);
-        node_previous->next = next;
+    linked_list_node_t *current = list->head;
+    while (current){
+        if (current->next == pointer){
+            linked_list_node_t *next = current->next->next;
+            free(pointer);
+            current->next = next;
+            break;
+        }
+        current = current->next;
     }
+}
+
+// deletion function
+void delete_by_value(linked_list_t *list, int value){
+    linked_list_node_t *node = get_node_by_value(list, value);
+    delete_by_pointer(list, node);
 }
 
 // printing
@@ -176,8 +186,19 @@ int main() {
     print_list(p_list);
 
     // fixed deletion from beginning
-    delete_value(p_list, 8);
+        // fixed deletion from beginning
+    delete_by_value(p_list, 8);
     printf("delete 8:\n");
+    print_list(p_list);
+
+    // example of the deletion the head of the list
+    delete_by_pointer(p_list, p_list->head);
+    printf("delete head:67\n");
+    print_list(p_list);
+
+    // deletion the tail
+    delete_by_pointer(p_list, get_tail_node(p_list));
+    printf("delete tail: 12\n");
     print_list(p_list);
         
     delete(p_list);
