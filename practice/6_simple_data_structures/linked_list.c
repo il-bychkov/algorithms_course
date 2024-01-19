@@ -139,7 +139,9 @@ void delete_by_pointer(linked_list_t *list, linked_list_node_t *pointer){
 // deletion function
 void delete_by_value(linked_list_t *list, int value){
     linked_list_node_t *node = get_node_by_value(list, value);
-    delete_by_pointer(list, node);
+    if (node != NULL){
+        delete_by_pointer(list, node);
+    }
 }
 
 // printing
