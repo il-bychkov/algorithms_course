@@ -71,7 +71,7 @@ size_t hashHorner(const char* string, const size_t table_size, const size_t key)
 #define HASH_2(string, table_size) hashHorner(string, table_size, table_size + 1);
 
 typedef struct node {
-    const char* key;
+    char* key;
     size_t value;
     bool state;
 } node_t;
@@ -156,7 +156,7 @@ void table_dump(hash_table_t* table) {
             print_string(arr[i]->key);
             printf("\nTD >>    value: %ld\n", arr[i]->value);
         } else {
-            printf("TD >> deleted node\n");
+            printf(" deleted node\n");
         }
     }
 
@@ -171,8 +171,9 @@ void update_node_value(node_t* node, char* key, size_t value) {
     PRINT_VERBOSE_STRING("key: ", key);
     PRINT_VERBOSE_ARGS("value: %ld\n", value);
 
-    node->key = malloc(sizeof(char) * strlen(key));
+    node->key = malloc(sizeof(char) * (strlen(key) + 1));
     memcpy((void*)node->key, key, strlen(key));
+    node->key[strlen(key)] = 0;
 
     node->value = value;
     node->state = true;
@@ -465,6 +466,8 @@ int main() {
     ENABLE_VERBOSE();
 
     add(p_table, "new_new", 15);
+
+    find(p_table, "bar", &value_to_find);
 
     DISABLE_VERBOSE();
 
