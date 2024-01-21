@@ -26,3 +26,9 @@ practice/6_simple_data_structures/*
 !practice/6_simple_data_structures/*.h
 !practice/6_simple_data_structures/*.md
 !practice/6_simple_data_structures/Makefile
+
+practice/7_hash_table/*
+!practice/7_hash_table/*.c
+!practice/7_hash_table/*.h
+!practice/7_hash_table/*.md
+!practice/7_hash_table/Makefile
