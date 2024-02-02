@@ -32,3 +32,15 @@ practice/7_hash_table/*
 !practice/7_hash_table/*.h
 !practice/7_hash_table/*.md
 !practice/7_hash_table/Makefile
+
+practice/8_heap/*
+!practice/8_heap/*.c
+!practice/8_heap/*.h
+!practice/8_heap/*.md
+!practice/8_heap/Makefile
+
+practice/9_disjoint_set_union/*
+!practice/9_disjoint_set_union/*.c
+!practice/9_disjoint_set_union/*.h
+!practice/9_disjoint_set_union/*.md
+!practice/9_disjoint_set_union/Makefile
