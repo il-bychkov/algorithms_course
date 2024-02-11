@@ -64,6 +64,58 @@ void print_adjacency_list(adjacency_list_t* list) {
     printf("\n");
 }
 
+void _find_components_by_dfs(adjacency_list_t* list, size_t verticle, size_t component, size_t* components, bool* visited) {
+    if(visited[verticle] == true) {
+        return;
+    }
+
+    components[verticle] = component;
+    visited[verticle] = true;
+
+    for (size_t i = 0; i < list->lines[verticle]->adjacency_number; i++) {
+        size_t next_adjasent = list->lines[verticle]->adjacencies[i];
+        if(visited[next_adjasent] != true) {
+            _find_components_by_dfs(list, next_adjasent, component, components, visited);
+        }
+    }
+
+}
+
+void find_components_by_dfs(adjacency_list_t* list, size_t* components) {
+
+    bool* visited = malloc(sizeof(bool) * list->n_vertices);
+
+    for (size_t i = 0; i < list->n_vertices; i++) {
+        components[i] = i;
+        visited[i] = false;
+    }
+
+    for (size_t i = 0; i < list->n_vertices; i++) {
+        _find_components_by_dfs(list, i, i, components, visited);
+    }
+
+    free(visited);
+}
+
+void print_components(size_t* components, size_t n_vertices) {
+    printf("vertices   : ");
+
+    for (size_t i = 0; i < n_vertices; i++)
+    {
+        printf(" %ld", i);
+    }
+
+    printf("\n");
+    printf("components : ");
+
+    for (size_t i = 0; i < n_vertices; i++)
+    {
+        printf(" %ld", components[i]);
+    }
+
+    printf("\n");
+}
+
 int main() {
 
     adjacency_list_t l;
@@ -83,6 +135,22 @@ int main() {
     print_adjacency_list(p_l);
 
     delete_adjacency_list(p_l);
+
+    // find components by dfs
+    new_adjacency_list(p_l, 8);
+
+    add_edge(p_l, 0, 1);
+    add_edge(p_l, 0, 2);
+    add_edge(p_l, 2, 3);
+    add_edge(p_l, 3, 0);
+
+    add_edge(p_l, 4, 5);
+    add_edge(p_l, 4, 6);
+
+    size_t components[8];
+
+    find_components_by_dfs(p_l, components);
+    print_components(components, 8);
 
     return 0;
 }
