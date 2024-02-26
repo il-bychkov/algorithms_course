@@ -2,10 +2,8 @@
 *.out
 *.a
 .vscode
-
 contests/
 
-practi git remote set-url <remote_name> <remote_url>ce/2_sorting/*
 !practice/2_sorting/*.c
 !practice/2_sorting/*.h
 !practice/2_sorting/*.md
