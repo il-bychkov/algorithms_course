@@ -1,0 +1,149 @@
+Test 1 start
+
+    Test 1: after putting 'foo', 'foo', 'bar':
+        Index 0: nullptr
+        Index 1: nullptr
+        Index 2: nullptr
+        Index 3: nullptr
+        Index 4: nullptr
+        Index 5: Active Node
+            Key: foo
+            Value: 12
+        Index 6: nullptr
+        Index 7: Active Node
+            Key: bar
+            Value: 15
+    ------------
+    Test 1: after deleting 'bar'
+        Index 0: nullptr
+        Index 1: nullptr
+        Index 2: nullptr
+        Index 3: nullptr
+        Index 4: nullptr
+        Index 5: Active Node
+            Key: foo
+            Value: 12
+        Index 6: nullptr
+        Index 7: nullptr
+    ------------
+    Test 1: after putting 'bar' with value 78
+        Index 0: nullptr
+        Index 1: nullptr
+        Index 2: nullptr
+        Index 3: nullptr
+        Index 4: nullptr
+        Index 5: Active Node
+            Key: foo
+            Value: 12
+        Index 6: nullptr
+        Index 7: Active Node
+            Key: bar
+            Value: 78
+    ------------
+    Test 1: after putting elements el0, el1, el2, el3
+        Index 0: nullptr
+        Index 1: Active Node
+            Key: el3
+            Value: 15
+        Index 2: Active Node
+            Key: el1
+            Value: 15
+        Index 3: Active Node
+            Key: el0
+            Value: 15
+        Index 4: nullptr
+        Index 5: Active Node
+            Key: foo
+            Value: 12
+        Index 6: Active Node
+            Key: el2
+            Value: 15
+        Index 7: Active Node
+            Key: bar
+            Value: 78
+    ------------
+    Test 1: after putting element el5
+        Index 0: nullptr
+        Index 1: nullptr
+        Index 2: Active Node
+            Key: bar
+            Value: 78
+        Index 3: Active Node
+            Key: el0
+            Value: 15
+        Index 4: nullptr
+        Index 5: Active Node
+            Key: el1
+            Value: 15
+        Index 6: nullptr
+        Index 7: Active Node
+            Key: el2
+            Value: 15
+        Index 8: nullptr
+        Index 9: Active Node
+            Key: el3
+            Value: 15
+        Index 10: Active Node
+            Key: el5
+            Value: 15
+        Index 11: nullptr
+        Index 12: nullptr
+        Index 13: Active Node
+            Key: foo
+            Value: 12
+        Index 14: nullptr
+        Index 15: nullptr
+    ------------
+    Test 1: after deleting and reinserting elements
+        Index 0: nullptr
+        Index 1: nullptr
+        Index 2: nullptr
+        Index 3: Active Node
+            Key: new_new
+            Value: 15
+        Index 4: nullptr
+        Index 5: nullptr
+        Index 6: Active Node
+            Key: foo
+            Value: 12
+        Index 7: Active Node
+            Key: bar
+            Value: 78
+        Index 8: nullptr
+        Index 9: nullptr
+        Index 10: nullptr
+        Index 11: nullptr
+        Index 12: nullptr
+        Index 13: Active Node
+            Key: el5
+            Value: 15
+        Index 14: nullptr
+        Index 15: nullptr
+        
+Test 1 end
+---------
+Test 2 start
+
+First string: 555
+Second string: 555
+Result: Correct
+
+Test 2 end
+---------
+Test 3 start
+
+(table1)key foo : val = 12
+(table1)key foo : val = 13
+(table2)key foo : val = 14
+(table1)==(table2)? No equals
+(table1)foo + (table2)foo = 27
+
+Test 3 end
+---------
+Test 4 start
+
+key: sheep - value: 
+key: 1234 - value: 
+
+Test 4 end
+---------

@@ -32,3 +32,9 @@ practice/7_hash_table/*
 !practice/7_hash_table/*.h
 !practice/7_hash_table/*.md
 !practice/7_hash_table/Makefile
+
+practice/10_graphs/*
+!practice/10_graphs/*.c
+!practice/10_graphs/*.h
+!practice/10_graphs/*.md
+!practice/10_graphs/Makefile
