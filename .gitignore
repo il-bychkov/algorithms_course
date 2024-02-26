@@ -3,7 +3,6 @@
 *.a
 .vscode
 contests/
-contests/
 
 !practice/2_sorting/*.c
 !practice/2_sorting/*.h
