@@ -5,16 +5,16 @@
 // data structures
 typedef struct linked_list_node {
     uint32_t value;
-    struct linked_list_node* next;
+    struct linked_list_node *next;
 } linked_list_node_t;
 
 typedef struct linked_list {
-    struct linked_list_node* head;
+    struct linked_list_node *head;
 } linked_list_t;
 
 // private functions
-linked_list_node_t* get_tail_node(linked_list_t* list) {
-    linked_list_node_t* tail = list->head;
+linked_list_node_t *get_tail_node(linked_list_t *list) {
+    linked_list_node_t *tail = list->head;
 
     while (tail && tail->next) {
         tail = tail->next;
@@ -23,8 +23,8 @@ linked_list_node_t* get_tail_node(linked_list_t* list) {
     return tail;
 }
 
-linked_list_node_t* get_node_by_value(linked_list_t* list, uint32_t value) {
-    linked_list_node_t* tail = list->head;
+linked_list_node_t *get_node_by_value(linked_list_t *list, uint32_t value) {
+    linked_list_node_t *tail = list->head;
 
     while (tail && tail->next) {
         if (tail->value == value) {
@@ -37,8 +37,9 @@ linked_list_node_t* get_node_by_value(linked_list_t* list, uint32_t value) {
     return NULL;
 }
 
-linked_list_node_t* get_previous_node_by_value(linked_list_t* list, uint32_t value) {
-    linked_list_node_t* tail = list->head;
+linked_list_node_t *get_previous_node_by_value(linked_list_t *list,
+                                               uint32_t value) {
+    linked_list_node_t *tail = list->head;
 
     while (tail && tail->next) {
         if (tail->next->value == value) {
@@ -53,45 +54,46 @@ linked_list_node_t* get_previous_node_by_value(linked_list_t* list, uint32_t val
 
 // public functions
 // constructor and distructor
-void new(linked_list_t* list) {
-    list->head = NULL;
-};
+void new (linked_list_t *list) { list->head = NULL; };
 
-void delete(linked_list_t* list) {
-    linked_list_node_t* tail = list->head;
+void delete (linked_list_t *list) {
+    linked_list_node_t *tail = list->head;
 
     while (tail) {
-        linked_list_node_t* current = tail;
+        linked_list_node_t *current = tail;
         tail = tail->next;
         free(current);
     }
 };
 
 // insertion functions
-void insert_head(linked_list_t* list, uint32_t value) {
-    linked_list_node_t * head = list->head;
+void insert_head(linked_list_t *list, uint32_t value) {
+    linked_list_node_t *head = list->head;
 
-    list->head = (linked_list_node_t*)malloc(sizeof(linked_list_node_t));
+    list->head = (linked_list_node_t *)malloc(sizeof(linked_list_node_t));
 
     list->head->next = head;
     list->head->value = value;
 }
 
-void insert_tail(linked_list_t* list, uint32_t value) {
+void insert_tail(linked_list_t *list, uint32_t value) {
 
-    linked_list_node_t* tail = get_tail_node(list);
+    linked_list_node_t *tail = get_tail_node(list);
 
-    tail->next = (linked_list_node_t*)malloc(sizeof(linked_list_node_t));
+    tail->next = (linked_list_node_t *)malloc(sizeof(linked_list_node_t));
 
     tail->next->next = NULL;
     tail->next->value = value;
 }
 
-void insert_after_value(linked_list_t* list, uint32_t value_to_insert_after, uint32_t value) {
-    linked_list_node_t* node_to_insert_after = get_node_by_value(list, value_to_insert_after);
+void insert_after_value(linked_list_t *list, uint32_t value_to_insert_after,
+                        uint32_t value) {
+    linked_list_node_t *node_to_insert_after =
+        get_node_by_value(list, value_to_insert_after);
 
-    if(node_to_insert_after) {
-        linked_list_node_t* inserted_node = (linked_list_node_t*)malloc(sizeof(linked_list_node_t));
+    if (node_to_insert_after) {
+        linked_list_node_t *inserted_node =
+            (linked_list_node_t *)malloc(sizeof(linked_list_node_t));
 
         inserted_node->value = value;
         inserted_node->next = node_to_insert_after->next;
@@ -101,11 +103,14 @@ void insert_after_value(linked_list_t* list, uint32_t value_to_insert_after, uin
     }
 }
 
-void insert_before_value(linked_list_t* list, uint32_t value_to_insert_before, uint32_t value) {
-    linked_list_node_t* node_to_insert_after = get_previous_node_by_value(list, value_to_insert_before);
+void insert_before_value(linked_list_t *list, uint32_t value_to_insert_before,
+                         uint32_t value) {
+    linked_list_node_t *node_to_insert_after =
+        get_previous_node_by_value(list, value_to_insert_before);
 
-    if(node_to_insert_after) {
-        linked_list_node_t* inserted_node = (linked_list_node_t*)malloc(sizeof(linked_list_node_t));
+    if (node_to_insert_after) {
+        linked_list_node_t *inserted_node =
+            (linked_list_node_t *)malloc(sizeof(linked_list_node_t));
 
         inserted_node->value = value;
         inserted_node->next = node_to_insert_after->next;
@@ -116,8 +121,8 @@ void insert_before_value(linked_list_t* list, uint32_t value_to_insert_before, u
 }
 
 // deletion function
-void delete_by_pointer(linked_list_t *list, linked_list_node_t *pointer){
-    if (list->head == pointer){
+void delete_by_pointer(linked_list_t *list, linked_list_node_t *pointer) {
+    if (list->head == pointer) {
         linked_list_node_t *next = list->head->next;
         free(list->head);
         list->head = next;
@@ -125,8 +130,8 @@ void delete_by_pointer(linked_list_t *list, linked_list_node_t *pointer){
     }
 
     linked_list_node_t *current = list->head;
-    while (current){
-        if (current->next == pointer){
+    while (current) {
+        if (current->next == pointer) {
             linked_list_node_t *next = current->next->next;
             free(pointer);
             current->next = next;
@@ -137,16 +142,16 @@ void delete_by_pointer(linked_list_t *list, linked_list_node_t *pointer){
 }
 
 // deletion function
-void delete_by_value(linked_list_t *list, int value){
+void delete_by_value(linked_list_t *list, int value) {
     linked_list_node_t *node = get_node_by_value(list, value);
-    if (node != NULL){
+    if (node != NULL) {
         delete_by_pointer(list, node);
     }
 }
 
 // printing
-void print_list(linked_list_t* list) {
-    linked_list_node_t* tail = list->head;
+void print_list(linked_list_t *list) {
+    linked_list_node_t *tail = list->head;
 
     while (tail) {
         printf("%d, ", tail->value);
@@ -159,9 +164,9 @@ void print_list(linked_list_t* list) {
 int main() {
 
     linked_list_t list;
-    linked_list_t* p_list = &list;
+    linked_list_t *p_list = &list;
 
-    new(p_list);
+    new (p_list);
 
     insert_head(p_list, 0);
     printf("insert 0 after initialization:\n");
@@ -188,7 +193,7 @@ int main() {
     print_list(p_list);
 
     // fixed deletion from beginning
-        // fixed deletion from beginning
+    // fixed deletion from beginning
     delete_by_value(p_list, 8);
     printf("delete 8:\n");
     print_list(p_list);
@@ -202,8 +207,8 @@ int main() {
     delete_by_pointer(p_list, get_tail_node(p_list));
     printf("delete tail: 12\n");
     print_list(p_list);
-        
-    delete(p_list);
+
+    delete (p_list);
 
     return 0;
 }
