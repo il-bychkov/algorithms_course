@@ -2,6 +2,7 @@
 *.out
 *.a
 .vscode
+contests/
 
 practice/2_sorting/*
 !practice/2_sorting/*.c
