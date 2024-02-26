@@ -2,15 +2,16 @@
 
 
 ## Practice
-0) [Variables and Arrays](practice/0_vars_arrays)
-1) [Arrays Testing Complexity](practice/1_arrays_testing_complexity/)
-2) [2 Sorting](practice/2_sorting/)
-3) [Search](practice/3_search/)
-4) [Numbers and Ciphers](practice/4_numbers_and_ciphers/)
-5) [Bit Manipulations](practice/5_bitmanip/)
-6) [Simpe Data Structures](practice/6_simple_data_structures/)
-7) [Hash Tables](practice/7_hash_table/)
-
+- [Variables and Arrays](practice/0_vars_arrays)
+- [Arrays Testing Complexity](practice/1_arrays_testing_complexity/)
+- [Sorting](practice/2_sorting/)
+- [Search](practice/3_search/)
+- [Numbers and Ciphers](practice/4_numbers_and_ciphers/)
+- [Bit Manipulations](practice/5_bitmanip/)
+- [Simpe Data Structures](practice/6_simple_data_structures/)
+- [Hash Tables](practice/7_hash_table/)
+- [Graphs](practice/10_graphs/)
+- [Hash Table(CPP)](practice/cpp/hash_map_with_diff_key_value_types.cpp)
 ## snippets
 |file|description|
 |---|---|
