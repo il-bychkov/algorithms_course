@@ -193,14 +193,8 @@ int main() {
     print_list(p_list);
 
     // fixed deletion from beginning
-    // fixed deletion from beginning
     delete_by_value(p_list, 8);
     printf("delete 8:\n");
-    print_list(p_list);
-
-    // example of the deletion the head of the list
-    delete_by_pointer(p_list, p_list->head);
-    printf("delete head:67\n");
     print_list(p_list);
 
     // deletion the tail
