@@ -39,7 +39,6 @@ class Graph {
 
     void addEdge(const int64_t& vertex1, const int64_t& vertex2, const int64_t& weight) {
         edges_.push_back({weight, {vertex1, vertex2}});
-        edges_.push_back({weight, {vertex2, vertex1}});
     }
 
     void kruskalMST() {
