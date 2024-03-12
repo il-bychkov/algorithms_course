@@ -6,7 +6,7 @@ int GetDiff(int num1, int num2) {
     return std::abs(num1 - num2);
 }
 
-std::pair<int, int> GetMostClose(std::vector<int> a, std::vector<int> b) {
+std::pair<int, int> GetMostClose(const std::vector<int>& a, const std::vector<int>& b) {
     if (a.empty() || b.empty()) {
         return {-1, -1};
     }

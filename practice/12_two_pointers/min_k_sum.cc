@@ -2,7 +2,7 @@
 #include <vector>
 #include <limits.h>
 
-int GetMinKSum(std::vector<int> a, int sum_threshold) {
+int GetMinKSum(const std::vector<int>& a, int sum_threshold) {
     size_t i = 0;  // pointer to 'sum sequence' start
     size_t j = 0;  // pointer to 'sum sequence' end
 

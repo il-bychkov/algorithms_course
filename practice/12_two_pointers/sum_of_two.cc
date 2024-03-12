@@ -2,7 +2,7 @@
 #include <vector>
 
 
-std::pair<int, int> SumOfTwo(std::vector<int> a, int target) {
+std::pair<int, int> SumOfTwo(const std::vector<int>& a, int target) {
     size_t i = 0;             // left  pointer
     size_t j = a.size() - 1;  // right pointer
 
