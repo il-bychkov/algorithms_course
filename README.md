@@ -11,6 +11,10 @@
 - [Simpe Data Structures](practice/6_simple_data_structures/)
 - [Hash Tables](practice/7_hash_table/)
 - [Graphs](practice/10_graphs/)
+- [Graphs Path](practice/11_graph_path/)
+- [Two Pointers](practice/12_two_pointers/)
+
+## Contributions
 - [Hash Table(CPP)](practice/cpp/hash_map_with_diff_key_value_types.cpp)
 ## snippets
 |file|description|
