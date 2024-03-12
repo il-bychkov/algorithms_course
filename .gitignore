@@ -38,3 +38,5 @@ practice/10_graphs/*
 !practice/10_graphs/*.h
 !practice/10_graphs/*.md
 !practice/10_graphs/Makefile
+
+build
