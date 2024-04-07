@@ -1,4 +1,4 @@
-# algorithms
+# About
 Repository for Algorithms and Data Structures course (HSE Nizhny Novgorod).
 
 # Acknowledgements
