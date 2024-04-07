@@ -1,15 +1,15 @@
 # algorithms
-Repository for Algorithms and Data Structures coures (HSE Nizhny Novgorod).
+Repository for Algorithms and Data Structures course (HSE Nizhny Novgorod).
 
 # Acknowledgements
 
 Special thanks goes to:
 
-Maksim Zakharov @FLTLN
+Maksim Zakharov @FLTLN https://github.com/FLTLN
 
-Yuriy Magus @theMagusDev
+Yuriy Magus @theMagusDev https://github.com/theMagusDev
 
-Vadim @vadyukkha 
+Vadim @vadyukkha https://github.com/vadyukkha
 
 # Links
 Notes from Yuriy Magus
