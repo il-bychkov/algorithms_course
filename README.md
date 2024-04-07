@@ -6,7 +6,9 @@ Repository for Algorithms and Data Structures coures (HSE Nizhny Novgorod).
 Special thanks goes to:
 
 Maksim Zakharov @FLTLN
+
 Yuriy Magus @theMagusDev
+
 Vadim @vadyukkha 
 
 # Links
