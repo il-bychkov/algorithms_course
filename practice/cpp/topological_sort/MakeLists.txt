@@ -1,0 +1,17 @@
+.PHONY: help
+
+all: kahn dfs_topsort # Build all targets
+
+help: # Show help for each of the Makefile recipes.
+	@printf "\n"
+	@grep -E '^[a-z].*:.*'  Makefile | while read -r l; do printf "\033[1;32m$$(echo $$l | cut -f 1 -d':')\033[00m:$$(echo $$l | cut -f 2- -d'#')\n"; done
+	@printf "\n"
+
+kahn: kahn.cpp # Build kahn
+	g++ -std=c++20 kahn.cpp -o kahn
+
+dfs_topsort: dfs_topsort.cpp # Build dfs_topsort
+	g++ -std=c++20 dfs_topsort.cpp -o dfs_topsort
+
+clean: # Delete all builded files
+	rm -f kahn dfs_topsort
