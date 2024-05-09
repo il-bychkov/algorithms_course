@@ -37,7 +37,7 @@ void push(stack_t* stack, char value) {
 }
 
 char top(stack_t* stack) {
-    return stack->buffer[stack->top];
+    return stack->buffer[stack->top - 1];
 }
 
 char pop(stack_t* stack) {

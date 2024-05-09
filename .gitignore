@@ -44,3 +44,11 @@ practice/9_disjoint_set_union/*
 !practice/9_disjoint_set_union/*.h
 !practice/9_disjoint_set_union/*.md
 !practice/9_disjoint_set_union/Makefile
+
+practice/10_graphs/*
+!practice/10_graphs/*.c
+!practice/10_graphs/*.h
+!practice/10_graphs/*.md
+!practice/10_graphs/Makefile
+
+build
