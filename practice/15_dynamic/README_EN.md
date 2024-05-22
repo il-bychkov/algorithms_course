@@ -73,7 +73,7 @@ Third case: `d[i][j-1] + 1`.
 
 And we need to choose the minimum of these three options in terms of cost.
 
-### Backpacking Problem
+### Knapsack Problem
 #### 1 variant: fractional knapsack
 Let's imagine that objects can be cut.
 
