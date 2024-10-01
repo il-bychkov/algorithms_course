@@ -14,7 +14,10 @@
 
 **Входные данные: **
 
-$$\LARGE n \in \mathbb{N}, \quad 1 \leq n \leq 10^{4}$$$$\LARGE A = a_{1}, a_{2}, ... , a_{n}$$
+$$\LARGE n \in \mathbb{N}, \quad 1 \leq n \leq 10^{4}$$
+
+$$\LARGE A = a_{1}, a_{2}, ... , a_{n}$$
+
 $$\LARGE 1\leq a_i \leq 10^{6} \quad\quad \forall i \in \mathbb{N},\quad 1 \leq i \leq n$$
 
 **Выходные данные:**
