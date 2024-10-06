@@ -52,3 +52,5 @@ practice/10_graphs/*
 !practice/10_graphs/Makefile
 
 build
+*build*
+*bin*

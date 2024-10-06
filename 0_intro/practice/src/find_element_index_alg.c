@@ -38,7 +38,7 @@ int main() {
   if (indexFound != -1)
     printf("Element %d is found at index %d \n", elementToFind, indexFound);
   else
-    printf("Element %d is not found\n", elementToFind, indexFound);
+    printf("Element %d is not found\n", elementToFind);
 
   return 0;
 }
