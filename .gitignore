@@ -53,4 +53,5 @@ practice/10_graphs/*
 
 build
 *build*
+!*build.sh*
 *bin*
