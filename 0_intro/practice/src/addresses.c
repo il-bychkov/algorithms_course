@@ -1,4 +1,5 @@
 #include <stdio.h>
+
 int main() {
     // Create 4 variables of different types
     int intVariable = 30;

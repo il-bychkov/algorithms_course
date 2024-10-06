@@ -14,6 +14,7 @@ add_executable(find_element_index_perf      ${SRC_PREFIX}/find_element_index_per
 add_executable(get_element_by_index_perf    ${SRC_PREFIX}/get_element_by_index_perf.c)
 add_executable(insert_element_alg           ${SRC_PREFIX}/insert_element_alg.c)
 add_executable(insert_element_perf          ${SRC_PREFIX}/insert_element_perf.c)
+add_executable(int_and_float                ${SRC_PREFIX}/int_and_float.c)
 
 INSTALL(TARGETS         addresses
                         addresses_arrays
@@ -25,4 +26,5 @@ INSTALL(TARGETS         addresses
                         get_element_by_index_perf
                         insert_element_alg
                         insert_element_perf
+                        int_and_float
         DESTINATION     ${CMAKE_CURRENT_SOURCE_DIR}/${INSTAL_DIR})
