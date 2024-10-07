@@ -1,104 +1,7 @@
-# Практическое занятие 0
-## Адреса, переменные, массивы и алгоритмы на массивах
+# Практическое занятие 1
+## Массивы и алгоритмы на массивах
 
-### Часть 0: Введение в трансляцию и компиляцию на языке C
-  
-**Транслятор** – программа, обеспечивающая перевод написанного нами исходного кода на внутренний язык компьютера.
-Компьютор воспринимает лишь программы , написанные на машинном языке. 
-
-Обычно выделяют трансляторы двух типов:
-
-**Интерпретатор** -  обеспечивает поочередный перевод каждого оператора исходной программы на машинный языки и 
-немедленное выполнение его с одновременной проверкой правильности.
-Известные интерпретируемые языки программирования - Python, Java.
-
-Второй вид транслятора – **компилятор**.
-В отличии от интерпретатора он осуществляет сначала перевод всей исходной программы на машинный язык,
-одновременно проверяя ее правильность.
-Также в полученную программу компилятор включает подпрограммы и функции, которые связываются со всей программой.
-Этот этап называется **компоновкой(линковкой)** и обеспечивается еще одной специальной программой - **компоновщиком (linker)**.
-Результатом работы компилятора является исполняемый файл.
-
-### Часть 1: Что происходит внутри IDE: как код на языке программирования трансформируется в машинный код
-
-Как происходит процесс создания исполняемого файла:
-
-1. Компилятор отдельно переводит в машинный код каждый файл с исходным кодом (.c)
-2. В результате появляются так называемые объектные файлы (.o, для каждого файла .c)
-3. Далее все объектные файлы машинного кода + внешние библиотеки соединяются в один исполняемый файл с помощью компановщика (linker).
-   
-![image](https://github.com/il-bychkov/algorithms/assets/2277222/cf037240-1e2d-46d1-bbf2-98804e802462)
-
-### Часть 2: Адреса и переменные
-
-### **FULL LIVE CODING**
-
-**Исходный код:** addresses.с
-
-**Заметка:** В данном примере необходимо:
-- напомнить, что страшные hex адреса это просто номера байт (возможно перевести один в десятичную систему и сказать - вот, это 9999999й байт)
-- создать несколько переменных разных типов и показать как для них выделилась память
-- показать размеры различных типов данных (в качестве примеров)
-- показать адресную арифметику - добавление 1 к разным типам данных
-
-
-**!!!ВАЖНО!!!:**
-- в выводе посчитать и показать, что действительно адрес + 1 получается новый адрес
-(адрес потенциального начала следующей переменной такого же типа)
-
-```c 
-#include <stdio.h>
-int main()
-{
-    // Create 4 variables of different types
-    int intVariable = 30;
-    float floatVariable = 1.1;
-    double doubleVariable = 1.1;
-    char charVariable = 'c';
-    
-    printf("int start address = %p\n",&intVariable);
-    printf("int size          = %lu\n",sizeof(int));
-    // Int variable - address + 1 = address + one int
-    printf("int end address   = %p\n\n",&intVariable + 1);
-
-    printf("float start address = %p\n",&floatVariable);
-    printf("float size          = %lu\n",sizeof(floatVariable));
-    // Float variable - address + 1 = address + one float
-    printf("float end   address = %p\n\n",&floatVariable + 1);
-
-    printf("double start address = %p\n",&doubleVariable);
-    printf("double size          = %lu\n",sizeof(doubleVariable));
-    // Double variable - address + 1 = address + one double
-    printf("double end address   = %p\n\n",&doubleVariable + 1);
-
-    printf("char start address = %p\n",&charVariable);
-    printf("char size          = %lu\n",sizeof(charVariable));
-    // Char variable - address + 1 = address + one char
-    printf("char end   address = %p\n\n",&charVariable + 1);
-}
-```
-
-**Пример вывода:** addresses.c
-```bash
-$ ./a.out 
-int start address = 0x7ffeed9c5b4c
-int size          = 4
-int end address   = 0x7ffeed9c5b50
-
-float start address = 0x7ffeed9c5b48
-float size          = 4
-float end   address = 0x7ffeed9c5b4c
-
-double start address = 0x7ffeed9c5b40
-double size          = 8
-double end address   = 0x7ffeed9c5b48
-
-char start address = 0x7ffeed9c5b3f
-char size          = 1
-char end   address = 0x7ffeed9c5b40
-```
-
-### Часть 3: Адреса и массивы
+### Секция 0: Адреса и массивы
 
 ### **FULL LIVE CODING**
 
@@ -143,7 +46,7 @@ int array element shift = [8] -  value stored = 18  - address = 0x7ffee9b45b40
 int array element shift = [9] -  value stored = 19  - address = 0x7ffee9b45b44
 ```
 
-### Часть 4: Массивы - вставка элемента + измерение производительности вставок - 
+### Секция 1: Массивы - вставка элемента + измерение производительности вставок - 
 
 ### **FULL LIVE CODING**
 
@@ -281,7 +184,7 @@ Experiment: 42 is inserted to index 250000. Time of 100 runs = 0.032000 seconds
 Experiment: 42 is inserted to index 499999. Time of 100 runs = 0.000000 seconds
 ```
 
-### Часть 5: Массивы - удаление элемента + измерение производительности удалений
+### Секция 2: Массивы - удаление элемента + измерение производительности удалений
 **Исходный код:** delete_element_alg.c
 
 **Заметка:** В данном примере необходимо:
@@ -421,7 +324,7 @@ Experiment: Value at index 0 is deleted. Time of 100 runs = 0.109000 seconds
 Experiment: Value at index 250000 is deleted. Time of 100 runs = 0.047000 seconds
 Experiment: Value at index 499999 is deleted. Time of 100 runs = 0.000000 seconds
 ```
-### Часть 6: Массивы - поиск элемента + измерение производительности поиска
+### Секция 3: Массивы - поиск элемента + измерение производительности поиска
 **Исходный код:** find_element_index_alg.c
 
 **Заметка:** В данном примере необходимо:
@@ -564,7 +467,7 @@ Experiment: Element 667933893 search . Time of 100 runs = 0.000000 seconds
 Experiment: Element 2039841857 search . Time of 100 runs = 0.046000 seconds
 Experiment: Element 537035320 search . Time of 100 runs = 0.094000 seconds
 ```
-### Часть 7: Массив - получение элемнта по смещению + измерение производительности операции взятия по смещению
+### Секция 4: Массив - получение элемнта по смещению + измерение производительности операции взятия по смещению
 
 **Исходный код:** get_element_by_index_perf.c
 
