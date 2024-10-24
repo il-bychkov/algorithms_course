@@ -1,5 +1,8 @@
 #include <stdio.h>
 
+// - пример хранения float и double
+// double - аналогично
+
 // taken from https://stackoverflow.com/questions/15685181/how-to-get-the-sign-mantissa-and-exponent-of-a-floating-point-number
 typedef union {
     float f;

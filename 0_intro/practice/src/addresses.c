@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+// - пример с переменными разных типов и их адресами
+
 int main() {
     // Create 4 variables of different types
     int intVariable = 30;
