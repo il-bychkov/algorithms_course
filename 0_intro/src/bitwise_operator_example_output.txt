@@ -1,0 +1,5 @@
+Bitwise AND result = 1
+Bitwise OR  result = 15
+Bitwise XOR result = 14
+Bitwise NOT result = -10
+

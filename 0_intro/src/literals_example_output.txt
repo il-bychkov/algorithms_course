@@ -1,0 +1,4 @@
+Binary   0b1010 = 10
+Oct        0101 = 65
+Hex        0xFF = 255
+
