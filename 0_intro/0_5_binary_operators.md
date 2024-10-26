@@ -93,13 +93,13 @@
 
 #### Двоичные сдвиги (binary shifts)
 
-![bit_shift_example](bit_shift_example.png)
+![bit_shift_example](./images/bit_shift_example.png)
 
 **Код 0.4.0 - Пример двоичных сдвигов**
 
 **Источник: этот курс**
 
-![bit_shift_example_result](bit_shift_example_result.png)
+![bit_shift_example_result](./images/bit_shift_example_result.png)
 
 **Изображение 0.4.0 - Пример двоичных сдвигов (результат)**
 
