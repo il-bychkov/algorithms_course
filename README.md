@@ -1,7 +1,7 @@
 # About
 Repository for Algorithms and Data Structures course (HSE Nizhny Novgorod).
 
-# Cource content
+# Course content
 
 [Table of content](TOC.md)
 
