@@ -38,7 +38,7 @@
 
 ![binary_hw](./images/hex_hw.png)
 
-**Изображение 0.3.1 - Пример машинного кода в hex**
+**Изображение 0.3.1 - Пример машинного кода в hex (не hex код примера 0.3.1)**
 
 **Источник: https://learnlearn.uk/gcsecs/theory/algorithms/the-3-levels-of-code/**
 
