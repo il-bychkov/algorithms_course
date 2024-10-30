@@ -10,7 +10,13 @@ void swap_add_sub(int* x, int* y) {
     *x = *x - *y; // x = x + y - y = x
 }
 
-void swap_xor(void* x, void* y, int bytelen) {
+void swap_xor(int* x, int* y) {
+    *x = *x ^ *y; // x = x ^ y
+    *y = *x ^ *y; // y = x ^ x ^ y = y
+    *x = *x ^ *y; // x = x ^ y ^ y = y
+}
+
+void swap_xor_array(void* x, void* y, int bytelen) {
     // need explicit size types here
     uint8_t* p_x = (char*)x;
     uint8_t* p_y = (char*)y;
@@ -40,7 +46,7 @@ int main() {
     printf("values after swap_add_sub\n");
     printf("%d, %d\n", x, y);
 
-    swap_xor(p_x, p_y, sizeof(int));
+    swap_xor_array(p_x, p_y, sizeof(int));
 
     printf("values after swap_xor\n");
     printf("%d, %d\n", x, y);
