@@ -395,7 +395,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
-\frametitle{Алгоритмы, вычислительные машины и программы}
+\frametitle{Алгоритмы и программы}
 \framesubtitle{Программы и двоичный код}
 \justifying
 
@@ -412,7 +412,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
-\frametitle{Алгоритмы, вычислительные машины и программы}
+\frametitle{Алгоритмы и программы}
 \framesubtitle{Программы и двоичный код}
 \justifying
 
@@ -424,7 +424,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
-\frametitle{Алгоритмы, вычислительные машины и программы}
+\frametitle{Алгоритмы и программы}
 \framesubtitle{Машинный язык}
 \justifying
 \small
@@ -447,7 +447,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
-\frametitle{Алгоритмы, вычислительные машины и программы}
+\frametitle{Алгоритмы и программы}
 \framesubtitle{Ассемблер}
 \justifying
 \small
@@ -463,14 +463,14 @@
 \begin{figure}
     \captionsetup[subfigure]{labelformat=empty}
     \centering
-    \subfigure[{ \scriptsize \quad Пример кода на ASM}]{\includegraphics[width=65mm, height=25mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/assembler_code_example}} 
+    \subfigure[{ \scriptsize \quad Пример кода на ASM}]{\includegraphics[width=70mm, height=25mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/assembler_code_example}} 
     \subfigure[{ \scriptsize \quad Пример программиста на ASM}]{\includegraphics[width=50mm, height=30mm]{old_geek}} 
 \end{figure}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
-\frametitle{Алгоритмы, вычислительные машины и программы}
+\frametitle{Алгоритмы и программы}
 \framesubtitle{Языки программирования высокого уровня}
 \justifying
 \small
@@ -490,6 +490,178 @@
 \end{figure}
 \end{frame}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Алгоритмы и программы}
+\framesubtitle{Трансляция}
+\justifying
+\textcolor{red}{Транслятор} – программа, обеспечивающая перевод написанного нами исходного кода на внутренний язык компьютера. \newline\newline
+Обычно выделяют трансляторы двух типов: \textcolor{red}{компилятор} и \textcolor{red}{интерпретатор}
+\begin{figure}
+    \captionsetup[subfigure]{labelformat=empty}
+    \centering
+    \subfigure[{ \scriptsize \quad Трансляция, \href{https://www.cs.mtsu.edu/~xyang/2170/computerLanguages.html}{Источник} }]{\includegraphics[width=120mm, height=30mm]{programming_translation}} 
+\end{figure}
+\end{frame}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Алгоритмы и программы}
+\framesubtitle{Компиляция}
+\begin{block}{}
+\begin{columns}[]
+\column{\dimexpr\linewidth-40mm}
+\justifying
+\small
+\textcolor{red}{Компилятор} — это программа, которая преобразует исходный код, написанный на одном из языков программирования, в исполняемый машинный код или в промежуточный код (например, байт-код).\newline\newline
+Компиляторы выполняют анализ и оптимизацию кода, чтобы создать эффективный и быстрый исполняемый файл.\newline
+
+Основные функции компилятора:
+\begin{itemize}
+\item{проверка синтаксиса исходного кода}
+\item{генерация машинного кода или байт-кода}
+\item{оптимизация кода для повышения производительности}
+\item{создание файлов объектного кода для компоновки с другими модулями}
+\end{itemize}
+
+\column{40mm}
+
+\includegraphics[width=40mm, height=60mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/compiler_code_stage}
+\centering
+\tiny Компиляция, \href{https://ya.ru}{источник} 
+
+\end{columns}
+\end{block}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Алгоритмы и программы}
+\framesubtitle{Интерпретация}
+\begin{block}{}
+\begin{columns}[]
+\column{\dimexpr\linewidth-40mm}
+\justifying
+\small
+\textcolor{red}{Интерпретатор} — это программа, которая выполняет исходный код программы построчно. В отличие от компилятора, интерпретатор не переводит программу в машинный код, а сразу выполняет инструкции.\newline\newline
+Основные функции интерпретатора:
+\begin{itemize}
+\item{чтение исходного кода программы}
+\item{последовательное выполнение каждой строки кода}
+\item{обработка ошибок и исключений во время выполнения программы}
+\end{itemize}
+
+Известные интерпретируемые языки программирования - Python, Java.
+
+\column{40mm}
+
+\includegraphics[width=40mm, height=60mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/interpreter_code_stage}
+\centering
+\tiny Интерпретация, \href{https://ya.ru}{источник} 
+
+\end{columns}
+\end{block}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Алгоритмы и программы}
+\framesubtitle{Компиляция vs Интерпретация}
+\justifying
+\small
+\centering
+Компиляция vs Интерпретация в процессе выполнения кода
+
+\begin{figure}
+    \captionsetup[subfigure]{labelformat=empty}
+    \centering
+    \subfigure[{ \scriptsize \quad После компиляции}]{\includegraphics[width=55mm, height=55mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/compiler_run_stage}} 
+    \subfigure[{ \scriptsize \quad После интерпретации}]{\includegraphics[width=50mm, height=55mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/interpreter_run_stage}}
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Алгоритмы и программы}
+\framesubtitle{Трансляция исходного кода в машинный в C/C++}
+\justifying
+\small
+\centering
+\includegraphics[width=90mm, height=60mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/cpp_how_compile}
+
+\scriptsize Источник - C++20 from novice to professional
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Алгоритмы, вычислительные машины и программы}
+\framesubtitle{План лекции}
+
+\begin{enumerate}
+  \setcounter{enumi}{-1}
+  \item{План лекции}
+  \item{Понятие алгоритма}
+  \item{Вычислительные машины}
+  \item{Алгоритмы и программы}
+  \item{\textcolor{blue}{Алгоритмы и данные}}
+  \item{Битовые операции}
+
+\end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Алгоритмы и данные}
+\framesubtitle{Представление данных}
+\justifying
+\small
+
+Информация, с которой работает алгоритм, представлена в памяти компьютера в виде последовательностей нулей и единиц. \newline\newline Наименьшая единица хранения - \textcolor{red}{бит/bit/binary digit} (0 или 1). \newline Наименьшая адресуемая единица хранения - \textcolor{red}{байт/byte} (последовательность из 8 бит).\newline\newline
+Процессор обрабатывает информацию манипулируя блоками из фиксированного количества бит. Такой блок называется \textcolor{red}{машинное слово (word)}. В ранних компьютерах размеры машинного слова составляли 12 или 16 бит. В современных процессорах это значение обычно составляет 64 бита.\newline\newline
+Двоичные последовительности достаточно громоздки для восприятия человеком. Для упрощения работы с данными один байт обычно делится на две \textcolor{red}{двоичные тетрады (tetrade, half-byte, nibble)}.
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Алгоритмы и данны}
+\framesubtitle{Представление данных}
+\justifying
+\small
+\centering
+\includegraphics[width=130mm, height=60mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/bit_byte_nibble_word}
+
+\scriptsize Источник - этот курс
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Алгоритмы и данные}
+\framesubtitle{Представление данных}
+\justifying
+\begin{block}{}
+\begin{columns}[]
+\column{\dimexpr\linewidth-40mm}
+\justifying
+\small
+Каждую тетраду/полубайт удобно представлять в виде одной цифры в шестнадцатиричной системе счисления, потому что для ее представления 
+нужно как раз 4 бита. Двоичные данные, записанные в таком виде обычно называют hex кодами (hexadecimal)\newline
+
+\centering
+\includegraphics[width=45mm, height=45mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/hex_to_bin_conversion}
+\centering
+
+\column{40mm}
+
+\includegraphics[width=30mm, height=60mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/hex_digits}
+\centering
+
+
+\end{columns}
+\end{block}
+
+
+\end{frame}
 
 \end{document}
