@@ -24,6 +24,7 @@
 \usepackage{ragged2e}
 \captionsetup[figure]{labelformat=empty}
 \captionsetup[subfigure]{labelformat=empty}
+\renewcommand*{\thesubfigure}{(\arabic{subfigure})}
 \setsansfont{HSE Sans}
 %\graphicspath{{./images/}}
 \graphicspath{{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/slides/images}}
@@ -85,7 +86,7 @@
 \end{itemize}
 Семинары:
 \begin{itemize}
-  \item{\textcolor{blue}{Максим Отчество Захаров} - Intel, Yadro}
+  \item{\textcolor{blue}{Максим Алексеевич Захаров} - Intel, Yadro}
   \item{\textcolor{blue}{Михаил Михайлович Железин} - Yandex}
   \item{\textcolor{blue}{Никита Александрович Наумов} - Sber}
   \item{\textcolor{blue}{Кирилл Сергеевич Тараканов} - Huawei, ШАД}
@@ -109,7 +110,6 @@
     \subfigure[\textbf{\newline Introduction to \newline Algorithms, 4th Edition}\newline Thomas H Cormen \newline Charles E Leiserson \newline Ronald L Rivest \newline Clifford Stein]{\includegraphics[width=0.24\textwidth]{cormen_4_cover}} 
     \subfigure[\textbf{\newline Algorithms}\newline Sanjoy Dasgupta \newline Christos Papadimitriou \newline Umesh Vazirani ]{\includegraphics[width=0.24\textwidth]{dasgupta_cover}} 
     \subfigure[\textbf{\newline Algorithms, 4th Edition}\newline Robert Sedgewick \newline Kevin Wayne\newline \newline \url{algs4.cs.princeton.edu}]{\includegraphics[width=0.24\textwidth]{sedgewick_cover}} 
-    \subfigure[\textbf{Introduction to Algorithms, 4th Edition}\newline Thomas H Cormen, Charles E Leiserson, Ronald L Rivest, Clifford Stein]{\includegraphics[width=0.24\textwidth]{cormen_4_cover}} 
     \label{fig:foobar}
 \end{figure}
 \end{frame}
@@ -359,21 +359,6 @@
 \end{figure}
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-\frametitle{Вычислительные машины}
-\framesubtitle{Микрочип}
-\justifying
-\small
-
-Количество транзисторов в современных процессорах исчисляется миллиардами.
-
-\begin{figure}
-    \captionsetup[subfigure]{labelformat=empty}
-    \centering
-    %%\subfigure[{ \scriptsize \quad Д.Бардин, У.Шокли, У.Браттейн}]{\includegraphics[width=60mm, height=35mm]{transistor_team}} 
-\end{figure}
-\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
@@ -624,7 +609,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
-\frametitle{Алгоритмы и данны}
+\frametitle{Алгоритмы и данные}
 \framesubtitle{Представление данных}
 \justifying
 \small
@@ -657,10 +642,493 @@
 \includegraphics[width=30mm, height=60mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/hex_digits}
 \centering
 
+\end{columns}
+\end{block}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Алгоритмы и данные}
+\framesubtitle{Память}
+\justifying
+\begin{block}{}
+\begin{columns}[]
+\column{\dimexpr\linewidth-50mm}
+\justifying
+\normalsize
+
+Память компьютера можно рассматривать как очень большую ленту из пронумерованных байтов. Каждый ячейка содержит данные – значение от 0 до FF (две тетрады). \newline\newline Эти значения могут интерпретироваться по-разному в зависимости от того, данные какой природы мы ожидаем в этой памяти.
+
+\centering
+
+\column{50mm}
+
+\includegraphics[width=48mm, height=67mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/memory_example}
+\centering
 
 \end{columns}
 \end{block}
+\end{frame}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Алгоритмы и данные}
+\framesubtitle{Интерпретация двоичных данных}
+\justifying
+\small
+\centering
+\includegraphics[width=80mm, height=68mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/different_data_interpretation}
+
+\scriptsize Источник - Sedgewick \& Wayne + этот курс
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Алгоритмы и данные}
+\framesubtitle{Переменная и тип данных}
+\justifying
+Работая с данными в языках программирования необходимо знать начальный адрес данных в памяти, размер объекта данных и природу данных, записанных в этой памяти. \newline\newline Манипулировать этими компонентами напрямую - неудобно и непрозрачно для человека. Именно поэтому работа с данными осуществляется с помощью \textcolor{red}{имён переменных} и \textcolor{red}{типов данных}.\newline\newline
+\textcolor{red}{Имя переменной} – символьное обозначение адреса ячейки памяти, по которому хранится некоторое значение. Символьное имя позволяет понимать, о каких данных идет речь и упростить работу с ними.\newline\newline
+Каждой переменной обычно соответствует некоторый \textcolor{red}{тип данных}.
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Алгоритмы и данные}
+\framesubtitle{Тип данных}
+\justifying
+\small
+
+Тип данных определяет:
+
+\begin{itemize}
+\item{какого размера будет объект данного типа}
+\item{как будет интерпретироваться двоичная информация внутри объекта этого типа}
+\item{какие операции можно будет делать с объектами этого типа}
+\end{itemize}
+
+\includegraphics[width=140mm, height=30mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/int_types_example}
+\centering
+
+\scriptsize Источник - не помню, надо сменить картинку
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Алгоритмы и данные}
+\framesubtitle{Переменные в памяти}
+\justifying
+\begin{block}{}
+\begin{columns}[]
+\column{\dimexpr\linewidth-30mm}
+\justifying
+\small
+
+\centering
+\includegraphics[width=115mm, height=70mm]{simple_prog}
+\centering
+
+\column{30mm}
+
+\includegraphics[width=35mm, height=45mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/int_types_mem_example}
+\centering
+
+\end{columns}
+\end{block}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Алгоритмы и данные}
+\framesubtitle{Типы данных}
+\justifying
+\small
+
+Существуют различные категории типов данных:\newline\newline
+
+\textcolor{blue}{Целые числа (int/integer)}\newline
+Беззнаковые целые числа (unsigned)\newline
+Числа со знаком (signed)\newline\newline
+\textcolor{blue}{Вещественные числа/числа с плавающей точкой (floating point):}\newline
+числа с обычной точностью (float)\newline
+числа с двойной точностью (double)\newline\newline
+\textcolor{blue}{Символы (character):}\newline
+Символы (char)\newline
+Строки
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Алгоритмы и данные}
+\framesubtitle{Целочисленные типы данных}
+\justifying
+\small
+
+\textcolor{blue}{Беззнаковые целые числа (unsigned)}\newline\newline
+Стратегия хранения беззнаковых целых чисел достаточно тривиальна – хранится само число в двоичном виде без всяких модификаций.\newline\newline
+\textbf{Пример}: short c = 10 ---> 00000000 00001010\newline
+
+\centering
+\includegraphics[width=75mm, height=35mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/unsigned_int_types}\newline
+\centering
+\tiny Источник - Sedgewick \& Wayne
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Алгоритмы и данные}
+\framesubtitle{Целочисленные типы данных}
+\justifying
+\small
+В самом простом случае для представления отрицательных чисел в памяти компьютера можно использовать отдельных бит для знака (\textcolor{red}{sign bit}). На практике знаковым битом всегда выбирается самый левый (старший) бит.\newline\newline
+\textbf{Пример}: представим в 1 байте числа 6 и -6\newline
++ 6  = \textcolor{blue}{0}0000110\newline
+– 6  = \textcolor{blue}{1}0000110
+
+Такой способ представления называется \textcolor{red}{signed magnitude}.\newline
+\textcolor{blue}{Преимущество}: простота в понимании и использовании для человека\newline  
+\textcolor{blue}{Недостаток}: высокая сложность в использовании компьютером: сломанная арифметика, два нуля и тд
+
+\centering
+\includegraphics[width=70mm, height=20mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/signed_magn_example}\newline
+\centering
+\tiny Источник - C++20 from novice to professional
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Алгоритмы и данные}
+\framesubtitle{Целочисленные типы данных}
+\justifying
+\small
+Современные компьютеры используют другой подход: \textcolor{red}{дополнительный код (two’s complement)} представление.
+В данном представлении мы получаем любое отрицательное число по следующему алгоритму:
+\begin{enumerate}
+  \setcounter{enumi}{-1}
+  \item{Переводим рассматриваемое положительное число в двоичную форму}
+  \item{Инвертируем все биты числа, получаем так называемую \textcolor{red}{one’s complement form}}
+  \item{Добавляем к полученному числу 1, получаем \textcolor{red}{two’s complement form}}
+\end{enumerate}
+
+\textbf{Пример}\newline
+Переводим +8 в двоичную систему -----> 00001000\newline
+Инвертируем биты 00001000\quad\quad\quad -----> 11110111\newline
+Добавляем единицу 11110111 + 1 \quad\quad = 11111000\newline
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Алгоритмы и данные}
+\framesubtitle{Целочисленные типы данных}
+\justifying
+\begin{block}{}
+\begin{columns}[]
+\column{\dimexpr\linewidth-60mm}
+\justifying
+\small
+
+\centering
+\includegraphics[width=80mm, height=65mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/signed_all_table}
+\centering
+
+\column{60mm}
+
+\includegraphics[width=35mm, height=65mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/signed_16bit_example}
+\centering
+
+\end{columns}
+\end{block}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Алгоритмы и данные}
+\framesubtitle{Возможные значения знаковых целочисленных переменных}
+\justifying
+\small
+\centering
+\includegraphics[width=90mm, height=60mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/signed_int_types}
+
+\tiny Источник - Sedgewick \& Wayne 
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Алгоритмы и данные}
+\framesubtitle{Числа с плавающей точкой}
+\justifying
+\small
+Для представления дробных чисел компьютер имеет в своем распоряжении всё те же нули и единицы, однако задача усложняется.
+Вещественные числа представляются в памяти компьютера как \textcolor{red}{числа с плавающей точкой/floating point}.\newline
+Число с плавающей точкой состоит из трёх частей:
+\begin{itemize}
+\item{\textcolor{red}{Знак (sign)}. Ничего необычного, знак представляется единственным битом, где 0 - положительное число, 1 - отрицательное. Быстрая проверка на отрицательность.}
+\item{\textcolor{red}{Двоичная экспонента (binary exponent)}.Хранит знаковое целое число.}
+\begin{itemize}
+\item{5 бит (для 16 битных чисел)}
+\item{8 бит (для 32 битных чисел)}
+\item{11 бит (для 64 битных чисел)}
+\end{itemize}
+\item{\textcolor{red}{Мантисса (significand, mantissa, binary fraction)}. Хранит знаковое целое число.}
+\begin{itemize}
+\item{10 бит (для 16 битных чисел)}
+\item{23 бита (для 32 битных чисел)}
+\item{53 бита (для 64 битных чисел)}
+\end{itemize}
+\end{itemize}
+
+Все эти компоненты представлены в двоичном формате.
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Алгоритмы и данные}
+\framesubtitle{Числа с плавающей точкой}
+\justifying
+\small
+\centering
+\includegraphics[width=110mm, height=70mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/fp_conversions}
+
+\tiny Источник - Sedgewick \& Wayne 
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Алгоритмы и данные}
+\framesubtitle{Символы}
+\justifying
+\small
+Символы не могут быть напрямую представлены в памяти компьютера, поэтому они кодируются числами и создаются таблицы соответствия между кодами и самими символами. Такие таблицы называются \textcolor{red}{кодировками}.\newline\newline
+В 1960х годах для представления символов была создана таблица ASCII (American Standard Code for Information Interchange).\newline\newline
+Каждый код в этой таблице - 7 битное число, всего 128 разных варианта кодов.\newline
+
+0-31 - символы, которые нельзя напечатать на клавиатуре\newline
+65-90 - латинские символы в верхнем регистре\newline
+97-122 - латинские символы в нижнем регистре\newline
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Алгоритмы и данные}
+\framesubtitle{Символы}
+\justifying
+\small
+\centering
+\includegraphics[width=90mm, height=70mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/ascii_table}
+
+\tiny Источник - ?
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Алгоритмы, вычислительные машины и программы}
+\framesubtitle{План лекции}
+
+\begin{enumerate}
+  \setcounter{enumi}{-1}
+  \item{План лекции}
+  \item{Понятие алгоритма}
+  \item{Вычислительные машины}
+  \item{Алгоритмы и программы}
+  \item{Алгоритмы и данные}
+  \item{\textcolor{blue}{Битовые операции}}
+
+\end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Битовые операции}
+\framesubtitle{Основные битовые операторы}
+\justifying
+\small
+
+Из школьных курсов все мы помним о существовании булевых операций, таких как конъюнкция (AND), дизъюнкция (OR), отрицание (NOT) и исключающее или (XOR).\newline
+
+\begin{figure}
+    \captionsetup[subfigure]{labelformat=empty}
+    \centering
+    \subfigure[{ \scriptsize \quad Конъюнкция (И/AND)}]{\includegraphics[width=45mm, height=50mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/and_truth_table}} \quad\quad\quad
+    \subfigure[{ \scriptsize \quad Дизъюнкция (ИЛИ/OR)}]{\includegraphics[width=45mm, height=50mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/or_truth_table}} 
+    \newline
+    
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Битовые операции}
+\framesubtitle{Основные битовые операторы}
+\justifying
+\small
+
+Из школьных курсов все мы помним о существовании булевых операций, таких как конъюнкция (AND), дизъюнкция (OR), отрицание (NOT) и исключающее или (XOR).\newline
+
+\begin{figure}
+    \captionsetup[subfigure]{labelformat=empty}
+    \centering
+    \subfigure[{ \scriptsize Исключающее ИЛИ/XOR}]{\includegraphics[width=45mm, height=50mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/xor_truth_table}} \quad\quad\quad
+    \subfigure[{ \scriptsize \quad Отрицание (НЕ/NOT)}]{\includegraphics[width=45mm, height=50mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/not_truth_table}} 
+    \newline
+    
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Битовые операции}
+\framesubtitle{Числовые литералы}
+\justifying
+\small
+
+Для удобства работы с числами языки программирования обычно содержат разные варианты задания числовых констант (\textcolor{red}{литералов/literal}).
+\begin{figure}
+    \captionsetup[subfigure]{labelformat=empty}
+    \centering
+    \subfigure[{ \scriptsize Пример числовых литералов C/C++}]{\includegraphics[width=75mm, height=55mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/literals_example}}    
+    
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Битовые операции}
+\framesubtitle{Числовые литералы}
+\justifying
+\small
+
+Для удобства работы с числами языки программирования обычно содержат разные варианты задания числовых констант (\textcolor{red}{литералов/literal}).
+\begin{figure}
+    \captionsetup[subfigure]{labelformat=empty}
+    \centering
+    \subfigure[{ \scriptsize Пример числовых литералов C/C++}]{\includegraphics[width=75mm, height=55mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/literals_example}}
+    \subfigure[{ \scriptsize \quad Результат примера}]{\includegraphics[width=55mm, height=30mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/literals_example_result}}         
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Битовые операции}
+\framesubtitle{Пример битовых операции}
+\justifying
+\small
+Побитовые операторы применяют упомянутые выше логические операции не к одному биту, а сразу к целой последовательности бит.
+\begin{figure}
+    \captionsetup[subfigure]{labelformat=empty}
+    \centering
+    \subfigure[{ \scriptsize Пример числовых литералов C/C++}]{\includegraphics[width=75mm, height=55mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/bitwise_operator_example}}
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Битовые операции}
+\framesubtitle{Пример битовых операции}
+\justifying
+\small
+Побитовые операторы применяют упомянутые выше логические операции не к одному биту, а сразу к целой последовательности бит.
+\begin{figure}
+    \captionsetup[subfigure]{labelformat=empty}
+    \centering
+    \subfigure[{ \scriptsize Пример битовых операции C/C++}]{\includegraphics[width=75mm, height=55mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/bitwise_operator_example}}
+    \subfigure[{ \scriptsize \quad Результат примера}]{\includegraphics[width=55mm, height=30mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/bitwise_operator_example_result}}         
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Битовые операции}
+\framesubtitle{Битовые маски}
+\justifying
+\small
+\textcolor{red}{Битовая маска} - это специальное число, которое используется для работы с конкретными битами рассматриваемых данных. Такой способ работы приносит компактность и элегантность некоторых операций.
+\begin{figure}
+    \captionsetup[subfigure]{labelformat=empty}
+    \centering
+    \subfigure[{ \scriptsize Пример битовых масок}]{\includegraphics[width=70mm, height=50mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/bitmask_simple}}
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Битовые операции}
+\framesubtitle{Битовые маски}
+\justifying
+\small
+\textcolor{red}{Битовая маска} - это специальное число, которое используется для работы с конкретными битами рассматриваемых данных. Такой способ работы приносит компактность и элегантность некоторых операций.
+\begin{figure}
+    \captionsetup[subfigure]{labelformat=empty}
+    \centering
+    \subfigure[{ \scriptsize Пример битовых масок}]{\includegraphics[width=65mm, height=50mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/bitmask_simple}}
+    \subfigure[{ \scriptsize \quad Результат примера}]{\includegraphics[width=55mm, height=30mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/bitmask_simple_result}}         
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Битовые операции}
+\framesubtitle{Битовые сдвиги}
+\justifying
+\begin{figure}
+    \captionsetup[subfigure]{labelformat=empty}
+    \centering
+    \subfigure[{ \scriptsize Пример битовых масок}]{\includegraphics[width=70mm, height=70mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/bit_shift_example}}
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Битовые операции}
+\framesubtitle{Битовые сдвиги}
+\justifying
+\begin{figure}
+    \captionsetup[subfigure]{labelformat=empty}
+    \centering
+    \subfigure[{ \scriptsize Пример битовых масок}]{\includegraphics[width=70mm, height=70mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/bit_shift_example}}
+    \subfigure[{ \scriptsize \quad Результат примера}]{\includegraphics[width=45mm, height=60mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/bit_shift_example_result}}         
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Битовые операции}
+\framesubtitle{Задачи}
+\justifying
+\small
+
+\textcolor{blue}{Задача про пары чисел}\newline
+Дана последовательность \textcolor{blue}{A} из \textcolor{blue}{n} различных целых чисел.\newline Про последовательность известно, что каждое число кроме одного встречается в ней дважды. Найдите число, у которого нет пары.\newline
+
+Ограничения на входные данные:\newline
+$$\LARGE n \in \mathbb{N}, \quad 1 \leq n \leq 10^{9}$$
+$$\LARGE A = a_{1}, a_{2}, ... , a_{n}$$
+$$\LARGE 10^{-9}\leq a_i \leq 10^{9} \quad\quad \forall i \in \mathbb{N},\quad 1 \leq i \leq n$$
+
+Количество дополнительной памяти, используемой алгоритмом, не должно превышать 1MB, время работы 1 секунда.
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Слайд 63}
+\framesubtitle{Слайд 63}
+\justifying
+\small
+
+Дополнительный слайд, чтобы общее их количество стало равно 64.
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Слайд 64}
+\framesubtitle{Слайд 64}
+\justifying
+\small
+
+Дополнительный слайд, чтобы общее их количество стало равно 64.
 
 \end{frame}
 
