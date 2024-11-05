@@ -6,14 +6,14 @@
 void swap_add_sub(int* x, int* y) {
 
     *x = *x + *y; // x = x + y
-    *y = *x - *y; // y = x - (x + y) = x - x + y = y
-    *x = *x - *y; // x = x + y - y = x
+    *y = *x - *y; // y = (x + y) - y = x
+    *x = *x - *y; // x = x + y - x = y
 }
 
 void swap_xor(int* x, int* y) {
     *x = *x ^ *y; // x = x ^ y
-    *y = *x ^ *y; // y = x ^ x ^ y = y
-    *x = *x ^ *y; // x = x ^ y ^ y = y
+    *y = *x ^ *y; // y = (x ^ y) ^ y = x
+    *x = *x ^ *y; // x = (x ^ y) ^ x = y
 }
 
 void swap_xor_array(void* x, void* y, int bytelen) {
@@ -23,8 +23,8 @@ void swap_xor_array(void* x, void* y, int bytelen) {
 
     for (size_t i = 0; i < bytelen; i++) {
         p_x[i] = p_x[i] ^ p_y[i]; // x = x ^ y
-        p_y[i] = p_x[i] ^ p_y[i]; // y = x ^ x ^ y = y
-        p_x[i] = p_x[i] ^ p_y[i]; // x = x ^ y ^ y = y
+        p_y[i] = p_x[i] ^ p_y[i]; // y = (x ^ y) ^ y = x
+        p_x[i] = p_x[i] ^ p_y[i]; // x = (x ^ y) ^ x = y
     }
 
 }
