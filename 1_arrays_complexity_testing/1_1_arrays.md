@@ -97,6 +97,7 @@
 
 ![array_search_special](./images/array_search_special.png)
 
+
 **Изображение 1.4 - Поиск элемента с заданными свойствами в массиве**
 
 **Источник: **
@@ -134,11 +135,23 @@ Row-major и column-major массивы
 
 ![array_dynamic](array_dynamic.png)
 
-**Изображение 1.4 - Пример многомерного массива 2**
+**Изображение 1.4 - Пример динамического массива 1**
+
+**Источник: https://en.wikipedia.org/wiki/Dynamic_array**
+
+![[array_dynamic_example.png]]
+
+**Изображение 1.4 - Пример динамического массива 2**
+
+**Источник: https://sassafras13.github.io/images/2021-01-16-DynamicResizeLists-fig1.png**
+
+
 
 ### Сложность операций в массивах
 
 ![[array_complexity_table.png]]
+
+![[array_complexity_table2.png]]
 
 ### Преимущества и недостатки массивов
 
