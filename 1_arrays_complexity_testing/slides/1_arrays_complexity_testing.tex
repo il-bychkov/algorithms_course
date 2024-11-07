@@ -1,0 +1,1107 @@
+%!TEX TS-program = xelatex
+
+% HSE Beamer Theme
+% by Danil Fedorovykh
+% http://hse.ru/staff/df
+%
+% Version 2.0 (English)
+% January 2022
+
+%%% Set up the free HSE Sans font
+%%% https://www.hse.ru/info/brandbook/#font
+
+\documentclass[aspectratio=169]{beamer}
+
+\newbool{russian}
+\booltrue{russian} % Uncomment if in Russian
+\usepackage{HSE-theme/beamerthemeHSE} % Load HSE theme
+\usepackage[no-math]{fontspec}      % fonts loading
+\usepackage{caption}
+\usepackage{subfigure}
+\usepackage{subcaption}
+\usepackage{hyperref}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{ragged2e}
+\captionsetup[figure]{labelformat=empty}
+\captionsetup[subfigure]{labelformat=empty}
+\renewcommand*{\thesubfigure}{(\arabic{subfigure})}
+\setsansfont{HSE Sans}
+%\graphicspath{{./images/}}
+\graphicspath{{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/slides/images}}
+
+
+%%% Информация об авторе и выступлении
+\title[Title]{Алгоритмы и структуры данных} 
+\subtitle{Лекция 1. Массивы, вычислительная сложность, тестирование}
+\author[Author's name]{Илья Сергеевич Бычков\\ \smallskip \scriptsize \url{ibychkov@hse.ru}}
+\institute{НИУ ВШЭ - Нижний Новгород}
+\date{\today}
+
+
+\begin{document}
+
+\frame[plain]{\titlepage}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[c]
+%\frametitle{A first slide}
+
+\begin{center}
+\Huge Повторение
+\end{center}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{frame}
+\frametitle{Повторение}
+\framesubtitle{Краткое повторение предыдущей серии}
+фывфывфывфывфывфывфыв
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[c]
+%\frametitle{A first slide}
+
+\begin{center}
+\Huge Лекция 1.
+
+\Huge Массивы, вычислительная сложность, тестирование
+\end{center}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Массивы, вычислительная сложность, тестирование}
+\framesubtitle{План лекции}
+
+\begin{enumerate}
+  \setcounter{enumi}{-1}
+  \item{План лекции}
+  \item{\textcolor{blue}{Структура данных массив}}
+  \item{Вычислительные задачи и корректность алгоритмов}
+  \item{Вычислительные сложность алгоритмов}
+  \item{Тестирование алгоритмов}
+\end{enumerate}
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Структура данных: массив}
+\framesubtitle{Структура данных}
+\justifying
+
+В большинстве случаев объем данных, обрабатываемых алгоритмам, достаточно велик, что не позволяет ограничиваться только использованием \textcolor{red}{переменных} (если конечно вы не решаете только задачи типа “A+B Problem”).\newline\newline
+
+В таких случаях на помощь приходят разнообразные \textcolor{red}{структуры данных}.\newline\newline
+
+\textcolor{red}{Структура данных} — это контейнер, который хранит данные и обеспечивает работу с ними в соответствии с определенными правилами.\newline\newline
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Структура данных: массив}
+\framesubtitle{Массив}
+\justifying
+Первая и самая простая структура данных (часто ее даже не относят к структурам данных), которую мы рассмотрим, называется \textcolor{red}{массив}.\newline\newline
+\textcolor{red}{Массив} - это структура данных, для которой характерно:
+\begin{enumerate}
+  \item{Хранение элементов одного типа}
+  \item{Размещение элементов последовательно в памяти}
+  \item{Единое имя для всех элементов\newline}
+\end{enumerate}
+Полезно думать о массиве как об определенном наборе переменных одного типа.
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Структура данных: массив}
+\framesubtitle{Устройство массива}
+\justifying
+\textcolor{red}{Имя массива} указывает на \textcolor{red}{адрес} в памяти его самого первого элемента. \newline\newline Доступ к элементам массива осуществляется с помощью \textcolor{red}{индексов} или \textcolor{red}{смещений}. \newline\newline
+Самый первый элемент имеет \textcolor{red}{нулевое смещение} относительно адреса массива в памяти.\newline\newline
+Каждый элемент массива имеет свой адрес и занимает одинаковое и фиксированное число байт, которое зависит от типа данных.
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Понятие алгоритма}
+\framesubtitle{Более формальное понятие алгоритма}
+\justifying
+\textcolor{red} {Алгоритм} - понятная и точная последовательность шагов (вычислительная процедура), которая получает некоторое значение или набор значений (входные данные) и за конечное время выдает некоторое значение или набор значений в качестве результата (выходные данные). \newline\newline
+Таким образом, алгоритм трансформирует входные данные в ответ.\newline
+
+\textcolor{red} {Алгоритм} - фундаментальная концепция всей области компьютерных наук.\newline
+
+В сфере информационных технологий нам будут интересны алгоритмы, которые способны решать \textcolor{red}{вычислительные задачи}, а исполнителями а этом случае будут являться \textcolor{red}{вычислительные машины}.
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Алгоритмы, вычислительные машины и программы}
+\framesubtitle{План лекции}
+
+\begin{enumerate}
+  \setcounter{enumi}{-1}
+  \item{План лекции}
+  \item{Понятие алгоритма}
+  \item{\textcolor{blue}{Вычислительные машины}}
+  \item{Алгоритмы и программы}
+  \item{Алгоритмы и данные}
+  \item{Битовые операции}
+
+\end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Вычислительные машины}
+\framesubtitle{Алгоритмы и вычислительные машины}
+
+Создание алгоритма для решения некоторой вычислительной задачи - важная работа. \newline \newline Как только правильный (с точки зрения выдаваемых результатов) и эффективный (с точки зрения затрачиваемых ресурсов) алгоритм придуман, решение рассматриваемой задачи больше не требует понимания принципов, на которых построен алгоритм. Далее все сводится лишь к последовательному исполнению шагов алгоритма.\newline
+
+Чтобы автоматически выполнять уже имеющиеся эффективные алгоритмы, люди в течение нескольких столетий изобретали и улучшали \textcolor{red}{вычислительные машины}.
+
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Вычислительные машины}
+\framesubtitle{Ранние вычислительные машины}
+\justifying
+Абак - одно из самых ранних устройств для выполнения арифметических операций. В большей степени являлось средством хранения и представления чисел, процесс вычислений проводился человеком. \newline
+
+Первое запатентованное счетное устройство - механический калькулятор, созданный в 1640х годах Блезом Паскалем.
+Состояло из спиц и колёсиков, умело складывать и вычитать.
+
+\begin{figure}
+
+    \captionsetup[subfigure]{labelformat=empty}
+    \centering
+    \subfigure[{\scriptsize \quad Abacus (Абак/Счёты)}]{\includegraphics[width=0.32\textwidth]{abacus}} 
+    \subfigure[{\newline \quad Калькулятор Паскаля}]{\includegraphics[width=0.41\textwidth]{pascal_calc}} 
+\end{figure}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Вычислительные машины}
+\framesubtitle{Изобретения Чарльза Бэббиджа}
+\begin{block}{}
+\begin{columns}[]
+\column{\dimexpr\linewidth-30mm}
+\justifying
+Позже английский математик и инженер Чарльз Бэббидж (1791 - 1871) создал \textcolor{red}{разностную машину (differential engine)}, способную вычислять синусы, косинусы, тангенсы и логарифмы. Вычисление этих функций разбивалось на элементарные арфиметические операции.\newline\newline
+Далее в 1834 Бэббидж разработал проект счётной машины \textcolor{red}{общего назначения}, которая могла выполнять множество операций по инструкциям, задаваемых ей программным образом. \newline
+
+Изобретение было названо \textcolor{red}{аналитической машиной (analytical engine)}. В проекте были собраны все инновации из других областей того времени.
+
+\column{30mm}
+
+\includegraphics[width=30mm, height=25mm]{babbage}
+\tiny Чарльз Бэббидж (Cambridge, UK), \href{https://en.wikipedia.org/wiki/Charles_Babbage}{Источник - Wikipedia} 
+\newline\newline
+\includegraphics[width=30mm, height=25mm]{differential_engine}\newline
+\tiny Разностная машина, \href{https://en.wikipedia.org/wiki/Charles_Babbage}{Источник - Wikipedia} 
+
+\end{columns}
+\end{block}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Вычислительные машины}
+\framesubtitle{Ада Августа Лавлейс (Байрон)}
+\begin{block}{}
+\begin{columns}[]
+\column{\dimexpr\linewidth-30mm}
+\justifying
+Бэббидж выступил на съезде учёных в Турине. Луиджи Менабреа законспектировал его доклад, и опубликовал описание аналитической машины на французском языке.\newline\newline
+\textcolor{red}{Ада Байрон} перевела эту статью на английский. Бэббидж был удивлён тем, как она разобралась в материале и предложил ей сделать примечания к переводу.\newline\newline
+Примечания Ады Байрон по объему вдвое привысили оригинальную статью, эта работа стала первой опубликованной компьютерной программой, а Ада Байрон вошла в историю как первый программист. 
+
+\column{30mm}
+
+\includegraphics[width=30mm, height=40mm]{ada_byron}
+\tiny Ада Августа Лавлейс (Байрон), \href{https://en.wikipedia.org/wiki/Ada_Lovelace}{Источник - Wikipedia} 
+\end{columns}
+\end{block}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Вычислительные машины}
+\framesubtitle{Ада Августа Лавлейс (Байрон)}
+\justifying
+Ада Лавлейс предложила несколько концепций, которые на многие годы опередили развитие вычислительное техники:
+\begin{itemize}
+\item{\textcolor{red}{Машина общего назначения} - запрограммирована для выполнения бесконечного числа и неограниченного круга задач}
+\item{Функции машины не должны быть ограничены математикой и числами (например, работа со словами и символами)}
+\item{Идея \textcolor{red}{подпрограмм}}
+\item{\textcolor{red}{Искуственный интеллект}. "Аналитическая машина не претендует на создание чего-то своего. Она может выполнить любую команду, которую мы сумеем задать, но от нее нельзя ожидать вывода каких-либо аналитических соотношений или законов"}
+\end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Вычислительные машины}
+\framesubtitle{Электронные машины}
+\justifying
+\scriptsize
+Технологии 19 века не позволяли создать многие из вышеперечисленных вариантов вычислительных машин относительно дешево. Но, с развитием электроники в первой половине 20 века эта проблема была решена.
+Повсеместно, во всем мире стали появляться более совершенные вычислительные электронно-механические устройства.
+\begin{itemize}
+\item{\textcolor{red}{Модель К, 1940 год, Р.Штиблиц, Bell Labs} - электромеханические реле, не была полностью электронной. Не была универсальной, программируемой, предназначалась для определенной задачи.}
+
+\item{\textcolor{red}{Z3, Г.Цузе, 1941} - первая автоматически контролируемое, программируемое электрическое двоичное устройство. Но не была полностью электронной, также были переключатели - щёлкающие реле. Не пошла в производство, была разрушена после бомбардировок Берлина в 1943.}
+
+\item{\textcolor{red}{Компьютер Д.В.Атанасова} - Был первым электронным компьютером в мире (использовал электронные лампы). Но блоки памяти содержали механические вращающиеся барабаны. Не был программируемым и универсальным - был создан для решения систем линейных уравнений.
+}
+
+\item{\textcolor{red}{Машина Colossus I} - создана Максом Ньюманом, Томми Флауэрсом и Аланом Тьюрингом. Электронный, программируемый и работающий. Но не являлся компьютером общего назначения и тьюринг-полной машиной и также был узкоспециализированным - для взлома военных кодов Германии.}
+
+\item{\textcolor{red}{Mark I Говарда Айкена} - Построенный с участием IBM и введенный в эксплуатацию в мае 1944 года бы программируемым, но электро-механическим, а не электронным.}
+
+\end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Вычислительные машины}
+\framesubtitle{ENIAC - первый компьютер}
+\justifying
+\textcolor{red}{ENIAC}, построенный \textcolor{red}{Джоном Мокли} и \textcolor{red}{Преспером Эккертом} в ноябре 1945 года был первой машиной, включающей все черты современного компьютера.
+
+\begin{itemize}
+\item{Полностью электронный (основанным на электронных лампах), быстрый}
+\item{Программируемый}
+\item{Компьютер общего назначения(теоретически мог решить любую задачу)}
+\end{itemize}
+
+\begin{figure}
+
+    \captionsetup[subfigure]{labelformat=empty}
+    \centering
+    \subfigure[{\scriptsize \quad Команда программистов ENIAC}]{\includegraphics[width=0.4\textwidth]{women_eniac}} 
+    \subfigure[{\newline \quad ENIAC}]{\includegraphics[width=0.41\textwidth]{eniac}} 
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Вычислительные машины}
+\framesubtitle{Транзистор}
+\justifying
+
+Электронные лампы были дорогими, громоздкими, поглощали много энергии. \newline Для компьютеров того времени их было необходимо очень много.\newline\newline
+Наиболее значимым в этот период являлось изобретение \textcolor{red}{транзисторов}. \newline За это, команда Bell Labs в лице \textcolor{red}{Уиллиама Шокли,  Джон Бардина} и \textcolor{red}{Уолтера Браттейна} была удостоена Нобелевской премии по физике.
+
+\begin{figure}
+    \captionsetup[subfigure]{labelformat=empty}
+    \centering
+    \subfigure[{ \scriptsize \quad Д.Бардин, У.Шокли, У.Браттейн}]{\includegraphics[width=60mm, height=35mm]{transistor_team}} 
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Вычислительные машины}
+\framesubtitle{Микрочип}
+\justifying
+\small
+В \textcolor{red}{Texas Instruments (Джон Килби}) и \textcolor{red}{Fairchild Semiconductors (Роберт Нойс и Гордон Мур)} был изобретен \textcolor{red}{микрочип}. Идея - помеcтить транзисторы и другие элементы на единую кремниевую пластину. Вместо связующих их проволочек было предложено пропечатать небольшие медные линии. В 2000 году за это открытие присуждена Нобелевская премия.\newline\newline 
+Производство таких схем стало надежным, массовым и дешевым. В результате, машины размером с комнату 1940-е годы были уменьшены за десятилетия до размеров одиночных шкафов. Вычислительная мощность машин стала удваиваться каждые два года.
+
+\begin{figure}
+    \captionsetup[subfigure]{labelformat=empty}
+    \centering
+    %%\subfigure[{ \scriptsize \quad Д.Бардин, У.Шокли, У.Браттейн}]{\includegraphics[width=60mm, height=35mm]{transistor_team}} 
+\end{figure}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Алгоритмы, вычислительные машины и программы}
+\framesubtitle{План лекции}
+
+\begin{enumerate}
+  \setcounter{enumi}{-1}
+  \item{План лекции}
+  \item{Понятие алгоритма}
+  \item{Вычислительные машины}
+  \item{\textcolor{blue}{Алгоритмы и программы}}
+  \item{Алгоритмы и данные}
+  \item{Битовые операции}
+
+\end{enumerate}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Алгоритмы и программы}
+\framesubtitle{Программы и двоичный код}
+\justifying
+
+Алгоритмы являются подробными и точными инструкциями по решению какой-либо задачи. Каждый алгоритм предназначается для некоторого исполнителя.\newline
+
+ В реальной жизни исполнителями как правило являются люди или вычислительные машины. Например, инструкция по сборке мебели - это алгоритм предназначаемый для исполнителя-человека.\newline
+
+Однако, самые сложные задачи, связанные с обработкой, хранением и передачей информации  человек умышленно поручил вычислительным машинам.
+Вычислительные машины оперируют лишь двумя состояниями связанными с наличием тока или его отсутствием.\newline
+
+Эта физическая сущность компьютеров заставила людей использовать двоичную систему счисления или \textcolor{red}{двоичный код}.
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Алгоритмы и программы}
+\framesubtitle{Программы и двоичный код}
+\justifying
+
+Люди формулируют алгоритмы на понятном им языке, а компьютеры на языке двоичной системы счисления - с помощью нулей и единиц.\newline\newline Для формализации и описания алгоритмов в более понятной для вычислительных машин манере были созданы \textcolor{red}{языки программирования}.\newline\newline 
+Алгоритм решения задачи, записанный на конкретном языке программирования называется \textcolor{red}{программой}. То есть, программа это более узкое понятие, а алгоритм более широкое. Программа - это один из способов записи алгоритма. \newline\newline 
+\textcolor{red}{Программа} – набор инструкций на специальном языке, которые могут быть выполнены компьютером.
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Алгоритмы и программы}
+\framesubtitle{Машинный язык}
+\justifying
+\small
+Языки программирования можно условно разделить на несколько категорий.\newline\newline
+\textcolor{red}{Машинный язык}
+
+Программа на машинном языке читается компьютером напрямую, без промежуточных шагов.\newline
+
+Программа в машинном коде состоит из последовательности машинных инструкций в двоичном коде, которые содержат коды операций и ячейки памяти, участвующие в операции.
+
+
+\begin{figure}
+    \captionsetup[subfigure]{labelformat=empty}
+    \centering
+    \subfigure[{ \scriptsize \quad Пример двоичного кода}]{\includegraphics[width=40mm, height=20mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/binary_hw}} 
+    \subfigure[{ \scriptsize \quad Пример hex кода}]{\includegraphics[width=40mm, height=20mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/hex_hw}} 
+    \subfigure[{ \scriptsize \quad Пример программиста на машинном языке}]{\includegraphics[width=40mm, height=20mm]{processor_unit}} 
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Алгоритмы и программы}
+\framesubtitle{Ассемблер}
+\justifying
+\small
+
+\textcolor{red}{Ассемблер (assembler)}
+
+Символьное представление машинного языка конкретного процессора.\newline
+
+Обычно каждая строка кода сборки производит одну машинную инструкцию.\newline
+
+Программирование на ассемблере медленное и подвержено ошибкам, но более эффективно с точки зрения производительности оборудования.
+
+\begin{figure}
+    \captionsetup[subfigure]{labelformat=empty}
+    \centering
+    \subfigure[{ \scriptsize \quad Пример кода на ASM}]{\includegraphics[width=70mm, height=25mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/assembler_code_example}} 
+    \subfigure[{ \scriptsize \quad Пример программиста на ASM}]{\includegraphics[width=50mm, height=30mm]{old_geek}} 
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Алгоритмы и программы}
+\framesubtitle{Языки программирования высокого уровня}
+\justifying
+\small
+
+\textcolor{red}{Языки программирования высокого уровня (high-level programming languages)}\newline
+
+
+Языки программирования, в котором используются операторы, состоящие из похожих на английские ключевых слов, таких как «FOR», «PRINT» или «IF».\newline
+
+Каждое утверждение соответствует нескольким инструкциям машинного языка.\newline
+
+\begin{figure}
+    \captionsetup[subfigure]{labelformat=empty}
+    \centering
+    \subfigure[{ \scriptsize \quad Пример кода на Паскале (ЯВУ)}]{\includegraphics[width=65mm, height=25mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/pascal_code_example}} 
+    \subfigure[{ \scriptsize \quad Пример программиста на Паскале}]{\includegraphics[width=50mm, height=30mm]{tony_start}} 
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Алгоритмы и программы}
+\framesubtitle{Трансляция}
+\justifying
+\textcolor{red}{Транслятор} – программа, обеспечивающая перевод написанного нами исходного кода на внутренний язык компьютера. \newline\newline
+Обычно выделяют трансляторы двух типов: \textcolor{red}{компилятор} и \textcolor{red}{интерпретатор}
+\begin{figure}
+    \captionsetup[subfigure]{labelformat=empty}
+    \centering
+    \subfigure[{ \scriptsize \quad Трансляция, \href{https://www.cs.mtsu.edu/~xyang/2170/computerLanguages.html}{Источник} }]{\includegraphics[width=120mm, height=30mm]{programming_translation}} 
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Алгоритмы и программы}
+\framesubtitle{Компиляция}
+\begin{block}{}
+\begin{columns}[]
+\column{\dimexpr\linewidth-40mm}
+\justifying
+\small
+\textcolor{red}{Компилятор} — это программа, которая преобразует исходный код, написанный на одном из языков программирования, в исполняемый машинный код или в промежуточный код (например, байт-код).\newline\newline
+Компиляторы выполняют анализ и оптимизацию кода, чтобы создать эффективный и быстрый исполняемый файл.\newline
+
+Основные функции компилятора:
+\begin{itemize}
+\item{проверка синтаксиса исходного кода}
+\item{генерация машинного кода или байт-кода}
+\item{оптимизация кода для повышения производительности}
+\item{создание файлов объектного кода для компоновки с другими модулями}
+\end{itemize}
+
+\column{40mm}
+
+\includegraphics[width=40mm, height=60mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/compiler_code_stage}
+\centering
+\tiny Компиляция, \href{https://ya.ru}{источник} 
+
+\end{columns}
+\end{block}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Алгоритмы и программы}
+\framesubtitle{Интерпретация}
+\begin{block}{}
+\begin{columns}[]
+\column{\dimexpr\linewidth-40mm}
+\justifying
+\small
+\textcolor{red}{Интерпретатор} — это программа, которая выполняет исходный код программы построчно. В отличие от компилятора, интерпретатор не переводит программу в машинный код, а сразу выполняет инструкции.\newline\newline
+Основные функции интерпретатора:
+\begin{itemize}
+\item{чтение исходного кода программы}
+\item{последовательное выполнение каждой строки кода}
+\item{обработка ошибок и исключений во время выполнения программы}
+\end{itemize}
+
+Известные интерпретируемые языки программирования - Python, Java.
+
+\column{40mm}
+
+\includegraphics[width=40mm, height=60mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/interpreter_code_stage}
+\centering
+\tiny Интерпретация, \href{https://ya.ru}{источник} 
+
+\end{columns}
+\end{block}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Алгоритмы и программы}
+\framesubtitle{Компиляция vs Интерпретация}
+\justifying
+\small
+\centering
+Компиляция vs Интерпретация в процессе выполнения кода
+
+\begin{figure}
+    \captionsetup[subfigure]{labelformat=empty}
+    \centering
+    \subfigure[{ \scriptsize \quad После компиляции}]{\includegraphics[width=55mm, height=55mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/compiler_run_stage}} 
+    \subfigure[{ \scriptsize \quad После интерпретации}]{\includegraphics[width=50mm, height=55mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/interpreter_run_stage}}
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Алгоритмы и программы}
+\framesubtitle{Трансляция исходного кода в машинный в C/C++}
+\justifying
+\small
+\centering
+\includegraphics[width=90mm, height=60mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/cpp_how_compile}
+
+\scriptsize Источник - C++20 from novice to professional
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Алгоритмы, вычислительные машины и программы}
+\framesubtitle{План лекции}
+
+\begin{enumerate}
+  \setcounter{enumi}{-1}
+  \item{План лекции}
+  \item{Понятие алгоритма}
+  \item{Вычислительные машины}
+  \item{Алгоритмы и программы}
+  \item{\textcolor{blue}{Алгоритмы и данные}}
+  \item{Битовые операции}
+
+\end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Алгоритмы и данные}
+\framesubtitle{Представление данных}
+\justifying
+\small
+
+Информация, с которой работает алгоритм, представлена в памяти компьютера в виде последовательностей нулей и единиц. \newline\newline Наименьшая единица хранения - \textcolor{red}{бит/bit/binary digit} (0 или 1). \newline Наименьшая адресуемая единица хранения - \textcolor{red}{байт/byte} (последовательность из 8 бит).\newline\newline
+Процессор обрабатывает информацию манипулируя блоками из фиксированного количества бит. Такой блок называется \textcolor{red}{машинное слово (word)}. В ранних компьютерах размеры машинного слова составляли 12 или 16 бит. В современных процессорах это значение обычно составляет 64 бита.\newline\newline
+Двоичные последовительности достаточно громоздки для восприятия человеком. Для упрощения работы с данными один байт обычно делится на две \textcolor{red}{двоичные тетрады (tetrade, half-byte, nibble)}.
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Алгоритмы и данные}
+\framesubtitle{Представление данных}
+\justifying
+\small
+\centering
+\includegraphics[width=130mm, height=60mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/bit_byte_nibble_word}
+
+\scriptsize Источник - этот курс
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Алгоритмы и данные}
+\framesubtitle{Представление данных}
+\justifying
+\begin{block}{}
+\begin{columns}[]
+\column{\dimexpr\linewidth-40mm}
+\justifying
+\small
+Каждую тетраду/полубайт удобно представлять в виде одной цифры в шестнадцатиричной системе счисления, потому что для ее представления 
+нужно как раз 4 бита. Двоичные данные, записанные в таком виде обычно называют hex кодами (hexadecimal)\newline
+
+\centering
+\includegraphics[width=45mm, height=45mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/hex_to_bin_conversion}
+\centering
+
+\column{40mm}
+
+\includegraphics[width=30mm, height=60mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/hex_digits}
+\centering
+
+\end{columns}
+\end{block}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Алгоритмы и данные}
+\framesubtitle{Память}
+\justifying
+\begin{block}{}
+\begin{columns}[]
+\column{\dimexpr\linewidth-50mm}
+\justifying
+\normalsize
+
+Память компьютера можно рассматривать как очень большую ленту из пронумерованных байтов. Каждый ячейка содержит данные – значение от 0 до FF (две тетрады). \newline\newline Эти значения могут интерпретироваться по-разному в зависимости от того, данные какой природы мы ожидаем в этой памяти.
+
+\centering
+
+\column{50mm}
+
+\includegraphics[width=48mm, height=67mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/memory_example}
+\centering
+
+\end{columns}
+\end{block}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Алгоритмы и данные}
+\framesubtitle{Интерпретация двоичных данных}
+\justifying
+\small
+\centering
+\includegraphics[width=80mm, height=68mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/different_data_interpretation}
+
+\scriptsize Источник - Sedgewick \& Wayne + этот курс
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Алгоритмы и данные}
+\framesubtitle{Переменная и тип данных}
+\justifying
+Работая с данными в языках программирования необходимо знать начальный адрес данных в памяти, размер объекта данных и природу данных, записанных в этой памяти. \newline\newline Манипулировать этими компонентами напрямую - неудобно и непрозрачно для человека. Именно поэтому работа с данными осуществляется с помощью \textcolor{red}{имён переменных} и \textcolor{red}{типов данных}.\newline\newline
+\textcolor{red}{Имя переменной} – символьное обозначение адреса ячейки памяти, по которому хранится некоторое значение. Символьное имя позволяет понимать, о каких данных идет речь и упростить работу с ними.\newline\newline
+Каждой переменной обычно соответствует некоторый \textcolor{red}{тип данных}.
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Алгоритмы и данные}
+\framesubtitle{Тип данных}
+\justifying
+\small
+
+Тип данных определяет:
+
+\begin{itemize}
+\item{какого размера будет объект данного типа}
+\item{как будет интерпретироваться двоичная информация внутри объекта этого типа}
+\item{какие операции можно будет делать с объектами этого типа}
+\end{itemize}
+
+\includegraphics[width=140mm, height=30mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/int_types_example}
+\centering
+
+\scriptsize Источник - не помню, надо сменить картинку
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Алгоритмы и данные}
+\framesubtitle{Переменные в памяти}
+\justifying
+\begin{block}{}
+\begin{columns}[]
+\column{\dimexpr\linewidth-30mm}
+\justifying
+\small
+
+\centering
+\includegraphics[width=115mm, height=70mm]{simple_prog}
+\centering
+
+\column{30mm}
+
+\includegraphics[width=35mm, height=45mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/int_types_mem_example}
+\centering
+
+\end{columns}
+\end{block}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Алгоритмы и данные}
+\framesubtitle{Типы данных}
+\justifying
+\small
+
+Существуют различные категории типов данных:\newline\newline
+
+\textcolor{blue}{Целые числа (int/integer)}\newline
+Беззнаковые целые числа (unsigned)\newline
+Числа со знаком (signed)\newline\newline
+\textcolor{blue}{Вещественные числа/числа с плавающей точкой (floating point):}\newline
+числа с обычной точностью (float)\newline
+числа с двойной точностью (double)\newline\newline
+\textcolor{blue}{Символы (character):}\newline
+Символы (char)\newline
+Строки
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Алгоритмы и данные}
+\framesubtitle{Целочисленные типы данных}
+\justifying
+\small
+
+\textcolor{blue}{Беззнаковые целые числа (unsigned)}\newline\newline
+Стратегия хранения беззнаковых целых чисел достаточно тривиальна – хранится само число в двоичном виде без всяких модификаций.\newline\newline
+\textbf{Пример}: short c = 10 ---> 00000000 00001010\newline
+
+\centering
+\includegraphics[width=75mm, height=35mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/unsigned_int_types}\newline
+\centering
+\tiny Источник - Sedgewick \& Wayne
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Алгоритмы и данные}
+\framesubtitle{Целочисленные типы данных}
+\justifying
+\small
+В самом простом случае для представления отрицательных чисел в памяти компьютера можно использовать отдельных бит для знака (\textcolor{red}{sign bit}). На практике знаковым битом всегда выбирается самый левый (старший) бит.\newline\newline
+\textbf{Пример}: представим в 1 байте числа 6 и -6\newline
++ 6  = \textcolor{blue}{0}0000110\newline
+– 6  = \textcolor{blue}{1}0000110
+
+Такой способ представления называется \textcolor{red}{signed magnitude}.\newline
+\textcolor{blue}{Преимущество}: простота в понимании и использовании для человека\newline  
+\textcolor{blue}{Недостаток}: высокая сложность в использовании компьютером: сломанная арифметика, два нуля и тд
+
+\centering
+\includegraphics[width=70mm, height=20mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/signed_magn_example}\newline
+\centering
+\tiny Источник - C++20 from novice to professional
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Алгоритмы и данные}
+\framesubtitle{Целочисленные типы данных}
+\justifying
+\small
+Современные компьютеры используют другой подход: \textcolor{red}{дополнительный код (two’s complement)} представление.
+В данном представлении мы получаем любое отрицательное число по следующему алгоритму:
+\begin{enumerate}
+  \setcounter{enumi}{-1}
+  \item{Переводим рассматриваемое положительное число в двоичную форму}
+  \item{Инвертируем все биты числа, получаем так называемую \textcolor{red}{one’s complement form}}
+  \item{Добавляем к полученному числу 1, получаем \textcolor{red}{two’s complement form}}
+\end{enumerate}
+
+\textbf{Пример}\newline
+Переводим +8 в двоичную систему -----> 00001000\newline
+Инвертируем биты 00001000\quad\quad\quad -----> 11110111\newline
+Добавляем единицу 11110111 + 1 \quad\quad = 11111000\newline
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Алгоритмы и данные}
+\framesubtitle{Целочисленные типы данных}
+\justifying
+\begin{block}{}
+\begin{columns}[]
+\column{\dimexpr\linewidth-60mm}
+\justifying
+\small
+
+\centering
+\includegraphics[width=80mm, height=65mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/signed_all_table}
+\centering
+
+\column{60mm}
+
+\includegraphics[width=35mm, height=65mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/signed_16bit_example}
+\centering
+
+\end{columns}
+\end{block}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Алгоритмы и данные}
+\framesubtitle{Возможные значения знаковых целочисленных переменных}
+\justifying
+\small
+\centering
+\includegraphics[width=90mm, height=60mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/signed_int_types}
+
+\tiny Источник - Sedgewick \& Wayne 
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Алгоритмы и данные}
+\framesubtitle{Числа с плавающей точкой}
+\justifying
+\small
+Для представления дробных чисел компьютер имеет в своем распоряжении всё те же нули и единицы, однако задача усложняется.
+Вещественные числа представляются в памяти компьютера как \textcolor{red}{числа с плавающей точкой/floating point}.\newline
+Число с плавающей точкой состоит из трёх частей:
+\begin{itemize}
+\item{\textcolor{red}{Знак (sign)}. Ничего необычного, знак представляется единственным битом, где 0 - положительное число, 1 - отрицательное. Быстрая проверка на отрицательность.}
+\item{\textcolor{red}{Двоичная экспонента (binary exponent)}.Хранит знаковое целое число.}
+\begin{itemize}
+\item{5 бит (для 16 битных чисел)}
+\item{8 бит (для 32 битных чисел)}
+\item{11 бит (для 64 битных чисел)}
+\end{itemize}
+\item{\textcolor{red}{Мантисса (significand, mantissa, binary fraction)}. Хранит знаковое целое число.}
+\begin{itemize}
+\item{10 бит (для 16 битных чисел)}
+\item{23 бита (для 32 битных чисел)}
+\item{53 бита (для 64 битных чисел)}
+\end{itemize}
+\end{itemize}
+
+Все эти компоненты представлены в двоичном формате.
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Алгоритмы и данные}
+\framesubtitle{Числа с плавающей точкой}
+\justifying
+\small
+\centering
+\includegraphics[width=110mm, height=70mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/fp_conversions}
+
+\tiny Источник - Sedgewick \& Wayne 
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Алгоритмы и данные}
+\framesubtitle{Символы}
+\justifying
+\small
+Символы не могут быть напрямую представлены в памяти компьютера, поэтому они кодируются числами и создаются таблицы соответствия между кодами и самими символами. Такие таблицы называются \textcolor{red}{кодировками}.\newline\newline
+В 1960х годах для представления символов была создана таблица ASCII (American Standard Code for Information Interchange).\newline\newline
+Каждый код в этой таблице - 7 битное число, всего 128 разных варианта кодов.\newline
+
+0-31 - символы, которые нельзя напечатать на клавиатуре\newline
+65-90 - латинские символы в верхнем регистре\newline
+97-122 - латинские символы в нижнем регистре\newline
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Алгоритмы и данные}
+\framesubtitle{Символы}
+\justifying
+\small
+\centering
+\includegraphics[width=90mm, height=70mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/ascii_table}
+
+\tiny Источник - ?
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Алгоритмы, вычислительные машины и программы}
+\framesubtitle{План лекции}
+
+\begin{enumerate}
+  \setcounter{enumi}{-1}
+  \item{План лекции}
+  \item{Понятие алгоритма}
+  \item{Вычислительные машины}
+  \item{Алгоритмы и программы}
+  \item{Алгоритмы и данные}
+  \item{\textcolor{blue}{Битовые операции}}
+
+\end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Битовые операции}
+\framesubtitle{Основные битовые операторы}
+\justifying
+\small
+
+Из школьных курсов все мы помним о существовании булевых операций, таких как конъюнкция (AND), дизъюнкция (OR), отрицание (NOT) и исключающее или (XOR).\newline
+
+\begin{figure}
+    \captionsetup[subfigure]{labelformat=empty}
+    \centering
+    \subfigure[{ \scriptsize \quad Конъюнкция (И/AND)}]{\includegraphics[width=45mm, height=50mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/and_truth_table}} \quad\quad\quad
+    \subfigure[{ \scriptsize \quad Дизъюнкция (ИЛИ/OR)}]{\includegraphics[width=45mm, height=50mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/or_truth_table}} 
+    \newline
+    
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Битовые операции}
+\framesubtitle{Основные битовые операторы}
+\justifying
+\small
+
+Из школьных курсов все мы помним о существовании булевых операций, таких как конъюнкция (AND), дизъюнкция (OR), отрицание (NOT) и исключающее или (XOR).\newline
+
+\begin{figure}
+    \captionsetup[subfigure]{labelformat=empty}
+    \centering
+    \subfigure[{ \scriptsize Исключающее ИЛИ/XOR}]{\includegraphics[width=45mm, height=50mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/xor_truth_table}} \quad\quad\quad
+    \subfigure[{ \scriptsize \quad Отрицание (НЕ/NOT)}]{\includegraphics[width=45mm, height=50mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/not_truth_table}} 
+    \newline
+    
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Битовые операции}
+\framesubtitle{Числовые литералы}
+\justifying
+\small
+
+Для удобства работы с числами языки программирования обычно содержат разные варианты задания числовых констант (\textcolor{red}{литералов/literal}).
+\begin{figure}
+    \captionsetup[subfigure]{labelformat=empty}
+    \centering
+    \subfigure[{ \scriptsize Пример числовых литералов C/C++}]{\includegraphics[width=75mm, height=55mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/literals_example}}    
+    
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Битовые операции}
+\framesubtitle{Числовые литералы}
+\justifying
+\small
+
+Для удобства работы с числами языки программирования обычно содержат разные варианты задания числовых констант (\textcolor{red}{литералов/literal}).
+\begin{figure}
+    \captionsetup[subfigure]{labelformat=empty}
+    \centering
+    \subfigure[{ \scriptsize Пример числовых литералов C/C++}]{\includegraphics[width=75mm, height=55mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/literals_example}}
+    \subfigure[{ \scriptsize \quad Результат примера}]{\includegraphics[width=55mm, height=30mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/literals_example_result}}         
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Битовые операции}
+\framesubtitle{Пример битовых операции}
+\justifying
+\small
+Побитовые операторы применяют упомянутые выше логические операции не к одному биту, а сразу к целой последовательности бит.
+\begin{figure}
+    \captionsetup[subfigure]{labelformat=empty}
+    \centering
+    \subfigure[{ \scriptsize Пример числовых литералов C/C++}]{\includegraphics[width=75mm, height=55mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/bitwise_operator_example}}
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Битовые операции}
+\framesubtitle{Пример битовых операции}
+\justifying
+\small
+Побитовые операторы применяют упомянутые выше логические операции не к одному биту, а сразу к целой последовательности бит.
+\begin{figure}
+    \captionsetup[subfigure]{labelformat=empty}
+    \centering
+    \subfigure[{ \scriptsize Пример битовых операции C/C++}]{\includegraphics[width=75mm, height=55mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/bitwise_operator_example}}
+    \subfigure[{ \scriptsize \quad Результат примера}]{\includegraphics[width=55mm, height=30mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/bitwise_operator_example_result}}         
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Битовые операции}
+\framesubtitle{Битовые маски}
+\justifying
+\small
+\textcolor{red}{Битовая маска} - это специальное число, которое используется для работы с конкретными битами рассматриваемых данных. Такой способ работы приносит компактность и элегантность некоторых операций.
+\begin{figure}
+    \captionsetup[subfigure]{labelformat=empty}
+    \centering
+    \subfigure[{ \scriptsize Пример битовых масок}]{\includegraphics[width=70mm, height=50mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/bitmask_simple}}
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Битовые операции}
+\framesubtitle{Битовые маски}
+\justifying
+\small
+\textcolor{red}{Битовая маска} - это специальное число, которое используется для работы с конкретными битами рассматриваемых данных. Такой способ работы приносит компактность и элегантность некоторых операций.
+\begin{figure}
+    \captionsetup[subfigure]{labelformat=empty}
+    \centering
+    \subfigure[{ \scriptsize Пример битовых масок}]{\includegraphics[width=65mm, height=50mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/bitmask_simple}}
+    \subfigure[{ \scriptsize \quad Результат примера}]{\includegraphics[width=55mm, height=30mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/bitmask_simple_result}}         
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Битовые операции}
+\framesubtitle{Битовые сдвиги}
+\justifying
+\begin{figure}
+    \captionsetup[subfigure]{labelformat=empty}
+    \centering
+    \subfigure[{ \scriptsize Пример битовых масок}]{\includegraphics[width=70mm, height=70mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/bit_shift_example}}
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Битовые операции}
+\framesubtitle{Битовые сдвиги}
+\justifying
+\begin{figure}
+    \captionsetup[subfigure]{labelformat=empty}
+    \centering
+    \subfigure[{ \scriptsize Пример битовых масок}]{\includegraphics[width=70mm, height=70mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/bit_shift_example}}
+    \subfigure[{ \scriptsize \quad Результат примера}]{\includegraphics[width=45mm, height=60mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/bit_shift_example_result}}         
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Битовые операции}
+\framesubtitle{Задачи}
+\justifying
+\small
+
+\textcolor{blue}{Задача про пары чисел}\newline
+Дана последовательность \textcolor{blue}{A} из \textcolor{blue}{n} различных целых чисел.\newline Про последовательность известно, что каждое число кроме одного встречается в ней дважды. Найдите число, у которого нет пары.\newline
+
+Ограничения на входные данные:\newline
+$$\LARGE n \in \mathbb{N}, \quad 1 \leq n \leq 10^{9}$$
+$$\LARGE A = a_{1}, a_{2}, ... , a_{n}$$
+$$\LARGE 10^{-9}\leq a_i \leq 10^{9} \quad\quad \forall i \in \mathbb{N},\quad 1 \leq i \leq n$$
+
+Количество дополнительной памяти, используемой алгоритмом, не должно превышать 1MB, время работы 1 секунда.
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Слайд 63}
+\framesubtitle{Слайд 63}
+\justifying
+\small
+
+Дополнительный слайд, чтобы общее их количество стало равно 64.
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Слайд 64}
+\framesubtitle{Слайд 64}
+\justifying
+\small
+
+Дополнительный слайд, чтобы общее их количество стало равно 64.
+
+\end{frame}
+
+\end{document}
