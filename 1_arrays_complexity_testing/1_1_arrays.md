@@ -149,8 +149,6 @@ Row-major и column-major массивы
 
 ### Сложность операций в массивах
 
-![[array_complexity_table.png]]
-
 ![[array_complexity_table2.png]]
 
 ### Преимущества и недостатки массивов
