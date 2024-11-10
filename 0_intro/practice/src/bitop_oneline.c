@@ -44,7 +44,7 @@ int main() {
     print_bits_hi_to_lo(value);
 
     value = clear_bit(value, bit2);
-    printf("value after set bit %d  = ", bit2);
+    printf("value after clear bit %d  = ", bit2);
     print_bits_hi_to_lo(value);
 
     value = flip_bit(value, bit2);
