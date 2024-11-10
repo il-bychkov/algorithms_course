@@ -8,6 +8,6 @@
 ## Неделя 1
 ### Лекция- [Алгоритмы, задачи, вычислительные машины.](1_arrays_complexity_testing/lection/1_0_plan.md)
 
-### Слайды- [Алгоритмы, задачи, вычислительные машины.](lection/slides/1_arrays_complexity_testing.pdf)
+### Слайды- [Алгоритмы, задачи, вычислительные машины.](1_arrays_complexity_testing/lection/slides/1_arrays_complexity_testing.pdf)
 
 ### Практика - [Трансляция, переменные, типы данных, битовые операции.](1_arrays_complexity_testing/practice/practice.md)
