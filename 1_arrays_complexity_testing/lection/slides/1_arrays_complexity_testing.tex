@@ -479,11 +479,14 @@ $\LARGE n = 10^{4} \quad A = [1, 1, 1, ..., 1] \rightarrow$ \textcolor{blue}{П�
 \framesubtitle{Вычислительная сложность}
 \justifying
 Как оценить эффективность алгоритма, а не реализации?\newline\newline
-
 \textcolor{blue}{Идея 1}
 Привязка оценки эффективности алгоритма к \textcolor{red}{размеру используемых им входных данных} и самим данным.\newline\newline
+Например, в задачах на массивы таким размером обычно будет служить $n$ - количество элементов в массиве.\newline
 
-Объемы данных, обрабатываемых в рамках вычислительных задач, постоянно растут.
+Один проход по массиву - $\mathcal{O}(n)$ (линейная сложность)\newline\newline
+Перебор всех возможных пар элементов (без учета порядка) - $\frac{n \cdot (n-1)}{2} = \mathcal{O}(n^2)$ (квадратичная сложность)\newline\newline
+Выполение $m$ вставок в массив - $\mathcal{O}{(n \cdot m)}$\newline
+
 
 \end{frame}	
 
@@ -492,11 +495,15 @@ $\LARGE n = 10^{4} \quad A = [1, 1, 1, ..., 1] \rightarrow$ \textcolor{blue}{П�
 \frametitle{Вычислительная сложность алгоритмов}
 \framesubtitle{Вычислительная сложность}
 \justifying
+\small
 Как оценить эффективность алгоритма, а не реализации?\newline\newline
-
 \textcolor{blue}{Идея 2}
 Использование  ”элементарных” операций для подсчета времени работы алгоритма.  Элементарными можно считать арифметические операции, ввод-вывод, условный оператор, работу с переменными.
-
+\begin{figure}
+    \captionsetup[subfigure]{labelformat=empty}
+    \centering
+    \subfigure[{ \scriptsize Источник - Dasgupta, Papadimitriu, Vazirani}]{\includegraphics[width=65mm, height=48mm]{elementary_ops}} 
+\end{figure}
 \end{frame}	
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -563,6 +570,28 @@ $$f(n) = \Theta(g(n))$$
 \frametitle{Вычислительная сложность алгоритмов}
 \framesubtitle{O символика}
 \justifying
+\textcolor{red}{$f(n) = \mathcal{O}(g(n))$} - функция $g(n)$ является "верхней границей" \newline $f(n)$ растет не быстрее $g(n)$ с точностью до константы\newline $$ \exists   c \geq 0 ,  n_0 > 0 : \textcolor{blue}{f(n) \leq c \cdot g(n)} \quad \forall n \geq n_0$$\newline
+\textcolor{red}{$f(n) = \Omega(g(n))$} - функция $g(n)$ является "нижней границей" \newline $f(n)$ растет не медленнее $g(n)$ с точностью до константы\newline $$ \exists   c \geq 0 ,  n_0 > 0 : \textcolor{blue}{g(n) \leq c \cdot f(n)} \quad \forall n \geq n_0$$\newline
+\textcolor{red}{$f(n) = \Theta(g(n))$} - функции $g(n)$ и $f(n)$ имеют одинаковый порядок роста \newline  $$ \exists   c_1 \geq 0, c_2 \geq 0 ,  n_0 > 0 : \textcolor{blue}{c_1 \cdot g(n) \leq f(n) \leq c_2 \cdot g(n)} \quad \forall n \geq n_0$$
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Вычислительная сложность алгоритмов}
+\framesubtitle{O символика}
+\justifying
+
+\begin{figure}
+    \captionsetup[subfigure]{labelformat=empty}
+    \centering
+    \subfigure[{ \scriptsize Источник - \href{https://habr.com/ru/articles/188010/}{Хабр}}]{\includegraphics[width=90mm, height=45mm]{small_o}}     
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Вычислительная сложность алгоритмов}
+\framesubtitle{O символика}
+\justifying
 Несколько правил работы с O символикой
 
 \begin{figure}
@@ -581,7 +610,7 @@ $$f(n) = \Theta(g(n))$$
 \begin{figure}
     \captionsetup[subfigure]{labelformat=empty}
     \centering
-    \subfigure[{ \scriptsize Источник - указать}]{\includegraphics[width=100mm, height=60mm]{bigo_complexity_chart}} 
+    \subfigure[{ \scriptsize Источник - указать}]{\includegraphics[width=100mm, height=60mm]{bigo_complexity_chart}}     
 \end{figure}
 \end{frame}
 
@@ -594,7 +623,7 @@ $$f(n) = \Theta(g(n))$$
 \begin{figure}
     \captionsetup[subfigure]{labelformat=empty}
     \centering
-    \subfigure[{ \scriptsize Источник - указать}]{\includegraphics[width=120mm, height=45mm]{complexity_table}} 
+    \subfigure[{ \scriptsize Источник - указать}]{\includegraphics[width=120mm, height=45mm]{complexity_table}}     
 \end{figure}
 \end{frame}
 
