@@ -26,8 +26,8 @@
 \captionsetup[subfigure]{labelformat=empty}
 \renewcommand*{\thesubfigure}{(\arabic{subfigure})}
 \setsansfont{HSE Sans}
-%\graphicspath{{./images/}}
-\graphicspath{{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/slides/images}}
+
+\graphicspath{{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/lection/images}}
 
 
 %%% Информация об авторе и выступлении
@@ -424,8 +424,8 @@
 \begin{figure}
     \captionsetup[subfigure]{labelformat=empty}
     \centering
-    \subfigure[{ \scriptsize \quad Пример двоичного кода}]{\includegraphics[width=40mm, height=20mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/binary_hw}} 
-    \subfigure[{ \scriptsize \quad Пример hex кода}]{\includegraphics[width=40mm, height=20mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/hex_hw}} 
+    \subfigure[{ \scriptsize \quad Пример двоичного кода}]{\includegraphics[width=40mm, height=20mm]{binary_hw}} 
+    \subfigure[{ \scriptsize \quad Пример hex кода}]{\includegraphics[width=40mm, height=20mm]{hex_hw}} 
     \subfigure[{ \scriptsize \quad Пример программиста на машинном языке}]{\includegraphics[width=40mm, height=20mm]{processor_unit}} 
 \end{figure}
 \end{frame}
@@ -448,7 +448,7 @@
 \begin{figure}
     \captionsetup[subfigure]{labelformat=empty}
     \centering
-    \subfigure[{ \scriptsize \quad Пример кода на ASM}]{\includegraphics[width=70mm, height=25mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/assembler_code_example}} 
+    \subfigure[{ \scriptsize \quad Пример кода на ASM}]{\includegraphics[width=70mm,height=25mm]{assembler_code_example}}
     \subfigure[{ \scriptsize \quad Пример программиста на ASM}]{\includegraphics[width=50mm, height=30mm]{old_geek}} 
 \end{figure}
 \end{frame}
@@ -470,7 +470,7 @@
 \begin{figure}
     \captionsetup[subfigure]{labelformat=empty}
     \centering
-    \subfigure[{ \scriptsize \quad Пример кода на Паскале (ЯВУ)}]{\includegraphics[width=65mm, height=25mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/pascal_code_example}} 
+    \subfigure[{ \scriptsize \quad Пример кода на Паскале (ЯВУ)}]{\includegraphics[width=65mm, height=25mm]{pascal_code_example}} 
     \subfigure[{ \scriptsize \quad Пример программиста на Паскале}]{\includegraphics[width=50mm, height=30mm]{tony_start}} 
 \end{figure}
 \end{frame}
@@ -511,7 +511,7 @@
 
 \column{40mm}
 
-\includegraphics[width=40mm, height=60mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/compiler_code_stage}
+\includegraphics[width=40mm, height=60mm]{compiler_code_stage}
 \centering
 \tiny Компиляция, \href{https://ya.ru}{источник} 
 
@@ -540,7 +540,7 @@
 
 \column{40mm}
 
-\includegraphics[width=40mm, height=60mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/interpreter_code_stage}
+\includegraphics[width=40mm, height=60mm]{interpreter_code_stage}
 \centering
 \tiny Интерпретация, \href{https://ya.ru}{источник} 
 
@@ -560,8 +560,8 @@
 \begin{figure}
     \captionsetup[subfigure]{labelformat=empty}
     \centering
-    \subfigure[{ \scriptsize \quad После компиляции}]{\includegraphics[width=55mm, height=55mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/compiler_run_stage}} 
-    \subfigure[{ \scriptsize \quad После интерпретации}]{\includegraphics[width=50mm, height=55mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/interpreter_run_stage}}
+    \subfigure[{ \scriptsize \quad После компиляции}]{\includegraphics[width=55mm, height=55mm]{compiler_run_stage}} 
+    \subfigure[{ \scriptsize \quad После интерпретации}]{\includegraphics[width=50mm, height=55mm]{interpreter_run_stage}}
 \end{figure}
 \end{frame}
 
@@ -572,7 +572,7 @@
 \justifying
 \small
 \centering
-\includegraphics[width=90mm, height=60mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/cpp_how_compile}
+\includegraphics[width=90mm, height=60mm]{cpp_how_compile}
 
 \scriptsize Источник - C++20 from novice to professional
 \end{frame}
@@ -614,7 +614,7 @@
 \justifying
 \small
 \centering
-\includegraphics[width=130mm, height=60mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/bit_byte_nibble_word}
+\includegraphics[width=130mm, height=60mm]{bit_byte_nibble_word}
 
 \scriptsize Источник - этот курс
 
@@ -634,12 +634,12 @@
 нужно как раз 4 бита. Двоичные данные, записанные в таком виде обычно называют hex кодами (hexadecimal)\newline
 
 \centering
-\includegraphics[width=45mm, height=45mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/hex_to_bin_conversion}
+\includegraphics[width=45mm, height=45mm]{hex_to_bin_conversion}
 \centering
 
 \column{40mm}
 
-\includegraphics[width=30mm, height=60mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/hex_digits}
+\includegraphics[width=30mm, height=60mm]{hex_digits}
 \centering
 
 \end{columns}
@@ -663,7 +663,7 @@
 
 \column{50mm}
 
-\includegraphics[width=48mm, height=67mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/memory_example}
+\includegraphics[width=48mm, height=67mm]{memory_example}
 \centering
 
 \end{columns}
@@ -677,7 +677,7 @@
 \justifying
 \small
 \centering
-\includegraphics[width=80mm, height=68mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/different_data_interpretation}
+\includegraphics[width=80mm, height=68mm]{different_data_interpretation}
 
 \scriptsize Источник - Sedgewick \& Wayne + этот курс
 
@@ -708,7 +708,7 @@
 \item{какие операции можно будет делать с объектами этого типа}
 \end{itemize}
 
-\includegraphics[width=140mm, height=30mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/int_types_example}
+\includegraphics[width=140mm, height=30mm]{int_types_example}
 \centering
 
 \scriptsize Источник - не помню, надо сменить картинку
@@ -731,7 +731,7 @@
 
 \column{30mm}
 
-\includegraphics[width=35mm, height=45mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/int_types_mem_example}
+\includegraphics[width=35mm, height=45mm]{int_types_mem_example}
 \centering
 
 \end{columns}
@@ -770,7 +770,7 @@
 \textbf{Пример}: short c = 10 ---> 00000000 00001010\newline
 
 \centering
-\includegraphics[width=75mm, height=35mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/unsigned_int_types}\newline
+\includegraphics[width=75mm, height=35mm]{unsigned_int_types}\newline
 \centering
 \tiny Источник - Sedgewick \& Wayne
 \end{frame}
@@ -791,7 +791,7 @@
 \textcolor{blue}{Недостаток}: высокая сложность в использовании компьютером: сломанная арифметика, два нуля и тд
 
 \centering
-\includegraphics[width=70mm, height=20mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/signed_magn_example}\newline
+\includegraphics[width=70mm, height=20mm]{signed_magn_example}\newline
 \centering
 \tiny Источник - C++20 from novice to professional
 \end{frame}
@@ -830,12 +830,12 @@
 \small
 
 \centering
-\includegraphics[width=80mm, height=65mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/signed_all_table}
+\includegraphics[width=80mm, height=65mm]{signed_all_table}
 \centering
 
 \column{60mm}
 
-\includegraphics[width=35mm, height=65mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/signed_16bit_example}
+\includegraphics[width=35mm, height=65mm]{signed_16bit_example}
 \centering
 
 \end{columns}
@@ -849,7 +849,7 @@
 \justifying
 \small
 \centering
-\includegraphics[width=90mm, height=60mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/signed_int_types}
+\includegraphics[width=90mm, height=60mm]{signed_int_types}
 
 \tiny Источник - Sedgewick \& Wayne 
 \end{frame}
@@ -889,7 +889,7 @@
 \justifying
 \small
 \centering
-\includegraphics[width=110mm, height=70mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/fp_conversions}
+\includegraphics[width=110mm, height=70mm]{fp_conversions}
 
 \tiny Источник - Sedgewick \& Wayne 
 \end{frame}
@@ -916,7 +916,7 @@
 \justifying
 \small
 \centering
-\includegraphics[width=90mm, height=70mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/ascii_table}
+\includegraphics[width=90mm, height=70mm]{ascii_table}
 
 \tiny Источник - ?
 \end{frame}
@@ -950,8 +950,8 @@
 \begin{figure}
     \captionsetup[subfigure]{labelformat=empty}
     \centering
-    \subfigure[{ \scriptsize \quad Конъюнкция (И/AND)}]{\includegraphics[width=45mm, height=50mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/and_truth_table}} \quad\quad\quad
-    \subfigure[{ \scriptsize \quad Дизъюнкция (ИЛИ/OR)}]{\includegraphics[width=45mm, height=50mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/or_truth_table}} 
+    \subfigure[{ \scriptsize \quad Конъюнкция (И/AND)}]{\includegraphics[width=45mm, height=50mm]{and_truth_table}} \quad\quad\quad
+    \subfigure[{ \scriptsize \quad Дизъюнкция (ИЛИ/OR)}]{\includegraphics[width=45mm, height=50mm]{or_truth_table}} 
     \newline
     
 \end{figure}
@@ -969,8 +969,8 @@
 \begin{figure}
     \captionsetup[subfigure]{labelformat=empty}
     \centering
-    \subfigure[{ \scriptsize Исключающее ИЛИ/XOR}]{\includegraphics[width=45mm, height=50mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/xor_truth_table}} \quad\quad\quad
-    \subfigure[{ \scriptsize \quad Отрицание (НЕ/NOT)}]{\includegraphics[width=45mm, height=50mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/not_truth_table}} 
+    \subfigure[{ \scriptsize Исключающее ИЛИ/XOR}]{\includegraphics[width=45mm, height=50mm]{xor_truth_table}} \quad\quad\quad
+    \subfigure[{ \scriptsize \quad Отрицание (НЕ/NOT)}]{\includegraphics[width=45mm, height=50mm]{not_truth_table}} 
     \newline
     
 \end{figure}
@@ -987,7 +987,7 @@
 \begin{figure}
     \captionsetup[subfigure]{labelformat=empty}
     \centering
-    \subfigure[{ \scriptsize Пример числовых литералов C/C++}]{\includegraphics[width=75mm, height=55mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/literals_example}}    
+    \subfigure[{ \scriptsize Пример числовых литералов C/C++}]{\includegraphics[width=75mm, height=55mm]{literals_example}}    
     
 \end{figure}
 \end{frame}
@@ -1003,8 +1003,8 @@
 \begin{figure}
     \captionsetup[subfigure]{labelformat=empty}
     \centering
-    \subfigure[{ \scriptsize Пример числовых литералов C/C++}]{\includegraphics[width=75mm, height=55mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/literals_example}}
-    \subfigure[{ \scriptsize \quad Результат примера}]{\includegraphics[width=55mm, height=30mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/literals_example_result}}         
+    \subfigure[{ \scriptsize Пример числовых литералов C/C++}]{\includegraphics[width=75mm, height=55mm]{literals_example}}
+    \subfigure[{ \scriptsize \quad Результат примера}]{\includegraphics[width=55mm, height=30mm]{literals_example_result}}         
 \end{figure}
 \end{frame}
 
@@ -1018,7 +1018,7 @@
 \begin{figure}
     \captionsetup[subfigure]{labelformat=empty}
     \centering
-    \subfigure[{ \scriptsize Пример числовых литералов C/C++}]{\includegraphics[width=75mm, height=55mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/bitwise_operator_example}}
+    \subfigure[{ \scriptsize Пример числовых литералов C/C++}]{\includegraphics[width=75mm, height=55mm]{bitwise_operator_example}}
 \end{figure}
 \end{frame}
 
@@ -1032,8 +1032,8 @@
 \begin{figure}
     \captionsetup[subfigure]{labelformat=empty}
     \centering
-    \subfigure[{ \scriptsize Пример битовых операции C/C++}]{\includegraphics[width=75mm, height=55mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/bitwise_operator_example}}
-    \subfigure[{ \scriptsize \quad Результат примера}]{\includegraphics[width=55mm, height=30mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/bitwise_operator_example_result}}         
+    \subfigure[{ \scriptsize Пример битовых операции C/C++}]{\includegraphics[width=75mm, height=55mm]{bitwise_operator_example}}
+    \subfigure[{ \scriptsize \quad Результат примера}]{\includegraphics[width=55mm, height=30mm]{bitwise_operator_example_result}}         
 \end{figure}
 \end{frame}
 
@@ -1047,7 +1047,7 @@
 \begin{figure}
     \captionsetup[subfigure]{labelformat=empty}
     \centering
-    \subfigure[{ \scriptsize Пример битовых масок}]{\includegraphics[width=70mm, height=50mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/bitmask_simple}}
+    \subfigure[{ \scriptsize Пример битовых масок}]{\includegraphics[width=70mm, height=50mm]{bitmask_simple}}
 \end{figure}
 \end{frame}
 
@@ -1061,8 +1061,8 @@
 \begin{figure}
     \captionsetup[subfigure]{labelformat=empty}
     \centering
-    \subfigure[{ \scriptsize Пример битовых масок}]{\includegraphics[width=65mm, height=50mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/bitmask_simple}}
-    \subfigure[{ \scriptsize \quad Результат примера}]{\includegraphics[width=55mm, height=30mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/bitmask_simple_result}}         
+    \subfigure[{ \scriptsize Пример битовых масок}]{\includegraphics[width=65mm, height=50mm]{bitmask_simple}}
+    \subfigure[{ \scriptsize \quad Результат примера}]{\includegraphics[width=55mm, height=30mm]{bitmask_simple_result}}         
 \end{figure}
 \end{frame}
 
@@ -1074,7 +1074,7 @@
 \begin{figure}
     \captionsetup[subfigure]{labelformat=empty}
     \centering
-    \subfigure[{ \scriptsize Пример битовых масок}]{\includegraphics[width=70mm, height=70mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/bit_shift_example}}
+    \subfigure[{ \scriptsize Пример битовых масок}]{\includegraphics[width=70mm, height=70mm]{bit_shift_example}}
 \end{figure}
 \end{frame}
 
@@ -1086,8 +1086,8 @@
 \begin{figure}
     \captionsetup[subfigure]{labelformat=empty}
     \centering
-    \subfigure[{ \scriptsize Пример битовых масок}]{\includegraphics[width=70mm, height=70mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/bit_shift_example}}
-    \subfigure[{ \scriptsize \quad Результат примера}]{\includegraphics[width=45mm, height=60mm]{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/0_intro/images/bit_shift_example_result}}         
+    \subfigure[{ \scriptsize Пример битовых масок}]{\includegraphics[width=70mm, height=70mm]{bit_shift_example}}
+    \subfigure[{ \scriptsize \quad Результат примера}]{\includegraphics[width=45mm, height=60mm]{bit_shift_example_result}}         
 \end{figure}
 \end{frame}
 
@@ -1107,28 +1107,6 @@ $$\LARGE A = a_{1}, a_{2}, ... , a_{n}$$
 $$\LARGE 10^{-9}\leq a_i \leq 10^{9} \quad\quad \forall i \in \mathbb{N},\quad 1 \leq i \leq n$$
 
 Количество дополнительной памяти, используемой алгоритмом, не должно превышать 1MB, время работы 1 секунда.
-
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-\frametitle{Слайд 63}
-\framesubtitle{Слайд 63}
-\justifying
-\small
-
-Дополнительный слайд, чтобы общее их количество стало равно 64.
-
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-\frametitle{Слайд 64}
-\framesubtitle{Слайд 64}
-\justifying
-\small
-
-Дополнительный слайд, чтобы общее их количество стало равно 64.
 
 \end{frame}
 

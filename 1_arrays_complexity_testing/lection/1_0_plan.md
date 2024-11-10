@@ -1,6 +1,6 @@
 # Лекция 1.  Массивы, вычислительная сложность, тестирование.
 
-### Часть 0 - [План](algorithms_course/repo/algorithms_course/1_arrays_complexity_testing/1_0_plan.md)
+### Часть 0 - [План](algorithms_course/repo/algorithms_course/1_arrays_complexity_testing/lection/1_0_plan.md)
 
 ### Часть 1. [Структура данных: массив](1_1_arrays.md)
 #TODO: Добавить оглавление части
