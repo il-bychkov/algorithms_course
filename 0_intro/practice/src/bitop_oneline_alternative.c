@@ -12,3 +12,4 @@ int main() {
 	printf("Check n bit: %s\n", mask & x ? "yes" : "no");
 	return 0;
 }
+
