@@ -8,6 +8,7 @@ add_executable(addresses ${SRC_PREFIX}/addresses.c)
 add_executable(bitmasks ${SRC_PREFIX}/bitmasks.c)
 add_executable(bitmask_simple_example ${SRC_PREFIX}/bitmask_simple_example.c)
 add_executable(bitop_oneline ${SRC_PREFIX}/bitop_oneline.c)
+add_executable(bitop_oneline ${SRC_PREFIX}/bitop_oneline_alternative.c)
 add_executable(bitwise_operator_example ${SRC_PREFIX}/bitwise_operator_example.c)
 add_executable(check_overflow ${SRC_PREFIX}/check_overflow.c)
 add_executable(check_pwr_of_two ${SRC_PREFIX}/check_pwr_of_two.c)
@@ -25,6 +26,7 @@ INSTALL(
     bitmasks
     bitmask_simple_example
     bitop_oneline
+    bitop_oneline_alternative
     bitwise_operator_example
     check_overflow
     check_pwr_of_two
