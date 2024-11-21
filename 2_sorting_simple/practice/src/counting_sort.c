@@ -1,57 +1,58 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void countSort(int inputArray[], int N) {
+void countingSort(int* arr, int n) {
 
-    // Finding the maximum element of
-    // array inputArray[]
-    int M = 0;
-    for (int i = 0; i < N; i++)
-        if (inputArray[i] > M)
-            M = inputArray[i];
+    int maxEl = arr[0];
 
-    // Initializing countArray[] with 0
-    int* countArray = (int*)calloc(M + 1, sizeof(int));
-
-    // Mapping each element of inputArray[]
-    // as an index of countArray[] array
-    for (int i = 0; i < N; i++)
-        countArray[inputArray[i]]++;
-
-    // Calculating prefix sum at every index
-    // of array countArray[]
-    for (int i = 1; i <= M; i++)
-        countArray[i] += countArray[i - 1];
-
-    // Creating outputArray[] from countArray[] array
-    int* outputArray = (int*)malloc(N * sizeof(int));
-    for (int i = N - 1; i >= 0; i--) {
-        outputArray[countArray[inputArray[i]] - 1] = inputArray[i];
-        countArray[inputArray[i]]--;
+    for (int i = 1; i < n; ++i) {
+        if (arr[i] > maxEl) {
+            maxEl = arr[i];
+        }
     }
 
-    // Copying sorted elements back to inputArray[]
-    for (int i = 0; i < N; i++)
-        inputArray[i] = outputArray[i];
+    int* countArr = (int*)calloc((maxEl + 1), sizeof(arr[0]));
+    int* output = (int*)calloc(n, sizeof(arr[0]));
 
-    // Freeing dynamically allocated memory
-    free(countArray);
-    free(outputArray);
+    for(int i = 0; i < n; ++i) {
+        ++countArr[arr[i]];
+    }
+
+    int j = 0;
+
+    for (int i = 0; i < maxEl + 1; ++i) {
+        while (countArr[i] != 0) {
+            output[j] = i;
+            countArr[i]--;
+            j++;
+        }
+    }
+
+    for (int i = 0; i < 10; ++i) {
+        arr[i] = output[i];
+    }
+
+    free(output);
+    free(countArr);
 }
 
-// Driver code
-int main() {
+void printArray(int arr[], int n)
+{
+    for (int i = 0; i < n; ++i)
+        printf("%d ", arr[i]);
+    printf("\n");
+}
 
-    // Input array
-    int inputArray[] = {4, 3, 12, 1, 5, 5, 3, 9};
-    int N = sizeof(inputArray) / sizeof(inputArray[0]);
+int main(void)
+{
+    int* a = (int*)calloc(10, sizeof(int));
+    for (int i = 9; i >= 0; i--) {
+        a[10-i] = i;
+    }
 
-    // Sorting the array
-    countSort(inputArray, N);
+    countingSort(a, 10);
 
-    // Printing the sorted array
-    for (int i = 0; i < N; i++)
-        printf("%d ", inputArray[i]);
+    printArray(a, sizeof(a) / sizeof(a[0]));
 
     return 0;
 }
