@@ -6,6 +6,6 @@
 ### Секция 1 - [Merge Sort.](md/1.md)
 ### Секция 2 - [Quick Sort.](md/2.md)
 ### Секция 3 - [Tim Sort.](md/4.md)
-### Секция 3 - [Nth element.](md/3.md)
+### Секция 4 - [Nth element.](md/3.md)
 
 [к оглавлению](../../TOC.md)
