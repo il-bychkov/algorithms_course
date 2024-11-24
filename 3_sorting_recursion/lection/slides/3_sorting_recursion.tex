@@ -76,10 +76,10 @@
 \frametitle{Введение в рекурсию}
 \framesubtitle{Рекурсия}
 \justifying
-\textcolor{red}{Рекурсия} — алгоритмическией механизм, представляющий один из способов \newline организации повторяющихся действий. Механизм решения задачи через сведение ёё к самой себе, но для более простого случая.\newline\newline
+\textcolor{red}{Рекурсия} — алгоритмическией механизм, представляющий один из способов \newline организации повторяющихся действий. Механизм решения задачи через сведение её к самой себе, но для более простого случая.\newline\newline
 Отличительные особенности рекурсии:
 \begin{itemize}
-\item{Выполняет повторяющиеся действия для разнымых данных}
+\item{Выполняет повторяющиеся действия для разных данных}
 \item{Каждое новое выполнение/вызов решает более простую и меньшую по размерам задачу}
 \item{Необходим четко определённый базовый случай, для которого ответ тривиален и известен}
 \item{Необходим контроль за количеством выполняемых подзадач}
@@ -91,7 +91,13 @@
 \frametitle{Введение в рекурсию}
 \framesubtitle{Рекурсия}
 \justifying
-
+Рассмотрим простые задачи на рекурсию
+\begin{itemize}
+\item{Факториал/Последовательнось Фибоначчи}
+\item{Вывести все числа из [1,n]}
+\item{Палиндромы}
+\item{Сумма цифр}
+\end{itemize}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -287,6 +293,21 @@
 \begin{figure}
     \captionsetup[subfigure]{labelformat=empty}
     \centering
+    \subfigure[{ \scriptsize Быстрая сортировка, Источник - \href{-}{Cormen et al., 3rd edition}}]{\includegraphics[width=60mm, height=25mm]{qs_main_pseudo}}
+    \subfigure[{ \scriptsize Разбиение, Источник - \href{-}{Cormen et al., 3rd edition}}]{\includegraphics[width=75mm, height=50mm]{qs_lomuto_pseudo}} 
+\end{figure}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Быстрая сортировка}
+\framesubtitle{Пример}
+\justifying
+\textcolor{red}{Быстрая сортировка (Quick Sort)}
+\begin{figure}
+    \captionsetup[subfigure]{labelformat=empty}
+    \centering
     \subfigure[{ \scriptsize Быстрая сортировка, Источник - \href{-}{Неизвестен}}]{\includegraphics[width=90mm, height=59mm]{qs_example}} 
 \end{figure}
 
@@ -349,7 +370,7 @@
 \begin{figure}
     \captionsetup[subfigure]{labelformat=empty}
     \centering
-    \subfigure[{ \scriptsize  Разбиение, Источник - \href{https://algs4.cs.princeton.edu/lectures/keynote/22Mergesort.pdf}{Alg4cs Princeton - Sedgewick \& Wayne}}]{\includegraphics[width=65mm, height=25mm]{qs_common}} 
+    \subfigure[{ \scriptsize  Разбиение, Источник - \href{https://algs4.cs.princeton.edu/lectures/keynote/22Mergesort.pdf}{Alg4cs Princeton - Sedgewick \& Wayne}}]{\includegraphics[width=75mm, height=25mm]{qs_common}} 
     \subfigure[{ \scriptsize  Quick-select, Источник - \href{https://algs4.cs.princeton.edu/lectures/keynote/22Mergesort.pdf}{Alg4cs Princeton - Sedgewick \& Wayne}}]{\includegraphics[width=60mm, height=40mm]{qs_pseudo}} 
 \end{figure}
 \end{frame}
