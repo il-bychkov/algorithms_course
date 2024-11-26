@@ -14,8 +14,8 @@
 
 ## Неделя 2
 
-### Практика - [Сортировки, часть 1. Рекурсия.](2_sorting_part_1/practice/practice.md)
+### Практика - [Сортировки, часть 1. Рекурсия.](2_sorting_simple/practice/practice.md)
 
 ## Неделя 3
 
-### Практика - [Сортировки, часть 2. Рекурсия.](3_sorting_part_2/practice/practice.md)
+### Практика - [Сортировки, часть 2. Рекурсия.](3_sorting_recursion/practice/practice.md)
