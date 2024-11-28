@@ -55,4 +55,5 @@ build
 *build*
 !*build.sh*
 *bin*
+!binary_search.c
 !generate_build_scripts.py
