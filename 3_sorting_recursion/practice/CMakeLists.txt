@@ -14,6 +14,7 @@ add_executable(req_check_pwr_2 ${SRC_PREFIX}/req_check_pwr_2.c)
 add_executable(req_num_ones ${SRC_PREFIX}/req_num_ones.c)
 add_executable(req_rotate_digits ${SRC_PREFIX}/req_rotate_digits.c)
 add_executable(req_sum_digits ${SRC_PREFIX}/req_sum_digits.c)
+add_executable(req_sum_digits ${SRC_PREFIX}/tim_sort.c)
 
 INSTALL(
     TARGETS
@@ -27,6 +28,7 @@ INSTALL(
     req_num_ones
     req_rotate_digits
     req_sum_digits
+    tim_sort
     DESTINATION
     ${CMAKE_CURRENT_SOURCE_DIR}/${INSTAL_DIR}
 )
