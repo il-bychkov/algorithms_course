@@ -23,3 +23,7 @@
 ## Неделя 4
 
 ### Практика - [Поиск элемента в массиве.](4_search/practice/practice.md)
+
+## Неделя 5
+
+### Практика - [Простые структуры данных.](5_simple_data_structures/practice/practice.md)
