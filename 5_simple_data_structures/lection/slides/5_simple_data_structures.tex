@@ -56,7 +56,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}
-\frametitle{Алгоритмы поиска}
+\frametitle{Простые структуры данных}
 \framesubtitle{План лекции}
 
 \begin{enumerate}
@@ -210,6 +210,365 @@
     \captionsetup[subfigure]{labelformat=empty}
     \centering
     \subfigure[{ \scriptsize Связные списки - Преимущества и недостатки, Источник - Этот курс}]{\includegraphics[width=135mm, height=50mm]{ll_pros_cons}}
+\end{figure}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Простые структуры данных}
+\framesubtitle{План лекции}
+
+\begin{enumerate}
+  \setcounter{enumi}{-1}
+  \item{План лекции}
+  \item{Связный список (linked list)}
+  \item{\textcolor{blue}{Стек (stack)}}
+  \item{Очередь (queue)}
+\end{enumerate}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Стек}
+\framesubtitle{Стек}
+\justifying
+\textcolor{red}{Стек (Stack)} - это структура данных, работающая по принципу “последним добавлен – первым возвращен” – Last In First Out (LIFO)
+
+\begin{figure}
+    \captionsetup[subfigure]{labelformat=empty}
+    \centering
+    \subfigure[{ \scriptsize Принцип LIFO, Источник - \href{https://www.geeksforgeeks.org/lifo-principle-in-stack/}{Geeks4Geeks}}]{\includegraphics[width=100mm, height=40mm]{stack}}
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Стек}
+\framesubtitle{Реализация на массиве}
+\justifying
+\textcolor{red}{Стек (Stack)}
+
+\begin{figure}
+    \captionsetup[subfigure]{labelformat=empty}
+    \centering
+    \subfigure[{ \scriptsize Стек, реализация на массиве, Источник - Этот курс}]{\includegraphics[width=100mm, height=35mm]{stack_arrays}}
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Стек}
+\framesubtitle{Операции}
+Основные операции\newline\newline
+\textcolor{blue}{Доступ}
+\begin{itemize}
+  \item{Получение последнего элемента без удаления}
+\end{itemize}
+\textcolor{blue}{Вставка}
+\begin{itemize}
+  \item{В конец стека}
+\end{itemize}
+\textcolor{blue}{Удаление}
+\begin{itemize}
+  \item{Получение последнего элемента с удалением}
+\end{itemize}
+\textcolor{blue}{Дополнительно}
+\begin{itemize}
+  \item{Пуст ли стек?}
+  \item{Заполнен ли стек?}
+\end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Стек}
+\framesubtitle{Реализация на массиве}
+\justifying
+\textcolor{blue}{Доступ}
+\begin{itemize}
+  \item{Получение последнего элемента без удаления}
+\end{itemize}
+
+\begin{figure}
+    \captionsetup[subfigure]{labelformat=empty}
+    \centering
+    \subfigure[{ \scriptsize Операция peek, Источник - \href{https://www.geeksforgeeks.org/introduction-to-stack-data-structure-and-algorithm-tutorials/}{Geeks4Geeks}}]{\includegraphics[width=65mm, height=45mm]{stack_peek}}
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Стек}
+\framesubtitle{Реализация на массиве}
+\justifying
+\textcolor{blue}{Вставка}
+\begin{itemize}
+  \item{В конец стека}
+\end{itemize}
+
+\begin{figure}
+    \captionsetup[subfigure]{labelformat=empty}
+    \centering
+    \subfigure[{ \scriptsize Операция push, Источник - \href{https://www.geeksforgeeks.org/introduction-to-stack-data-structure-and-algorithm-tutorials/}{Geeks4Geeks}}]{\includegraphics[width=65mm, height=45mm]{stack_push}}
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Стек}
+\framesubtitle{Реализация на массиве}
+\justifying
+\textcolor{blue}{Удаление}
+\begin{itemize}
+  \item{Получение последнего элемента с удалением}
+\end{itemize}
+
+\begin{figure}
+    \captionsetup[subfigure]{labelformat=empty}
+    \centering
+    \subfigure[{ \scriptsize Операция pop, Источник - \href{https://www.geeksforgeeks.org/introduction-to-stack-data-structure-and-algorithm-tutorials/}{Geeks4Geeks}}]{\includegraphics[width=65mm, height=45mm]{stack_pop}}
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Стек}
+\framesubtitle{Реализация на массиве}
+\justifying
+\textcolor{blue}{Дополнительно}
+\begin{itemize}
+  \item{Пуст ли стек?}
+\end{itemize}
+
+\begin{figure}
+    \captionsetup[subfigure]{labelformat=empty}
+    \centering
+    \subfigure[{ \scriptsize Операция isEmpty, Источник - \href{https://www.geeksforgeeks.org/introduction-to-stack-data-structure-and-algorithm-tutorials/}{Geeks4Geeks}}]{\includegraphics[width=65mm, height=45mm]{stack_empty}}
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Стек}
+\framesubtitle{Реализация на массиве}
+\justifying
+\textcolor{blue}{Дополнительно}
+\begin{itemize}
+  \item{Полон ли стек?}
+\end{itemize}
+
+\begin{figure}
+    \captionsetup[subfigure]{labelformat=empty}
+    \centering
+    \subfigure[{ \scriptsize Операция isFull, Источник - \href{https://www.geeksforgeeks.org/introduction-to-stack-data-structure-and-algorithm-tutorials/}{Geeks4Geeks}}]{\includegraphics[width=65mm, height=45mm]{stack_full}}
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Стек}
+\framesubtitle{Пример}
+\justifying
+Пример использования
+
+\begin{figure}
+    \captionsetup[subfigure]{labelformat=empty}
+    \centering
+    \subfigure[{ \scriptsize Операция isFull, Источник - \href{https://www.geeksforgeeks.org/introduction-to-stack-data-structure-and-algorithm-tutorials/}{Geeks4Geeks}}]{\includegraphics[width=120mm, height=42mm]{stack_usage}}
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Стек}
+\framesubtitle{Реализация на связном списке}
+\justifying
+\textcolor{red}{Стек (Stack)}
+
+\begin{figure}
+    \captionsetup[subfigure]{labelformat=empty}
+    \centering
+    \subfigure[{ \scriptsize Стек, реализация на списке, Источник - Этот курс}]{\includegraphics[width=80mm, height=35mm]{stack_ll}}
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Стек}
+\framesubtitle{Реализация на связном списке}
+\justifying
+\textcolor{red}{Стек (Stack)}
+
+\begin{figure}
+    \captionsetup[subfigure]{labelformat=empty}
+    \centering
+    \subfigure[{ \scriptsize Стек, реализация на списке, Источник - \href{https://www.geeksforgeeks.org/introduction-to-stack-data-structure-and-algorithm-tutorials/}{Geeks4Geeks}}]{\includegraphics[width=100mm, height=50mm]{stack_ll_picture}}
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Стек}
+\framesubtitle{Сложность}
+\justifying
+\textcolor{red}{Стек (Stack)}
+
+\begin{figure}
+    \captionsetup[subfigure]{labelformat=empty}
+    \centering
+    \subfigure[{ \scriptsize Стек, сложность, Источник - Этот курс}]{\includegraphics[width=80mm, height=50mm]{stack_complexity_table}}
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Стек}
+\framesubtitle{Задачи на стек}
+\justifying
+Задачи на использование стека\newline\newline
+\textcolor{blue}{Определение правильности скобочной последовательности}\newline
+Дана строка состоящая из скобок разных видов ( ) [ ] \{ \}. Необходимо сообщить, является ли данная скобочная последовательность правильной.\newline\newline
+\textcolor{teal}{()()()[][]\{()\}} – правильная последовательность\newline\newline
+\textcolor{teal}{((()))\{\{\}\}[\{\}]} – правильная последовательность\newline\newline
+\textcolor{red}{\{[)\}} – неправильная последовательность\newline\newline
+\textcolor{red}{\}\{)(} – неправильная последовательность\newline\newline
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Простые структуры данных}
+\framesubtitle{План лекции}
+
+\begin{enumerate}
+  \setcounter{enumi}{-1}
+  \item{План лекции}
+  \item{Связный список (linked list)}
+  \item{Стек (stack)}
+  \item{\textcolor{blue}{Очередь (queue)}}
+\end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Очередь}
+\framesubtitle{Очередь}
+\justifying
+\textcolor{red}{Очередь (Queue)} - это структура данных, работающая по принципу “последним добавлен – первым возвращен” – Last In First Out (LIFO)
+
+\begin{figure}
+    \captionsetup[subfigure]{labelformat=empty}
+    \centering
+    \subfigure[{ \scriptsize Принцип FIFO, Источник - \href{https://www.geeksforgeeks.org/introduction-and-array-implementation-of-queue/}{Geeks4Geeks}}]{\includegraphics[width=120mm, height=40mm]{queue}}
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Очередь}
+\framesubtitle{Очередь}
+Основные операции\newline\newline
+\textcolor{blue}{Доступ}
+\begin{itemize}
+  \item{Получение первого элемента без удаления}
+  \item{Получение последнего элемента без удаления}
+\end{itemize}
+\textcolor{blue}{Вставка}
+\begin{itemize}
+  \item{В конец очереди}
+\end{itemize}
+\textcolor{blue}{Удаление}
+\begin{itemize}
+  \item{Удаление из начала очереди}
+\end{itemize}
+\textcolor{blue}{Дополнительно}
+\begin{itemize}
+  \item{Пуста ли очередь?}
+  \item{Заполнена ли очередь?}
+\end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Очередь}
+\framesubtitle{Очередь}
+\justifying
+\textcolor{red}{Очередь (Queue)}
+
+\begin{figure}
+    \captionsetup[subfigure]{labelformat=empty}
+    \centering
+    \subfigure[{ \scriptsize Очередь - реализация на массиве, Источник - \href{https://www.geeksforgeeks.org/introduction-and-array-implementation-of-queue/}{Geeks4Geeks}}]{\includegraphics[width=100mm, height=40mm]{queue_array}}
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Очередь}
+\framesubtitle{Создание}
+\justifying
+Операция создания очереди
+
+\begin{figure}
+    \captionsetup[subfigure]{labelformat=empty}
+    \centering
+    \subfigure[{ \scriptsize Создание очереди - реализация на массиве, Источник - \href{https://www.geeksforgeeks.org/introduction-and-array-implementation-of-queue/}{Geeks4Geeks}}]{\includegraphics[width=80mm, height=50mm]{queue_array_create}}
+\end{figure}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Очередь}
+\framesubtitle{Добавление в очередь}
+\justifying
+Операция enqueue
+
+\begin{figure}
+    \captionsetup[subfigure]{labelformat=empty}
+    \centering
+    \subfigure[{ \scriptsize Enqueue - реализация на массиве, Источник - \href{https://www.geeksforgeeks.org/introduction-and-array-implementation-of-queue/}{Geeks4Geeks}}]{\includegraphics[width=85mm, height=50mm]{queue_array_enqueue}}
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Очередь}
+\framesubtitle{Реализация на связном списке}
+\justifying
+
+\begin{figure}
+    \captionsetup[subfigure]{labelformat=empty}
+    \centering
+    \subfigure[{ \scriptsize Очередь на связном списке, Источник - \href{https://www.geeksforgeeks.org/queue-using-linked-list-in-c/}{Geeks4Geeks}}]{\includegraphics[width=100mm, height=50mm]{queue_ll}}
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Очередь}
+\framesubtitle{Пример использования}
+\justifying
+
+\begin{figure}
+    \captionsetup[subfigure]{labelformat=empty}
+    \centering
+    \subfigure[{ \scriptsize Очередь - пример, Источник - \href{https://www.geeksforgeeks.org/introduction-and-array-implementation-of-queue/}{Geeks4Geeks}}]{\includegraphics[width=120mm, height=50mm]{queue_example}}
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Очередь}
+\framesubtitle{Сложность операци (время)}
+\justifying
+
+\begin{figure}
+    \captionsetup[subfigure]{labelformat=empty}
+    \centering
+    \subfigure[{ \scriptsize Сложность операций с очередью, Источник - \href{https://www.geeksforgeeks.org/introduction-and-array-implementation-of-queue/}{Geeks4Geeks}}]{\includegraphics[width=65mm, height=55mm]{queue_complexity_table}}
 \end{figure}
 \end{frame}
 
