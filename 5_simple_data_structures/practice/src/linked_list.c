@@ -26,7 +26,7 @@ linked_list_node_t* get_tail_node(linked_list_t* list) {
 linked_list_node_t* get_node_by_value(linked_list_t* list, uint32_t value) {
     linked_list_node_t* tail = list->head;
 
-    while (tail && tail->next) {
+    while (tail) {
         if (tail->value == value) {
             return tail;
         }
@@ -123,6 +123,10 @@ void delete_value(linked_list_t* list, uint32_t value_to_delete) {
         linked_list_node_t* next_node_after_deleted = node_to_delete_after->next->next;
         free(node_to_delete_after->next);
         node_to_delete_after->next = next_node_after_deleted;
+    } else{
+        linked_list_node_t* node_to_delete = get_node_by_value(list, value_to_delete);
+        list->head = node_to_delete->next;
+        free(node_to_delete);
     }
 }
 
