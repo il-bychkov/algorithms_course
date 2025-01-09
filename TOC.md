@@ -1,4 +1,4 @@
-## Неделя 0
+﻿## Неделя 0
 ### Заметки - [Алгоритмы, задачи, вычислительные машины.](0_intro/lection/0_0_plan.md)
 
 ### Слайды- [Алгоритмы, задачи, вычислительные машины.](0_intro/lection/slides/0_introduction.pdf)
@@ -14,9 +14,13 @@
 
 ## Неделя 2
 
+### Слайды- [Сортировки, часть 1. Рекурсия.](2_sorting_simple/lection/slides/2_sorting_simple.pdf)
+
 ### Практика - [Сортировки, часть 1. Рекурсия.](2_sorting_simple/practice/practice.md)
 
 ## Неделя 3
+
+### Слайды- [Сортировки, часть 2. Рекурсия.](3_sorting_recursion/lection/slides/3_sorting_recursion.pdf)
 
 ### Практика - [Сортировки, часть 2. Рекурсия.](3_sorting_recursion/practice/practice.md)
 
