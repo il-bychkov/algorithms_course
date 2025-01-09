@@ -26,4 +26,8 @@
 
 ## Неделя 5
 
-### Практика - [Простые структуры данных.](5_simple_data_structures/practice/practice.md)
+### Практика - [Простые структуры данных, часть 1.](5_simple_data_structures/practice/practice.md)
+
+## Неделя 6
+
+### Практика - [Простые структуры данных, часть 2.](6_simple_data_structures_2/practice/practice.md)
