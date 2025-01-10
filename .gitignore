@@ -57,4 +57,6 @@ build
 *bin*
 !binary_search.c
 !binary_search_code.png
+!binary_search_for_unimodal_func.c
+!binary_search_for_unimodal_func_code.png
 !generate_build_scripts.py
