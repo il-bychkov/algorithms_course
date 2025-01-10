@@ -1,0 +1,560 @@
+%!TEX TS-program = xelatex
+
+% HSE Beamer Theme
+% by Danil Fedorovykh
+% http://hse.ru/staff/df
+%
+% Version 2.0 (English)
+% January 2022
+
+%%% Set up the free HSE Sans font
+%%% https://www.hse.ru/info/brandbook/#font
+
+\documentclass[aspectratio=169]{beamer}
+
+\newbool{russian}
+\booltrue{russian} % Uncomment if in Russian
+\usepackage{HSE-theme/beamerthemeHSE} % Load HSE theme
+\usepackage[no-math]{fontspec}      % fonts loading
+\usepackage{caption}
+\usepackage{subfigure}
+\usepackage{subcaption}
+\usepackage{hyperref}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{ragged2e}
+\captionsetup[figure]{labelformat=empty}
+\captionsetup[subfigure]{labelformat=empty}
+\renewcommand*{\thesubfigure}{(\arabic{subfigure})}
+\setsansfont{HSE Sans}
+%\graphicspath{{./images/}}
+\graphicspath{{/home/llyy/Yandex.Disk/personal/knowledge/general/algorithms_course/repo/algorithms_course/6_data_structures/lection/images}}
+
+
+%%% Информация об авторе и выступлении
+\title[Title]{Алгоритмы и структуры данных} 
+\subtitle{Лекция 6. Структуры данных}
+\author[Author's name]{Илья Сергеевич Бычков\\ \smallskip \scriptsize \url{ibychkov@hse.ru}}
+\institute{НИУ ВШЭ - Нижний Новгород}
+\date{\today}
+
+
+\begin{document}
+
+\frame[plain]{\titlepage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[c]
+%\frametitle{A first slide}
+
+\begin{center}
+\Huge Лекция 6.
+
+\Huge Структуры данных
+\end{center}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Структуры данных}
+\framesubtitle{План лекции}
+
+\begin{enumerate}
+  \setcounter{enumi}{-1}
+  \item{План лекции}
+  \item{\textcolor{blue}{Стек с поддержкой минимума/максимума}}
+  \item{Хэш-таблица (hash table)}
+\end{enumerate}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Стек с поддержкой минимума}
+\framesubtitle{Стек с поддержкой минимума}
+\justifying
+
+\textcolor{blue}{Задача:} Добавить возможность нахождения минимума в стеке за O (1), сохранив такой же асимптотику добавления и удаления элементов из стека.\newline\newline
+
+\textcolor{blue}{Решение:} Хранить в стеке не сами элементы, а пары: элемент и минимум в стеке, начиная с этого элемента и ниже.
+
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Структуры данных}
+\framesubtitle{План лекции}
+
+\begin{enumerate}
+  \setcounter{enumi}{-1}
+  \item{План лекции}
+  \item{Стек с поддержкой минимума/максимума}
+  \item{\textcolor{blue}{Хэш-таблица (hash table)}}
+\end{enumerate}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Ассоциативный массив}
+\framesubtitle{Ключи и значения}
+\justifying
+\textcolor{blue}{Задача}\newline
+Хранить данные и уникальные идентификаторы, по которым эти данные можно различать. Идентификатор будем называть \textcolor{red}{ключ}, а данные - \textcolor{red}{значение}. Таким образом, необходимо уметь хранить пары (ключ, значение) и работать с ними. \newline
+
+\textcolor{blue}{Абстракция ключ-значение}
+\begin{itemize}
+  \item{Вставка значения “по ключу”}
+  \item{Дан ключ, необходимо найти значение}
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Ассоциативный массив}
+\framesubtitle{Direct-address tables}
+\justifying
+\textcolor{blue}{Direct-address tables}\newline
+Простое решение в стиле сортировки подсчётом (counting sort). \newline Ключи - целые числа в некотором интервале [0, n - 1]. \newline Значения - произвольный объект. \newline
+
+\textcolor{blue}{Абстракция ключ-значение}
+\begin{itemize}
+  \item{Вставка значения “по ключу”}
+  \item{Дан ключ, необходимо найти значение}\newline
+\end{itemize}
+
+Операции поиска, вставки и удаления работают за O(1), так как они реализованы в виде работы с конкретными элементами массива.
+
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Ассоциативный массив}
+\framesubtitle{Direct-address tables}
+\justifying
+\textcolor{blue}{Direct-address tables}\newline
+
+\begin{figure}
+    \captionsetup[subfigure]{labelformat=empty}
+    \centering
+        \subfigure[{ \scriptsize Источник - \href{https://web.stanford.edu/class/archive/cs/cs161/cs161.1168/lecture9.pdf}{Stanford (Jessica Su) - Cormen et al.}}]{\includegraphics[width=100mm, height=50mm]{direct_address}} 
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Ассоциативный массив}
+\framesubtitle{Direct-address tables}
+\justifying
+\textcolor{blue}{Direct-address tables}\newline
+
+Операции поиска, вставки и удаления работают за O(1), так как они реализованы в виде работы с конкретными элементами массива.
+\begin{figure}
+    \captionsetup[subfigure]{labelformat=empty}
+    \centering
+        \subfigure[{ \scriptsize Источник - \href{https://web.stanford.edu/class/archive/cs/cs161/cs161.1168/lecture9.pdf}{Stanford (Jessica Su) - Cormen et al.}}]{\includegraphics[width=65mm, height=35mm]{direct_address_pseudo}} 
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Ассоциативный массив}
+\framesubtitle{Ассоциативный массив}
+\justifying
+\textcolor{red}{Ассоциативный массив/словарь/отображение (dictionary/map)}\newline
+это структура данных, обобщающая понятие массива, позволяющая хранить и \newline обрабатывать данные по произвольным \textcolor{red}{ключам}.\newline
+
+\textcolor{blue}{Обобщение массива} Индексы массива не обязательно могут быть числами \newline от 0 до N-1\newline
+
+Поддержка в современных языках
+\begin{itemize}
+\item{Сторонние библиотеки: C, VisualBasic, Standard ML, bash, ...}
+\item{Встроенные библиотеки: Java, C\#, C++, Scala, ...}
+\item{Поддержка на уровне языка: Awk, Perl, PHP, Tcl, JavaScript, Python, Ruby, Lua}
+\end{itemize}
+
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Ассоциативный массив}
+\framesubtitle{Ассоциативный массив}
+
+\textcolor{blue}{Пример - DNS lookup}
+\begin{itemize}
+  \item{Добавить URL с настоящим адресом}
+  \item{Дан URL, необходимо узнать адрес}
+\end{itemize}
+\begin{figure}
+    \captionsetup[subfigure]{labelformat=empty}
+    \centering
+        \subfigure[{ \scriptsize Источник - \href{https://algs4.cs.princeton.edu/home/}{Sedjwick, Wayne - algs4.cs.princeton.edu}}]{\includegraphics[width=70mm, height=20mm]{dict_dns_example}} 
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Ассоциативный массив}
+\framesubtitle{Ассоциативный массив}
+\textcolor{blue}{Ассоциативный массив.} Каждый элемент данных (значение) ассоциируется с некоторым идентификатором (ключ)\newline\newline
+Функциональность:
+\begin{itemize}
+\item{put(key, value), обычно a[key] = value}
+\item{put(key, value) перезаписывает старое значение новым}
+\item{get(key), обычно a[key]}
+\item{get(key) возвращает null если не существует значения по заданному ключу}\newline
+\end{itemize}
+
+Легкая реализация contains(key) и delete(key)
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Ассоциативный массив}
+\framesubtitle{Возможные реализации}
+
+\textcolor{blue}{Структура данных.} Связный список пар ключ-значение\newline\newline
+\textcolor{blue}{Поиск.} Исследуем все элементы пока не найдем совпадение или не закончится список\newline\newline
+\textcolor{blue}{Вставка.} Исследуем все элементы пока не найдем совпадения, если не нашли – вставляем в начало\newline
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Ассоциативный массив}
+\framesubtitle{Возможные реализации}
+
+\textcolor{blue}{Структура данных.} Связный список пар ключ-значение\newline
+\begin{figure}
+    \captionsetup[subfigure]{labelformat=empty}
+    \centering
+        \subfigure[{ \scriptsize Источник - \href{https://algs4.cs.princeton.edu/home/}{Sedjwick, Wayne - algs4.cs.princeton.edu}}]{\includegraphics[width=105mm, height=55mm]{dict_ll_impl}} 
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Ассоциативный массив}
+\framesubtitle{Возможные реализации}
+
+\textcolor{blue}{Структура данных.} Сохраняем элементы в виде таблицы(массива) при помощи \textcolor{red}{хэш-функции}.\newline\newline
+\textcolor{blue}{Хэш-функция.} Функция для вычисления индекса массива по ключу.
+
+\begin{figure}
+    \captionsetup[subfigure]{labelformat=empty}
+    \centering
+        \subfigure[{ \scriptsize Источник - \href{https://algs4.cs.princeton.edu/home/}{algs4.cs.princeton.edu}}]{\includegraphics[width=65mm, height=40mm]{hash_example}} 
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Ассоциативный массив}
+\framesubtitle{Хэш-функция}
+
+\textcolor{blue}{Хэш-функция}. Функция для вычисления индекса массива по ключу.
+
+Проблемы. 
+\begin{itemize}
+\item{Вычисление хэш-функции}
+\item{Тест на равенство: Проверить что два ключа равны}
+\item{Разрешение коллизий: Обработка ситуации когда два ключа имеют одинаковое значение хэш-функции}\newline
+\end{itemize}
+
+\textcolor{blue}{Classic space-time tradeoff}
+
+\begin{itemize}
+\item{Нет ограничений на память: тривиальная хэш-функция, где значение ключа и есть индекс}
+\item{Нет ограничений на время: тривиальный алгоритм разрешения коллизий – использование линейного поиска}
+\item{Ограничения: hashing (the real world)}\newline
+\end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Ассоциативный массив}
+\framesubtitle{Хэш-функция}
+
+\textcolor{blue}{Хэш-функция}\newline Идеальный случай: ключи равномерно распределены по массиву\newline
+
+
+Эффективность по вычислениям\newline
+
+\textcolor{blue}{Пример}. Телефонные номера\newline\newline
+Плохой вариант: первые 3 цифры\newline
+Хороший вариант: последние 3 цифры\newline
+
+Нетривиальная задача на практике. \newline Необходим различный подход для разных типов ключей
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Ассоциативный массив}
+\framesubtitle{Хэш-функция}
+
+\textcolor{blue}{Хэш-функция.} Функция для вычисления индекса массива по ключу.
+
+\begin{figure}
+    \captionsetup[subfigure]{labelformat=empty}
+    \centering
+        \subfigure[{ \scriptsize Источник - \href{https://algs4.cs.princeton.edu/home/}{Sedjwick, Wayne - algs4.cs.princeton.edu}}]{\includegraphics[width=100mm, height=55mm]{hash_example_java}} 
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Ассоциативный массив}
+\framesubtitle{Хэш-функция}
+
+\textcolor{blue}{Хэширование строк} \newline
+\begin{itemize}
+\item{A=a[0]a[1]a[2]…a[i] – символы}
+\item{Использовать все символы – хорошая практика, иначе возможно большое количество коллизий}
+\item{Например, если a[0] не используется, hash(“aa”) = hash(“ba”) = … = hash(“za”)}\newline
+\end{itemize}
+
+
+\textcolor{blue}{Полиномиальный хэш}
+
+\begin{figure}
+    \captionsetup[subfigure]{labelformat=empty}
+    \centering
+        \subfigure[{ \scriptsize Источник - Добавить}]{\includegraphics[width=120mm, height=9mm]{hash_poly}} 
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Ассоциативный массив}
+\framesubtitle{Хэш-функция}
+
+\textcolor{blue}{Хэш-функция.} Функция для вычисления индекса массива по ключу.
+
+\begin{figure}
+    \captionsetup[subfigure]{labelformat=empty}
+    \centering
+        \subfigure[{ \scriptsize Источник - \href{https://algs4.cs.princeton.edu/home/}{Sedjwick, Wayne - algs4.cs.princeton.edu}}]{\includegraphics[width=125mm, height=55mm]{hash_java_str}} 
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Ассоциативный массив}
+\framesubtitle{Коллизия}
+
+\textcolor{blue}{Коллизия.} Два различных ключа имеют одинаковое хэш-значение.\newline
+\textcolor{blue}{Задача.} Придумать механизм для эффективного разрешения коллизий.
+
+\begin{figure}
+    \captionsetup[subfigure]{labelformat=empty}
+    \centering
+        \subfigure[{ \scriptsize Источник - Добавить}]{\includegraphics[width=85mm, height=55mm]{collision_names_example}} 
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Ассоциативный массив}
+\framesubtitle{Метод цепочек}
+
+\textcolor{blue}{Метод цепочек (chain hashing).} Используем массив из M < N связных списков. [H. P. Luhn, IBM 1953] .\newline\newline
+\textcolor{blue}{Хэширование.} Отображение в целое число между 0 и M - 1. \newline\newline
+\textcolor{blue}{Вставка.} вставка в начало цепи i (если элемента нет). \newline\newline
+\textcolor{blue}{Поиск.} необходимость поиска только в цепи i. \newline\newline
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Ассоциативный массив}
+\framesubtitle{Метод цепочек}
+
+\textcolor{blue}{Метод цепочек (chain hashing).} Используем массив из M < N связных списков. [H. P. Luhn, IBM 1953] .\newline
+
+\begin{figure}
+    \captionsetup[subfigure]{labelformat=empty}
+    \centering
+        \subfigure[{ \scriptsize Источник - \href{https://web.stanford.edu/class/archive/cs/cs161/cs161.1168/lecture9.pdf}{Stanford (Jessica Su) - Cormen et al.}}]{\includegraphics[width=110mm, height=50mm]{collision_chain_example2}}
+         
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Ассоциативный массив}
+\framesubtitle{Метод цепочек}
+
+\textcolor{blue}{Метод цепочек (chain hashing).} Используем массив из M < N связных списков. [H. P. Luhn, IBM 1953] .\newline
+
+\begin{figure}
+    \captionsetup[subfigure]{labelformat=empty}
+    \centering
+        \subfigure[{ \scriptsize Источник - \href{https://algs4.cs.princeton.edu/home/}{Sedjwick, Wayne - algs4.cs.princeton.edu}}]{\includegraphics[width=90mm, height=50mm]{collision_chain_example1}} 
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Хэш-таблица}
+\framesubtitle{Метод цепочек}
+
+\textcolor{blue}{Издержки.} Число исследований (\textcolor{red}{probes}) для поиска и вставки пропорционально N / M. 
+
+\begin{itemize}
+\item{Слишком большое M ⇒ слишком много пустых цепочек}
+\item{Слишком маленькое M ⇒ слишком длинные цепочки}
+\item{Практический результат: M ~ N / 4 ⇒ константное время операций}\newline
+\end{itemize}
+
+\textcolor{blue}{Цель}. Средняя длинна цепи N / M - константа.
+\begin{itemize}
+\item{Удваиваем значение M когда N / M ≥ 8}
+\item{Делим пополам значение M когда N / M ≤ 2}
+\item{Повторное хэширование после изменения размеров}\newline
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Хэш-таблица}
+\framesubtitle{Метод цепочек}
+
+\textcolor{blue}{Метод цепочек (chain hashing).} Используем массив из M < N связных списков. [H. P. Luhn, IBM 1953] .\newline
+
+\begin{figure}
+    \captionsetup[subfigure]{labelformat=empty}
+    \centering
+        \subfigure[{ \scriptsize Источник - \href{https://algs4.cs.princeton.edu/home/}{Sedjwick, Wayne - algs4.cs.princeton.edu}}]{\includegraphics[width=90mm, height=50mm]{collision_chain_resize}} 
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Хэш-таблица}
+\framesubtitle{Метод цепочек}
+
+Удаление элемента\newline
+
+\begin{figure}
+    \captionsetup[subfigure]{labelformat=empty}
+    \centering
+        \subfigure[{ \scriptsize Источник - \href{https://algs4.cs.princeton.edu/home/}{Sedjwick, Wayne - algs4.cs.princeton.edu}}]{\includegraphics[width=105mm, height=50mm]{collision_chain_remove}} 
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Хэш-таблица}
+\framesubtitle{Метод открытой адресации}
+
+\textcolor{blue}{Метод открытой адресации (open addressing).} При возникновении коллизии ищем первый доступный пустой слот и помещаем туда ключ/значение [Amdahl-Boehme-Rocherster-Samuel, IBM 1953] .
+
+\begin{figure}
+    \captionsetup[subfigure]{labelformat=empty}
+    \centering
+        \subfigure[{ \scriptsize Источник - \href{https://algs4.cs.princeton.edu/home/}{Sedjwick, Wayne - algs4.cs.princeton.edu}}]{\includegraphics[width=45mm, height=45mm]{open_addressing_table}} 
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Хэш-таблица}
+\framesubtitle{Метод открытой адресации}
+
+\textcolor{blue}{Метод открытой адресации (open addressing)}\newline
+
+\textcolor{blue}{Хэширование.} Отображение ключей на интервал [0, М-1]\newline
+\textcolor{blue}{Вставка.} Если индекс в массиве свободен – записываем значение туда. Иначе пробуем i+1, i+2 и тд\newline
+\textcolor{blue}{Note.} Размер массива должен вместить все пары ключ-значение.\newline
+search K\newline
+hash(K) = 5
+
+\begin{figure}
+    \captionsetup[subfigure]{labelformat=empty}
+    \centering
+        \subfigure[{ \scriptsize Источник - \href{https://algs4.cs.princeton.edu/home/}{Sedjwick, Wayne - algs4.cs.princeton.edu}}]{\includegraphics[width=125mm, height=25mm]{open_addressing_example}} 
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Хэш-таблица}
+\framesubtitle{Метод открытой адресации}
+
+\begin{figure}
+    \captionsetup[subfigure]{labelformat=empty}
+    \centering
+        \subfigure[{ \scriptsize Источник - \href{https://algs4.cs.princeton.edu/home/}{Sedjwick, Wayne - algs4.cs.princeton.edu}}]{\includegraphics[width=90mm, height=60mm]{open_addressing_linear_probing}} 
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Хэш-таблица}
+\framesubtitle{Linear robing}
+
+\begin{figure}
+    \captionsetup[subfigure]{labelformat=empty}
+    \centering
+        \subfigure[{ \scriptsize Источник - \href{https://web.stanford.edu/class/archive/cs/cs161/cs161.1168/lecture9.pdf}{Stanford (Jessica Su) - Cormen et al.}}]{\includegraphics[width=140mm, height=20mm]{linear_probing}} 
+\end{figure}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Хэш-таблица}
+\framesubtitle{Quadratic robing}
+
+\begin{figure}
+    \captionsetup[subfigure]{labelformat=empty}
+    \centering
+        \subfigure[{ \scriptsize Источник - \href{https://web.stanford.edu/class/archive/cs/cs161/cs161.1168/lecture9.pdf}{Stanford (Jessica Su) - Cormen et al.}}]{\includegraphics[width=140mm, height=20mm]{quadratic_probing}} 
+\end{figure}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Хэш-таблица}
+\framesubtitle{Double hashing}
+
+\begin{figure}
+    \captionsetup[subfigure]{labelformat=empty}
+    \centering
+        \subfigure[{ \scriptsize Источник - \href{https://web.stanford.edu/class/archive/cs/cs161/cs161.1168/lecture9.pdf}{Stanford (Jessica Su) - Cormen et al.}}]{\includegraphics[width=140mm, height=15mm]{double_hashing}} 
+\end{figure}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{Хэш-таблица}
+\framesubtitle{Метод открытой адресации}
+
+
+Many improved versions have been studied. \newline
+
+\textcolor{blue}{Two-probe hashing} [ separate-chaining variant ] \newline
+Hash to two positions, insert key in shorter of the two chains. \newline
+
+\textcolor{blue}{Double hashing} [ linear-probing variant ] \newline
+Use linear probing, but skip a variable amount, not just 1 each time. \newline
+Effectively eliminates clustering. \newline
+
+\textcolor{blue}{Cuckoo hashing} [ linear-probing variant ] \newline
+Hash key to two positions; insert key into either position; if occupied, reinsert displaced key into its alternative position. 
+
+
+\end{frame}
+
+\end{document}
