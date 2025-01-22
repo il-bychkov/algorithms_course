@@ -58,3 +58,12 @@ build
 !binary_search.c
 !binary_search_code.png
 !generate_build_scripts.py
+!binary_tree.c
+!binary_tree_add_element_code.png
+!binary_tree_create_delete_code.png
+!binary_tree_data_structures_code.png
+!binary_tree_delete_element_code.png
+!binary_tree_find_element_code.png
+!binary_tree_traverse_code.png
+!heap_tree_get_max_code.png
+!heap_tree_heapify_code.png
