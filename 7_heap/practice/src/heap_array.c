@@ -21,19 +21,19 @@ void heapify(int* heap, int size, int i)
     int leftChild = 2 * i + 1;
     int rightChild = 2 * i + 2;
 
-    int smallest = i;
+    int biggest = i;
     if (leftChild < size
-        && heap[leftChild] > heap[smallest]) {
-        smallest = leftChild;
+        && heap[leftChild] > heap[biggest]) {
+        biggest = leftChild;
     }
     if (rightChild < size
-        && heap[rightChild] > heap[smallest]) {
-        smallest = rightChild;
+        && heap[rightChild] > heap[biggest]) {
+        biggest = rightChild;
     }
 
-    if (smallest != i) {
-        swap(heap + i, heap + smallest);
-        heapify(heap, size, smallest);
+    if (biggest != i) {
+        swap(heap + i, heap + biggest);
+        heapify(heap, size, biggest);
     }
 }
 
@@ -84,14 +84,14 @@ void delete(int* heap, int* size, int index)
     heapify(heap, *size, index);
 }
 
-// extract the mininmum
+// extract the maximum
 int get_max(int* heap, int* size)
 {
-    int min = heap[0];
+    int max = heap[0];
 
     delete (heap, size, 0);
 
-    return min;
+    return max;
 }
 
 int main()

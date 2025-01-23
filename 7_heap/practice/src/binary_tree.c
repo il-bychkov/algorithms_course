@@ -108,7 +108,7 @@ binary_tree_node_t* dequeue(queue_t* queue) {
         linked_list_node_t* new_tail = queue->tail->prev;
 
         if(new_tail) {
-            new_tail->next == NULL;
+            new_tail->next = NULL;
         }
 
         if(queue->tail == queue->head) {
