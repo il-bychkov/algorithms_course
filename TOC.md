@@ -27,3 +27,7 @@
 ## Неделя 5
 
 ### Практика - [Простые структуры данных.](5_simple_data_structures/practice/practice.md)
+
+## Неделя 7
+
+### Практика - [Binary heap.](7_heap/practice/practice.md)
