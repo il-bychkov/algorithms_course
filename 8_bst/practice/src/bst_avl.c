@@ -124,6 +124,7 @@ bst_node_t* new_node(uint32_t value) {
     temp->value = value;
     temp->left  = NULL;
     temp->right = NULL;
+    fix_height(temp);
     return temp;
 }
 

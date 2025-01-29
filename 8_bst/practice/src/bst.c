@@ -1,14 +1,14 @@
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
 // ported from
 // https://www.geeksforgeeks.org/insertion-in-binary-search-tree/
 // https://www.geeksforgeeks.org/deletion-in-binary-search-tree/
 // https://www.geeksforgeeks.org/binary-search-tree-traversal-inorder-preorder-post-order/
 
-typedef struct bst_node
-{
+typedef struct bst_node {
     uint32_t value;
     struct bst_node* left;
     struct bst_node* right;
@@ -130,6 +130,23 @@ bst_node_t* _delete_node(bst_node_t* root, int value) {
 
 void delete_node(bst_t* bst, uint32_t value) {
     bst->root = _delete_node(bst->root, value);
+}
+
+bool _find_node(bst_node_t* node, int value) {
+    if (node == NULL)
+        return false;
+
+    if (node->value == value)
+        return true;
+
+    if (node->value < value)
+        return _find_node(node->right, value);
+    else
+        return _find_node(node->left, value);
+}
+
+void find_node(bst_t* bst, uint32_t value) {
+    return _find_node(bst->root, value);
 }
 
 void _print_inorder(bst_node_t* node) {
