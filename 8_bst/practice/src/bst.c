@@ -145,7 +145,7 @@ bool _find_node(bst_node_t* node, int value) {
         return _find_node(node->left, value);
 }
 
-void find_node(bst_t* bst, uint32_t value) {
+bool find_node(bst_t* bst, uint32_t value) {
     return _find_node(bst->root, value);
 }
 

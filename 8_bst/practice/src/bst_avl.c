@@ -69,25 +69,25 @@ void fix_height(bst_node_t* node) {
 }
 
 bst_node_t* rotate_right(bst_node_t* node) {
-    bst_node_t* new_node = node->left;
-    node->left = new_node->right;
-    new_node->right = node;
+    bst_node_t* left = node->left;
+    node->left = left->right;
+    left->right = node;
 
     fix_height(node);
-    fix_height(new_node);
+    fix_height(left);
 
-    return new_node;
+    return left;
 }
 
 bst_node_t* rotate_left(bst_node_t* node) {
-    bst_node_t* new_node = node->right;
-    node->right = new_node->left;
-    new_node->left = node;
+    bst_node_t* right = node->right;
+    node->right = right->left;
+    right->left = node;
 
     fix_height(node);
-    fix_height(new_node);
+    fix_height(right);
 
-    return new_node;
+    return right;
 }
 
 bst_node_t* balance(bst_node_t* node) {
