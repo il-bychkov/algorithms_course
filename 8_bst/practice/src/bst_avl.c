@@ -50,7 +50,7 @@ uint8_t node_height(bst_node_t* node) {
 
 uint8_t bfactor(bst_node_t* node) {
     if(node) {
-        return node_height(node->right) - node_height(node->right);
+        return node_height(node->right) - node_height(node->left);
     } else {
         return 0;
     }
