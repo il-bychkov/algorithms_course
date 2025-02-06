@@ -151,19 +151,19 @@ void split(bst_node_t* root, uint32_t value, bst_node_t** left, bst_node_t** rig
     }
 
     if (root->value < value) {
-        bst_node_t* mew_right = root->right;
+        bst_node_t* new_right = root->right;
         root->right = NULL;
-        set_parent(mew_right, NULL);
+        set_parent(new_right, NULL);
 
         *left = root;
-        *right = mew_right;
+        *right = new_right;
         return;
     } else {
-        bst_node_t* mew_left = root->left;
+        bst_node_t* new_left = root->left;
         root->left = NULL;
-        set_parent(mew_left, NULL);
+        set_parent(new_left, NULL);
 
-        *left = mew_left;
+        *left = new_left;
         *right = root;
     }
 
