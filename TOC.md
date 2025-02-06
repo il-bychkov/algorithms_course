@@ -27,3 +27,7 @@
 ## Неделя 5
 
 ### Практика - [Простые структуры данных.](5_simple_data_structures/practice/practice.md)
+
+## Неделя 9
+
+### Практика - [Splay дерево поиска.](9_bst_splay/practice/practice.md)
