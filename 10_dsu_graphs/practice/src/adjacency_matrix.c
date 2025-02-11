@@ -10,13 +10,13 @@ typedef struct adjacency_matrix {
 } adjacency_matrix_t;
 
 void new_adjacency_matrix(adjacency_matrix_t* matrix, size_t n_vertices) {
-   matrix->n_vertices = n_vertices;
-   matrix->matrix = malloc(sizeof(bool) * n_vertices * n_vertices);
+    matrix->n_vertices = n_vertices;
+    matrix->matrix = malloc(sizeof(bool) * n_vertices * n_vertices);
 
-   for (size_t i = 0; i < n_vertices * n_vertices; i++)
-   {
+    for (size_t i = 0; i < n_vertices * n_vertices; i++)
+    {
         matrix->matrix[i] = false;
-   }
+    }
 
 }
 
@@ -215,7 +215,7 @@ int main() {
 
         printf("%ld\n", shortest_path[shortest_path_len]);
     } else {
-       printf("path not found\n");
+        printf("path not found\n");
     }
 
     is_found = find_shortest_path_by_bfs(p_m, shortest_path, &shortest_path_len, 0, 7);
@@ -225,7 +225,7 @@ int main() {
     if(is_found) {
         printf("found some path\n");
     } else {
-       printf("path not found\n");
+        printf("path not found\n");
     }
 
     delete_adjacency_matrix(p_m);
