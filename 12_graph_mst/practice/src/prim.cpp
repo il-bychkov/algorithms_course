@@ -2,6 +2,8 @@
 #include <vector>
 #include <limits>
 
+// https://ru.wikipedia.org/wiki/Алгоритм_Прима
+
 class Graph {
 public:
     Graph(const int64_t& size) : num_vertices_(size) {}
@@ -20,7 +22,7 @@ public:
         parent[0] = -1;
 
         for (int64_t count = 0; count < num_vertices_ - 1; count++) {
-            
+
             // Pick the minimum key vertex from the
             // set of vertices not yet included in MST
             int64_t min_key_vertex = minKey(key, visited);
@@ -32,7 +34,7 @@ public:
             // Consider only those vertices which are not
             // yet included in MST
             for (int64_t i = 0; i < edges_.size(); i++) {
-                
+
                 int64_t vertex = -1;
                 if (edges_[i].second.first == min_key_vertex)
                     vertex = edges_[i].second.second;
@@ -81,7 +83,7 @@ private:
 
 int main() {
     Graph graph(6);
-    
+
 	graph.addEdge(0, 1, 7);
     graph.addEdge(0, 2, 8);
     graph.addEdge(1, 2, 11);
